@@ -13,3 +13,5 @@ class Cottages(models.Model):
     description = models.TextField()
     price = models.FloatField(default=0)
     status = models.BooleanField(default=False)
+
+

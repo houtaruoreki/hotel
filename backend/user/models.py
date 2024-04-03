@@ -11,6 +11,8 @@ class User(models.Model):
     def check_password(self, raw_password):
         return auth_check_password(raw_password, self.password)
 
-
     def __str__(self):
         return f"{self.number} - {self.email}"
+
+
+

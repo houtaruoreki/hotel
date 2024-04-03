@@ -32,6 +32,8 @@ class UserLoginView(APIView):
 
 
 class UserRegisterView(APIView):
+    serializer_class = None
+
     @staticmethod
     def post(request):
         serializer_class = UserSerializer(data=request.data)
