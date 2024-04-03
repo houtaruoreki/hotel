@@ -1,0 +1,5 @@
+Django
+drf-spectacular
+djangorestframework
+markdown
+django-filter
