@@ -1,20 +1,20 @@
-from rest_framework.response import Response
+from rest_framework import generics
+
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from rest_framework.views import APIView
-from .serializers import RoomCottageSerializer
-from .models import Rooms, Cottages
+
+from .serializers import RoomSerializer, RoomDetailSerializer
+from .models import Rooms, Images
 
 
-class HomePageView(APIView):
+class RoomsListView(generics.ListAPIView):
+    queryset = Rooms.objects.all()
+    serializer_class = RoomSerializer
     permission_classes = [AllowAny]
-    serializer_class = None
 
-    @staticmethod
-    def get(request):
-        serializer_class = RoomCottageSerializer(data=request)
-        return Response("This is the Home page")
+    def get_queryset(self):
+        return Rooms.objects.filter(status=1)
 
-    @staticmethod
-    def post(request):
-        permission_classes = [AllowAny]
-        return Response("Form submitted successfully")
+
+class RoomDetailsView(generics.RetrieveAPIView):
+    queryset = Rooms.objects.all()
+    serializer_class = RoomDetailSerializer

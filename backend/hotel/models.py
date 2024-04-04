@@ -6,12 +6,14 @@ class Rooms(models.Model):
     description = models.TextField()
     price = models.FloatField(default=0)
     status = models.BooleanField(default=False)
+    is_cottage = models.BooleanField(default=False)
 
 
-class Cottages(models.Model):
-    number = models.IntegerField()
+class Images(models.Model):
+    url = models.TextField()
+    room_id = models.ForeignKey(Rooms, on_delete=models.CASCADE)
+
+
+class Services(models.Model):
+    title = models.CharField(max_length=150)
     description = models.TextField()
-    price = models.FloatField(default=0)
-    status = models.BooleanField(default=False)
-
-
