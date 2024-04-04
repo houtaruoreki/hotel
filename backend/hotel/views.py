@@ -18,3 +18,8 @@ class RoomsListView(generics.ListAPIView):
 class RoomDetailsView(generics.RetrieveAPIView):
     queryset = Rooms.objects.all()
     serializer_class = RoomDetailSerializer
+
+
+class RoomUpdateView(generics.UpdateAPIView):
+    queryset = Rooms.objects.all()
+    serializer_class = RoomSerializer

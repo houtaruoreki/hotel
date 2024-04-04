@@ -12,7 +12,8 @@ class ImageSerializer(serializers.ModelSerializer):
 class RoomSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rooms
-        fields = ['number', 'description', 'status', 'is_cottage']
+        exclude = ['price']
+        # fields = ['number', 'description', 'status', 'is_cottage']
 
 
 class RoomDetailSerializer(serializers.ModelSerializer):
