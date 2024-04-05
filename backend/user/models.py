@@ -15,4 +15,8 @@ class User(models.Model):
         return f"{self.number} - {self.email}"
 
 
-
+class Message(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    rate = models.CharField(max_length=100)
+    message = models.TextField()

@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 
-from .models import User
+from .models import User,Message
 from django.contrib.auth.hashers import make_password
 
 
@@ -27,3 +27,8 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         validated_data.pop('confirm_password')
         validated_data['password'] = make_password(validated_data['password'])
         return super().create(validated_data)
+    
+class MessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Message
+        fields = "__all__"
