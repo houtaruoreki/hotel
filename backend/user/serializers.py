@@ -1,6 +1,5 @@
 from rest_framework import serializers
 
-
 from .models import User
 from django.contrib.auth.hashers import make_password
 
@@ -9,7 +8,7 @@ class UserLoginSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['email', 'password']
-
+    
 
 class UserRegisterSerializer(serializers.ModelSerializer):
     confirm_password = serializers.CharField(write_only=True)

@@ -13,7 +13,6 @@ class RoomSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rooms
         exclude = ['price']
-        # fields = ['number', 'description', 'status', 'is_cottage']
 
 
 class RoomDetailSerializer(serializers.ModelSerializer):
@@ -29,3 +28,6 @@ class RoomDetailSerializer(serializers.ModelSerializer):
         for image_data in images_data:
             Images.objects.create(room_id=room, **image_data)
         return room
+
+
+
