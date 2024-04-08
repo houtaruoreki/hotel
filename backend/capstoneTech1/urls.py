@@ -7,7 +7,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, Spec
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("auth/", include("user.urls")),
-    path("", include("hotel.urls")),
+    path("rooms/", include("hotel.urls")),
     path("auth/token/refresh", TokenRefreshView.as_view(), name="refresh-token"),
     path('api/schema', SpectacularAPIView.as_view(), name='schema'),
     path('api', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
