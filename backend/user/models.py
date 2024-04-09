@@ -15,4 +15,8 @@ class User(models.Model):
         return f"{self.number} - {self.email}"
 
 
-
+class Message(models.Model):
+    fullname = models.CharField(max_length=150)
+    email = models.EmailField()
+    satisfied = models.CharField(max_length=255)
+    message = models.TextField()

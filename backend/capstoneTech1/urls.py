@@ -10,7 +10,7 @@ urlpatterns = [
     path("rooms/", include("hotel.urls")),
     path("auth/token/refresh", TokenRefreshView.as_view(), name="refresh-token"),
     path('api/schema', SpectacularAPIView.as_view(), name='schema'),
-    path('api', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('docs/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]
 

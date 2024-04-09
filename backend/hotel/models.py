@@ -11,7 +11,7 @@ class Rooms(models.Model):
 
 class Images(models.Model):
     url = models.TextField()
-    room_id = models.ForeignKey(Rooms, on_delete=models.CASCADE)
+    room = models.ForeignKey(Rooms, on_delete=models.CASCADE)
 
 
 class Services(models.Model):

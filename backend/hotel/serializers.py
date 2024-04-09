@@ -9,12 +9,6 @@ class ImageSerializer(serializers.ModelSerializer):
         fields = ['url']
 
 
-class RoomSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Rooms
-        exclude = ['price']
-
-
 class RoomDetailSerializer(serializers.ModelSerializer):
     images = ImageSerializer(many=True, source='images_set')
 
@@ -23,11 +17,17 @@ class RoomDetailSerializer(serializers.ModelSerializer):
         fields = ['id', 'number', 'description', 'status', 'is_cottage', 'images']
 
     def create(self, validated_data):
-        images_data = self.context.get('request').data.get('images')
+        images_data = validated_data.pop('images_set', None)
         room = Rooms.objects.create(**validated_data)
-        for image_data in images_data:
-            Images.objects.create(room_id=room, **image_data)
+
+        if images_data:
+            print(images_data)
+            for image_data in images_data:
+                Images.objects.create(room=room, **image_data)
         return room
 
 
-
+class RoomsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Rooms
+        exclude = ['price']
