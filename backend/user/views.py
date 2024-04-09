@@ -42,3 +42,4 @@ class MessageDetailView(generics.RetrieveAPIView):
 class MessageListView(generics.ListAPIView):
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
+
