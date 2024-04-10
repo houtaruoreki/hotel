@@ -1,17 +1,17 @@
 from django.db import models
 
 
-class Rooms(models.Model):
-    number = models.IntegerField()
+class Room(models.Model):
+    number = models.IntegerField(unique=True)
     description = models.TextField()
     price = models.FloatField(default=0)
     status = models.BooleanField(default=False)
     is_cottage = models.BooleanField(default=False)
 
 
-class Images(models.Model):
+class Image(models.Model):
     url = models.TextField()
-    room = models.ForeignKey(Rooms, on_delete=models.CASCADE)
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
 
 
 class Services(models.Model):

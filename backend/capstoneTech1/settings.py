@@ -133,7 +133,7 @@ SPECTACULAR_SETTINGS = {
                    Explore our endpoints to discover the range of services and amenities 
                    we offer to make your stay unforgettable.""",
     'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': True,
+    'SERVE_INCLUDE_SCHEMA': False,
 }
 
 SIMPLE_JWT = {
