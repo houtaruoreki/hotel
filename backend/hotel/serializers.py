@@ -10,7 +10,7 @@ class ImageSerializer(serializers.ModelSerializer):
 
 
 class RoomDetailSerializer(serializers.ModelSerializer):
-    images = ImageSerializer(many=True, source='images_set')
+    images = ImageSerializer(many=True, source='images_set', read_only=True)
 
     class Meta:
         model = Rooms

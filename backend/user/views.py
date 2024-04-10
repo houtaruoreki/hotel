@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, status
 from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
 from .serializers import UserRegisterSerializer, UserLoginSerializer, MessageSerializer
@@ -15,12 +15,19 @@ class UserLoginView(APIView):
     def post(request):
         email = request.data['email']
         user = User.objects.filter(email=email).first()
-        refresh = RefreshToken.for_user(user)
-        return Response({
-            'refresh': str(refresh),
-            'access': str(refresh.access_token),
-            "user_id": user.id
-        })
+        if not user:
+            return Response('User does not exist', status=status.HTTP_404_NOT_FOUND)
+        else:
+
+            if user.check_password(request.data['password']):
+                refresh = RefreshToken.for_user(user)
+                return Response({
+                    'refresh': str(refresh),
+                    'access': str(refresh.access_token),
+                    "user_id": user.id
+                })
+            else:
+                return Response('Invalid credentials', status=status.HTTP_401_UNAUTHORIZED)
 
 
 class UserRegisterView(generics.CreateAPIView):
