@@ -10,10 +10,8 @@ class User(models.Model):
     email = models.EmailField()
     password = models.CharField(max_length=150)
     is_active = models.BooleanField(default=True)
-    is_admin = models.BooleanField(default=False)
 
     def check_password(self, raw_password):
-
         return auth_check_password(raw_password, self.password)
 
     def validate_name(value):
@@ -29,3 +27,9 @@ class Message(models.Model):
     email = models.EmailField()
     satisfied = models.CharField(max_length=255)
     message = models.TextField()
+
+
+class Roles(models.Model):
+    name = models.CharField(max_length=50)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    status = models.BooleanField(default=True)
