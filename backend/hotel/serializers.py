@@ -1,8 +1,9 @@
-from rest_framework import serializers, status
-from rest_framework.exceptions import ValidationError
-from rest_framework.response import Response
+from datetime import timezone, datetime
 
-from .models import Room, Image, Booking
+from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
+
+from .models import Room, Image, Booking, Review
 
 
 class ImageSerializer(serializers.ModelSerializer):
@@ -47,14 +48,11 @@ class BookingSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         room = validated_data['room']
-        status = validated_data['status']
-
+        validated_data.pop('status')
+        now = datetime.now()
         if room and room.status != 1:
-            raise ValidationError("Cannot create booking: Room is not available.")
-        if status == 'confirmed':
-            room.status = 0
-            room.save()
-
+            if now <= Booking.objects.filter(room=room).order_by('-id')[0].checkout_time:
+                raise ValidationError('Room already booked in that period')
         return Booking.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
@@ -72,3 +70,9 @@ class BookingListSerializer(serializers.ListSerializer):
     class Meta:
         model = Booking
         fields = '__all__'
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = ['id', 'text', 'rating']

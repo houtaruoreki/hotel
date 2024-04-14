@@ -1,30 +1,43 @@
 from rest_framework import generics
-from rest_framework.response import Response
-from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from .serializers import RoomsSerializer, RoomDetailSerializer, ImageSerializer, ImageListSerializer, BookingSerializer
-from .models import Room, Image, Booking
+from .serializers import (RoomsSerializer, RoomDetailSerializer, ImageSerializer,
+                          ImageListSerializer, BookingSerializer,ReviewSerializer)
+from .models import Room, Image, Booking, Review
 
 
-class BaseRoomView(generics.GenericAPIView):
+class BaseRoomView:
     queryset = Room.objects.all()
     serializer_class = RoomsSerializer
-    permission_classes = [AllowAny]
 
 
-class BaseImageView(generics.GenericAPIView):
+class BaseImageView:
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
 
+    def get_serializer_class(self):
+        data = self.request.data
+        if isinstance(data, list):
+            return ImageListSerializer
+        return ImageSerializer
 
-class ImageMixin(generics.GenericAPIView):
     def get_queryset(self):
         return Image.objects.filter(pk=self.kwargs['pk'])
 
 
+class BaseBookingView:
+    queryset = Booking.objects.all()
+    serializer_class = BookingSerializer
+    permission_classes = [IsAuthenticated]
+
+
+class BaseReviewView:
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
+    permission_classes = [AllowAny]
+
+
 class RoomsListView(BaseRoomView, generics.ListAPIView):
-    def get_queryset(self):
-        return Room.objects.filter(status=1)
+    pass
 
 
 class RoomDetailsView(BaseRoomView, generics.RetrieveAPIView):
@@ -32,11 +45,11 @@ class RoomDetailsView(BaseRoomView, generics.RetrieveAPIView):
 
 
 class RoomUpdateView(BaseRoomView, generics.UpdateAPIView):
-    serializer_class = RoomsSerializer
+    pass
 
 
-class RoomCreateView(generics.CreateAPIView):
-    serializer_class = RoomDetailSerializer
+class RoomCreateView(BaseRoomView, generics.CreateAPIView):
+    pass
 
 
 class RoomDeleteView(BaseRoomView, generics.DestroyAPIView):
@@ -47,42 +60,47 @@ class ImagesListView(BaseImageView, generics.ListAPIView):
     pass
 
 
-class ImageCreateView(generics.CreateAPIView):
-    serializer_class = ImageSerializer
-
-    def get_serializer_class(self):
-        data = self.request.data
-        if isinstance(data, list):
-            return ImageListSerializer
-        return ImageSerializer
+class ImageCreateView(BaseImageView, generics.CreateAPIView):
+    pass
 
 
 class ImageDeleteView(BaseImageView, generics.DestroyAPIView):
     pass
 
 
-class ImageView(ImageMixin, BaseImageView, generics.RetrieveAPIView):
+class ImageView(BaseImageView, generics.RetrieveAPIView):
     pass
 
 
-class ImageUpdateView(ImageMixin, BaseImageView, generics.UpdateAPIView):
+class ImageUpdateView(BaseImageView, generics.UpdateAPIView):
     pass
 
 
-class BookingView(generics.CreateAPIView):
-    serializer_class = BookingSerializer
+# Booking views list create update delete
+class BookingListView(BaseBookingView, generics.ListAPIView):
+    pass
 
 
-class BookingListView(generics.ListAPIView):
-    queryset = Booking.objects.all()
-    serializer_class = BookingSerializer
+class BookingView(BaseBookingView, generics.CreateAPIView):
+    pass
 
 
-class BookingStatusUpdateView(generics.UpdateAPIView):
-    queryset = Booking.objects.all()
-    serializer_class = BookingSerializer
+class BookingStatusUpdateView(BaseBookingView, generics.UpdateAPIView):
+    pass
 
 
-class BookingDeleteView(generics.DestroyAPIView):
-    queryset = Booking.objects.all()
-    serializer_class = BookingSerializer
+class BookingDeleteView(BaseBookingView, generics.DestroyAPIView):
+    pass
+
+
+# Review views: list create delete
+class ReviewListView(BaseReviewView, generics.ListAPIView):
+    pass
+
+
+class ReviewView(BaseReviewView, generics.CreateAPIView):
+    pass
+
+
+class ReviewDeleteView(BaseReviewView, generics.DestroyAPIView):
+    permission_classes = [IsAuthenticated]

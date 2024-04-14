@@ -1,25 +1,23 @@
-import re
-from django.core.exceptions import ValidationError
 from django.db import models
-from django.contrib.auth.hashers import check_password as auth_check_password
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from .managers import UserManager
 
 
-class User(models.Model):
-    name = models.CharField(max_length=50)
-    number = models.CharField(max_length=20)
-    email = models.EmailField()
-    password = models.CharField(max_length=150)
-    is_active = models.BooleanField(default=True)
+class User(AbstractBaseUser, PermissionsMixin):
+    email = models.EmailField(unique=True)
+    number = models.IntegerField(null=False)
+    username = models.CharField(max_length=50, unique=True)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    is_staff = models.BooleanField(default=False)
 
-    def check_password(self, raw_password):
-        return auth_check_password(raw_password, self.password)
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
 
-    def validate_name(value):
-        if not re.match("^[A-Za-z ]+$", value):
-            raise ValidationError("Name can only contain alphabetic characters and spaces.")
+    objects = UserManager()
 
     def __str__(self):
-        return f"{self.number} - {self.email}"
+        return self.email
 
 
 class Message(models.Model):
@@ -29,7 +27,3 @@ class Message(models.Model):
     message = models.TextField()
 
 
-class Roles(models.Model):
-    name = models.CharField(max_length=50)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    status = models.BooleanField(default=True)
