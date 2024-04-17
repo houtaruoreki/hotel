@@ -23,7 +23,7 @@ class Services(models.Model):
 class Booking(models.Model):
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
     user = models.ForeignKey("user.user", on_delete=models.CASCADE)
-    checkin_time = models.DateTimeField(auto_now_add=True)
+    checkin_time = models.DateTimeField()
     checkout_time = models.DateTimeField()
     guests = models.IntegerField(default=0)
     total_price = models.FloatField(default=0)

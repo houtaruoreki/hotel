@@ -19,11 +19,12 @@ urlpatterns = [
     # Booking Views
     path('booking/add/', views.BookingView.as_view(), name='book-room'),
     path('booking/', views.BookingListView.as_view(), name='bookings'),
-    path('booking/update/<int:pk>/', views.BookingStatusUpdateView.as_view(), name='booking-update'),
-    path('booking/delete/<int:pk>/', views.BookingDeleteView.as_view(), name='booking-delete'),
+    path('booking/<int:pk>/update/', views.BookingStatusUpdateView.as_view(), name='booking-update'),
+    path('booking/<int:pk>/delete/', views.BookingDeleteView.as_view(), name='booking-delete'),
 
     # reviews
     path('review/', views.ReviewListView.as_view(), name='reviews'),
+    path('review/<int:pk>/', views.ReviewDetailView.as_view(), name='review-details'),
     path('review/add/', views.ReviewView.as_view(), name='review-add'),
     path('review/delete/<int:pk>/', views.ReviewDeleteView.as_view(), name='review-delete'),
 ]

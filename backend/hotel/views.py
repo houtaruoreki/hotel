@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from .serializers import (RoomsSerializer, RoomDetailSerializer, ImageSerializer,
-                          ImageListSerializer, BookingSerializer,ReviewSerializer)
+                          ImageListSerializer, BookingSerializer, ReviewSerializer)
 from .models import Room, Image, Booking, Review
 
 
@@ -27,7 +27,7 @@ class BaseImageView:
 class BaseBookingView:
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
 
 class BaseReviewView:
@@ -95,6 +95,10 @@ class BookingDeleteView(BaseBookingView, generics.DestroyAPIView):
 
 # Review views: list create delete
 class ReviewListView(BaseReviewView, generics.ListAPIView):
+    pass
+
+
+class ReviewDetailView(BaseReviewView, generics.RetrieveAPIView):
     pass
 
 

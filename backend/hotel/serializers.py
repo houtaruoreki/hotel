@@ -2,6 +2,7 @@ from datetime import timezone, datetime
 
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
+from rest_framework.response import Response
 
 from .models import Room, Image, Booking, Review
 
@@ -48,11 +49,18 @@ class BookingSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         room = validated_data['room']
-        validated_data.pop('status')
-        now = datetime.now()
+        checkin_new = validated_data['checkin_time']
+        checkout_new = validated_data['checkout_time']
         if room and room.status != 1:
-            if now <= Booking.objects.filter(room=room).order_by('-id')[0].checkout_time:
-                raise ValidationError('Room already booked in that period')
+            booking = Booking.objects.filter(room=room).order_by('-id')[0]
+            if checkin_new >= booking.checkin_time:
+                if checkout_new > booking.checkout_time:
+                    overlap = f"{checkin_new} - {booking.checkout_time}"
+                    available = f"{booking.checkout_time} - {checkout_new}"
+                    raise serializers.ValidationError({'overlap': overlap,
+                                                       'available': available})
+                else:
+                    raise serializers.ValidationError("Room is not available in that period")
         return Booking.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
