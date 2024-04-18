@@ -1,17 +1,19 @@
 from datetime import timedelta
 from pathlib import Path
+from os.path import join, dirname
+from dotenv import load_dotenv
 import os
-
-
 BASE_DIR = Path(__file__).resolve().parent.parent
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 
-SECRET_KEY = "django-insecure-0(tfzr%d7_7q@_6%0i^lv7rp-#y9upe_dnmm@5rm++vhck_2sl"
+# SECRET_KEY = "django-insecure-0(tfzr%d7_7q@_6%0i^lv7rp-#y9upe_dnmm@5rm++vhck_2sl"
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
-
-DEBUG = True
+# DEBUG = False
+DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = ["*"]
-
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -35,7 +37,7 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",]
+    "django.middleware.clickjacking.XFrameOptionsMiddleware", ]
 
 ROOT_URLCONF = "capstoneTech1.urls"
 
@@ -155,4 +157,3 @@ SIMPLE_JWT = {
 }
 
 AUTH_USER_MODEL = "user.User"
-

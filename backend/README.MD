@@ -119,8 +119,9 @@ class BookingDeleteView(BaseBookingView, generics.DestroyAPIView):
 ```
 
 ## How booking works
-- **Creating a Booking**: Send a POST request to `/booking/add/` with necessary data including `room`, `user`, `checkin_time`, `checkout_time`, and `guests`. The system will check if the room is available for the given period. If not, it will return an error specifying the conflicting period.
+- **Creating a Booking**: Send a POST request to `/booking/` with necessary data including `room`, `user`, `checkin_time`, `checkout_time`, and `guests`. The system will check if the room is available for the given period. If not, it will return an error specifying the conflicting period.
 
-- **Updating a Booking**: Send a PUT or PATCH request to `/booking/{id}/update` with updated data. If the booking status is changed to 'confirmed', the room status will be updated accordingly.
+- **Updating a Booking**: Send a PUT or PATCH request to `/booking/{id}/` with updated data. If the booking status is changed to 'confirmed', the room status will be updated accordingly.
 
-- **Deleting a Booking**: Send a DELETE request to `/booking/{id}/delete/` to cancel a booking.
+- **Deleting a Booking**: Send a DELETE request to `/booking/{id}/` to cancel a booking.
+
