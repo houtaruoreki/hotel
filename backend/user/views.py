@@ -27,6 +27,14 @@ class MessageListView(BaseMessageMixin, generics.ListAPIView):
     pass
 
 
+class MessageDeleteView(BaseMessageMixin, generics.DestroyAPIView):
+    pass
+
+
+class MessageUpdateView(BaseMessageMixin, generics.UpdateAPIView):
+    pass
+
+
 class CategoryListView(generics.ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
