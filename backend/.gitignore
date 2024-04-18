@@ -1,4 +1,4 @@
 .idea
-capstoneTech1/.env
+.env
 **/migrations/*
 db.sqlite3
