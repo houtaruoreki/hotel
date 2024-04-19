@@ -6,7 +6,8 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv()
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+#SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = "aofihaiofhaiopwhWOH*()H#*HH)@H#(HTHHSW)"
 
 DEBUG = os.getenv('DEBUG')
 
@@ -98,7 +99,7 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_ROOT = BASE_DIR / '/static/'
+STATIC_ROOT = '/static/'
 STATIC_URL = "/static/"
 
 # Default primary key field type
