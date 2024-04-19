@@ -1,5 +1,5 @@
 from rest_framework import generics
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from .serializers import (RoomsSerializer, RoomDetailSerializer, ImageSerializer,
                           ImageListSerializer, BookingSerializer, ReviewSerializer)
 from .models import Room, Image, Booking, Review
@@ -24,6 +24,10 @@ class BaseImageView:
         return Image.objects.filter(pk=self.kwargs['pk'])
 
 
+class PermissionMixin:
+    permission_classes = [IsAdminUser]
+
+
 class BaseBookingView:
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
@@ -44,15 +48,15 @@ class RoomDetailsView(BaseRoomView, generics.RetrieveAPIView):
     serializer_class = RoomDetailSerializer
 
 
-class RoomUpdateView(BaseRoomView, generics.UpdateAPIView):
+class RoomUpdateView(PermissionMixin, BaseRoomView, generics.UpdateAPIView):
     pass
 
 
-class RoomCreateView(BaseRoomView, generics.CreateAPIView):
+class RoomCreateView(PermissionMixin, BaseRoomView, generics.CreateAPIView):
     pass
 
 
-class RoomDeleteView(BaseRoomView, generics.DestroyAPIView):
+class RoomDeleteView(PermissionMixin, BaseRoomView, generics.DestroyAPIView):
     pass
 
 
@@ -60,11 +64,11 @@ class ImagesListView(BaseImageView, generics.ListAPIView):
     pass
 
 
-class ImageCreateView(BaseImageView, generics.CreateAPIView):
+class ImageCreateView(PermissionMixin, BaseImageView, generics.CreateAPIView):
     pass
 
 
-class ImageDeleteView(BaseImageView, generics.DestroyAPIView):
+class ImageDeleteView(PermissionMixin, BaseImageView, generics.DestroyAPIView):
     pass
 
 
@@ -72,7 +76,7 @@ class ImageView(BaseImageView, generics.RetrieveAPIView):
     pass
 
 
-class ImageUpdateView(BaseImageView, generics.UpdateAPIView):
+class ImageUpdateView(PermissionMixin, BaseImageView, generics.UpdateAPIView):
     pass
 
 
@@ -85,11 +89,11 @@ class BookingView(BaseBookingView, generics.CreateAPIView):
     pass
 
 
-class BookingStatusUpdateView(BaseBookingView, generics.UpdateAPIView):
+class BookingStatusUpdateView(PermissionMixin, BaseBookingView, generics.UpdateAPIView):
     pass
 
 
-class BookingDeleteView(BaseBookingView, generics.DestroyAPIView):
+class BookingDeleteView(PermissionMixin, BaseBookingView, generics.DestroyAPIView):
     pass
 
 
@@ -106,5 +110,5 @@ class ReviewView(BaseReviewView, generics.CreateAPIView):
     pass
 
 
-class ReviewDeleteView(BaseReviewView, generics.DestroyAPIView):
-    permission_classes = [IsAuthenticated]
+class ReviewDeleteView(PermissionMixin, BaseReviewView, generics.DestroyAPIView):
+    pass

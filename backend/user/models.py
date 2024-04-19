@@ -27,5 +27,3 @@ class Message(models.Model):
     message = models.TextField()
 
 
-class Category(models.Model):
-    name = models.CharField(max_length=50)
