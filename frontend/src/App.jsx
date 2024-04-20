@@ -9,6 +9,7 @@ import Service from "./pages/Service";
 import Gallery from "./pages/Gallery";
 import ContactUs from "./pages/ContactUs";
 import SimpleSlider from "./components/SimpleSlider";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/Gallery" element={<Gallery />} />
           <Route path="/ContactUs" element={<ContactUs />} />
         </Routes>
+        <Footer/>
       </Router>
     </>
   );

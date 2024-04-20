@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'rest_framework.authtoken',
     'rest_framework_simplejwt.token_blacklist',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -35,7 +36,9 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware", ]
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware", ]
 
 ROOT_URLCONF = "capstoneTech1.urls"
 
@@ -156,3 +159,10 @@ SIMPLE_JWT = {
 }
 
 AUTH_USER_MODEL = "user.User"
+
+
+CORS_ALLOWED_ORIGINS = [
+    "https://f5f3-95-104-36-132.ngrok-free.app",
+    "http://127.0.0.1:5173",
+    "http://localhost:5173"
+]

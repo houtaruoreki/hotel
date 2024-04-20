@@ -5,9 +5,6 @@ from .serializers import (RoomsSerializer, RoomDetailSerializer, ImageSerializer
 from .models import Room, Image, Booking, Review
 
 
-class BaseRoomView:
-    queryset = Room.objects.all()
-    serializer_class = RoomsSerializer
 
 
 class BaseImageView:
@@ -22,11 +19,7 @@ class BaseImageView:
 
     def get_queryset(self):
         return Image.objects.filter(pk=self.kwargs['pk'])
-
-
-class PermissionMixin:
-    permission_classes = [IsAdminUser]
-
+    
 
 class BaseBookingView:
     queryset = Booking.objects.all()
@@ -37,6 +30,14 @@ class BaseBookingView:
 class BaseReviewView:
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+    permission_classes = [AllowAny]
+
+class BaseRoomView:
+    queryset = Room.objects.all()
+    serializer_class = RoomsSerializer
+
+
+class PermissionMixin:
     permission_classes = [AllowAny]
 
 

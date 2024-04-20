@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <header className="flex items-center px-16 justify-between bg-[#F2F9F1] w-full">
       <img src={Logo} alt="logo" className="" />
-      <div className="flex gap-10 ml-8 text-black text-2xl">
+      <div className="flex gap-10 ml-8 text-black">
         <Link to={"/"}>მთავარი</Link>
         <Link to={"/AboutUs"}>ჩვენ შესახებ</Link>
         <Link to={"/Rooms"}>ოთახები</Link>
