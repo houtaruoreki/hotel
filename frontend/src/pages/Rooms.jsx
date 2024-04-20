@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import RoomDetails from "../components/RoomDetails"; // Import the RoomDetails component
 
 export default function Rooms() {
   const [roomsData, setRoomsData] = useState([]);
+  const [selectedRoomId, setSelectedRoomId] = useState(null); // State to store the ID of the selected room
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/rooms/')
@@ -9,6 +11,12 @@ export default function Rooms() {
       .then(data => setRoomsData(data))
       .catch(error => console.error('Error fetching rooms:', error));
   }, []);
+
+  // Function to handle button click
+  const handleButtonClick = (roomId) => {
+    setSelectedRoomId(roomId);
+    console.log("details is clicked")
+  };
 
   return (
     <div className="bg-mwvane text-white p-10">
@@ -29,10 +37,16 @@ export default function Rooms() {
               <p className="text-gray-600">{room.description}</p>
               <p className="text-gray-600">{room.status ? "Available" : "Occupied"}</p>
               <p className="text-gray-600">{room.is_cottage ? "Cottage" : "Not Cottage"}</p>
+              {/* Pass room ID to handleButtonClick */}
+              <button className="border border-gray-800 px-4 py-2 mt-2 text-gray-800 rounded-md hover:bg-gray-800 hover:text-white transition duration-300 ease-in-out" onClick={() => handleButtonClick(room.id)}>
+                Details
+              </button>
             </div>
           ))}
         </div>
       </div>
+      {/* Render RoomDetails component if selectedRoomId is not null */}
+      {selectedRoomId && <RoomDetails roomId={selectedRoomId} />}
     </div>
   );
 }
