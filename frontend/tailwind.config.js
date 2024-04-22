@@ -5,6 +5,8 @@ export default {
     extend: {
       colors: {
         'mwvane': '#227B5D',
+        'buttonColor': '#A8EBBD',
+        'buttonText': '#003E29',
       },
     },
   },

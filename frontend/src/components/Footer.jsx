@@ -1,45 +1,44 @@
 import React from "react";
+import facebook from "../assets/icon-facebook.png";
+import linkedin from "../assets/icon-linkedin.png";
+import instagram from "../assets/icon-instagram.png";
+import mail from "../assets/icon-mail.png";
+import youtube from "../assets/icon-youtube.png";
+
 
 export default function FooterContent() {
   return (
-    <footer>
-      <div className="flex flex-row items-center gap-10 p-2.5" style={{ width: '976px', height: '337px' }}>
-        <div className="flex flex-col items-start gap-25" style={{ width: '568px', height: '337px' }}>
-          <div className="font-bold text-xl" style={{ width: '318px', height: '24px', fontFamily: 'Helvetica', letterSpacing: '-0.01em', color: '#000000' }}>
-            სასტუმროს შესახებ
-          </div>
-          <div className="text-base" style={{ width: '565px', height: '288px', fontFamily: 'Helvetica', letterSpacing: '-0.01em', color: '#000000' }}>
-            კეთილი იყოს თქვენი მობრძანება ჩვენს საოჯახო სასტუმროში, სადაც სტუმართმოყვარეობა ხვდება სიმშვიდეს. კომფორტული საცხოვრებლით, თანამედროვე კეთილმოწყობითა და პერსონალური სერვისით, ჩვენ ვცდილობთ, დავრწმუნდით, რომ ყველა სტუმარი ისიამოვნებს დასამახსოვრებელი დასვენებით. დაათვალიერეთ ჩვენი ვებგვერდი, რომ გაიგოთ მეტი ჩვენი შეთავაზებების შესახებ ჩვენ მოუთმენლად ველით, რომ მოგესალმოთ ჩვენს სასტუმრო სახლში და ერთად შევქმნათ დაუვიწყარი მოგონებები!
-          </div>
+    <footer className="flex flex-col md:flex-row items-center bg-[#F2F9F1] p-4 md:p-6">
+      <div className="flex flex-col md:flex-row items-start md:items-center gap-5 md:gap-10 mb-5 md:mb-0">
+        <div className="grid">
+        <div className="font-bold text-xl w-full md:w-auto">
+          სასტუმროს შესახებ
         </div>
-        <div className="flex flex-col items-start gap-35" style={{ width: '334px', height: '154px' }}>
-          <div className="flex flex-row items-start gap-20" style={{ width: '276px', height: '28px' }}>
-            <div className="text-xl" style={{ width: '103px', height: '28px', fontFamily: 'Helvetica', color: '#000000' }}>
-              მთავარი
-            </div>
-            <div className="text-xl" style={{ width: '153px', height: '28px', fontFamily: 'Helvetica', color: '#000000' }}>
-              ჩვენ შესახებ
-            </div>
-          </div>
-          <div className="flex flex-row items-start gap-20" style={{ width: '209px', height: '28px' }}>
-            <div className="text-xl" style={{ width: '78px', height: '28px', fontFamily: 'Helvetica', color: '#000000' }}>
-              ოთახი
-            </div>
-            <div className="text-xl" style={{ width: '111px', height: '28px', fontFamily: 'Helvetica', color: '#000000' }}>
-              დაჯავშნა
-            </div>
-          </div>
-          <div className="flex flex-row items-start gap-20" style={{ width: '356px', height: '28px' }}>
-            <div className="text-xl" style={{ width: '96px', height: '28px', fontFamily: 'Helvetica', color: '#000000' }}>
-              სერვისი
-            </div>
-            <div className="text-xl" style={{ width: '105px', height: '28px', fontFamily: 'Helvetica', color: '#000000' }}>
-              გალერეა
-            </div>
-            <div className="text-xl" style={{ width: '115px', height: '28px', fontFamily: 'Helvetica', color: '#000000' }}>
-              კონტაქტი
-            </div>
-          </div>
+        <div className="text-base w-full md:w-auto">
+          კეთილი იყოს თქვენი მობრძანება ჩვენს საოჯახო სასტუმროში, სადაც სტუმართმოყვარეობა ხვდება სიმშვიდეს. კომფორტული საცხოვრებლით, თანამედროვე კეთილმოწყობითა და პერსონალური სერვისით, ჩვენ ვცდილობთ, დავრწმუნდით, რომ ყველა სტუმარი ისიამოვნებს დასამახსოვრებელი დასვენებით. დაათვალიერეთ ჩვენი ვებგვერდი, რომ გაიგოთ მეტი ჩვენი შეთავაზებების შესახებ ჩვენ მოუთმენლად ველით, რომ მოგესალმოთ ჩვენს სასტუმრო სახლში და ერთად შევქმნათ დაუვიწყარი მოგონებები!
+        </div>
+        <div className="flex"> 
+        <img src={facebook} className="w-10 h-10 mr-2 " />
+        <img src={linkedin} className="w-10 h-10 mr-2 " />
+        <img src={instagram} className="w-10 h-10 mr-2 " />
+        <img src={mail} className="w-10 h-10 mr-2 " />
+        <img src={youtube} className="w-10 h-10 mr-2 " />
+        </div>
+        </div>
+      </div>
+      <div className="flex flex-col md:flex-row items-start md:items-center gap-5 md:gap-10">
+        <div className="flex flex-col items-start gap-3 md:gap-5">
+          <div className="text-xl">მთავარი</div>
+          <div className="text-xl">ოთახი</div>
+          <div className="text-xl">სერვისი</div>
+        </div>
+        <div className="flex flex-col items-start gap-3 md:gap-5">
+          <div className="text-xl">ჩვენ შესახებ</div>
+          <div className="text-xl">დაჯავშნა</div>
+          <div className="text-xl">გალერეა</div>
+        </div>
+        <div className="flex flex-col items-start gap-3 md:gap-5">
+          <div className="text-xl">კონტაქტი</div>
         </div>
       </div>
     </footer>

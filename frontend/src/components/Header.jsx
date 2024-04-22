@@ -13,7 +13,7 @@ export default function Header() {
   };
 
   return (
-    <header className="flex items-center px-16 justify-between bg-[#F2F9F1] w-full">
+    <header className="flex items-center px-16 justify-between bg-[#F2F9F1]  w-full">
       <img src={Logo} alt="logo" className="" />
       <div className="flex gap-10 ml-8 text-black">
         <Link

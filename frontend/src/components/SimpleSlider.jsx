@@ -15,7 +15,7 @@ export default function SimpleSlider() {
     <div>
       <Slider {...settings}>
       <div className="">
-  <img src={image} alt="Description"/>
+  <img src={"image"} alt="Description"/>
       </div>
 
         <div>
