@@ -10,6 +10,8 @@ import Gallery from "./pages/Gallery";
 import ContactUs from "./pages/ContactUs";
 import SimpleSlider from "./components/SimpleSlider";
 import Footer from "./components/Footer";
+import Register from "./pages/Register";
+
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
           <Route path="/Service" element={<Service />} />
           <Route path="/Gallery" element={<Gallery />} />
           <Route path="/ContactUs" element={<ContactUs />} />
+          <Route path="/Register" element={<Register />} />
         </Routes>
         <Footer/>
       </Router>

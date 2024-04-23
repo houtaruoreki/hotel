@@ -13,7 +13,7 @@ export default function Header() {
   };
 
   return (
-    <header className="flex items-center px-16 justify-between bg-[#F2F9F1] w-full">
+    <header className="flex items-center px-16 justify-between bg-[#F2F9F1]  w-full">
       <img src={Logo} alt="logo" className="" />
       <div className="flex gap-10 ml-8 text-black">
         <Link
@@ -67,10 +67,13 @@ export default function Header() {
         </Link>
       </div>
       <div className="flex">
-        <Link>
+        <Link
+          to={"/Register"}
+          onClick={() => handleLinkClick(7)}
+          className={activeLink === 7 ? "text-red-500" : "text-black"}
+        >
           <img src={userIcon} alt="user icon" className="ml-8" />
         </Link>
-
         <img src={georgiaIcon} alt="georgia icon" className="ml-7" />
         <img src={arrowIcon} alt="arrow icon" />
       </div>
