@@ -5,8 +5,6 @@ export default function AdminDashboard() {
 
 
 return (
-
-
     <AdminPageSelector></AdminPageSelector>
 );
 
