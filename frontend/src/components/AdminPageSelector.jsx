@@ -1,64 +1,55 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import image8 from "../assets/image8.png";
+import "./AdminPageSelector.css"; // Import CSS file
 
 export default function AdminPageSelector() {
-  const [activeLink, setActiveLink] = useState(0); // Default index is 0
+  const [activeLink, setActiveLink] = useState(null); // Initialize activeLink as null
 
   const handleLinkClick = (index) => {
-    setActiveLink(index);
+    setActiveLink(index); // Set the active state to the clicked button
     // Handle other logic here if needed
   };
 
   return (
     <div className="flex items-start">
       <div className="w-400 border grid gap-4 border-black p-4">
+        <div className="left-0 right-0 flex justify-center items-center z-10 mb-4">
+          <img src={image8} alt="Icon" className="w-15 h-15" />
+        </div>
         <input
           type="text"
           placeholder="Search..."
           className="w-full px-4 py-2 border border-gray-300 rounded-md mb-4"
         />
-        <button
-          className={`bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md ${
-            activeLink === 0 && "bg-blue-600"
-          }`}
-          onClick={() => {
-            handleLinkClick(0);
-          }}
+        <Link
+          to="/AdminDashboard"
+          className={`link-button ${activeLink === 0 ? "active" : ""}`}
+          onClick={() => handleLinkClick(0)}
         >
           ინფორმაციის დაფა
-        </button>
-
-        <button
-          className={`bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md ${
-            activeLink === 1 && "bg-blue-600"
-          }`}
-          onClick={() => {
-            handleLinkClick(1);
-          }}
+        </Link>
+        <Link
+          to="/AdminManagerooms"
+          className={`link-button ${activeLink === 1 ? "active" : ""}`}
+          onClick={() => handleLinkClick(1)}
         >
           დაჯავშნა
-        </button>
-
-        <button
-          className={`bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md ${
-            activeLink === 2 && "bg-blue-600"
-          }`}
-          onClick={() => {
-            handleLinkClick(2);
-          }}
+        </Link>
+        <Link
+          to="/AdminReservation"
+          className={`link-button ${activeLink === 2 ? "active" : ""}`}
+          onClick={() => handleLinkClick(2)}
         >
           ოთახების მართვა
-        </button>
-
-        <button
-          className={`bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md ${
-            activeLink === 3 && "bg-blue-600"
-          }`}
-          onClick={() => {
-            handleLinkClick(3);
-          }}
+        </Link>
+        <Link
+          to="/AdminReviews"
+          className={`link-button ${activeLink === 3 ? "active" : ""}`}
+          onClick={() => handleLinkClick(3)}
         >
           სტუმრების შეფასება
-        </button>
+        </Link>
       </div>
     </div>
   );
