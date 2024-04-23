@@ -11,6 +11,10 @@ import ContactUs from "./pages/ContactUs";
 import SimpleSlider from "./components/SimpleSlider";
 import Footer from "./components/Footer";
 import Register from "./pages/Register";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminManagerooms from "./pages/AdminManagerooms";
+import AdminReservation from "./pages/AdminReservation";
+import AdminReviews from "./pages/AdminReviews";
 
 
 function App() {
@@ -28,6 +32,10 @@ function App() {
           <Route path="/Gallery" element={<Gallery />} />
           <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/Register" element={<Register />} />
+          <Route path="/AdminDashboard" element={<AdminDashboard />} />
+          <Route path="/AdminManagerooms" element={<AdminManagerooms />} />
+          <Route path="/AdminReservation" element={<AdminReservation />} />
+          <Route path="/AdminReviews" element={<AdminReviews />} />
         </Routes>
         <Footer/>
       </Router>
