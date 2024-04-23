@@ -6,7 +6,8 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv()
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+#SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = "aofihaiofhaiopwhWOH*()H#*HH)@H#(HTHHSW)"
 
 DEBUG = os.getenv('DEBUG')
 
@@ -25,6 +26,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'rest_framework.authtoken',
     'rest_framework_simplejwt.token_blacklist',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -34,7 +36,9 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware", ]
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware", ]
 
 ROOT_URLCONF = "capstoneTech1.urls"
 
@@ -98,7 +102,7 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_ROOT = BASE_DIR / '/static/'
+STATIC_ROOT = '/static/'
 STATIC_URL = "/static/"
 
 # Default primary key field type
@@ -155,3 +159,10 @@ SIMPLE_JWT = {
 }
 
 AUTH_USER_MODEL = "user.User"
+
+
+CORS_ALLOWED_ORIGINS = [
+    "https://f5f3-95-104-36-132.ngrok-free.app",
+    "http://127.0.0.1:5173",
+    "http://localhost:5173"
+]
