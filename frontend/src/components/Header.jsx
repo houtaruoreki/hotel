@@ -67,10 +67,13 @@ export default function Header() {
         </Link>
       </div>
       <div className="flex">
-        <Link>
+        <Link
+          to={"/Register"}
+          onClick={() => handleLinkClick(7)}
+          className={activeLink === 7 ? "text-red-500" : "text-black"}
+        >
           <img src={userIcon} alt="user icon" className="ml-8" />
         </Link>
-
         <img src={georgiaIcon} alt="georgia icon" className="ml-7" />
         <img src={arrowIcon} alt="arrow icon" />
       </div>
