@@ -1,36 +1,32 @@
 version: '3.7'
 
 services:
-  django_gunicorn:
+  backend:
     volumes:
-      - static:/app/static
+      - static:/static
     env_file:
-      - backend/.env
-    build: backend
+      - .env
+    build:
+      context: ./backend
     ports:
       - "8000:8000"
-
-  nginx:
-    build: nginx
-    volumes:
-      - static:/app/static
-    ports:
-      - "8080:80"
-    depends_on:
-      - django_gunicorn
-    networks:
-      - backend
-
   frontend:
-    build: ./frontend
-    restart: unless-stopped
+    build:
+      context: ./frontend
+    volumes:
+      - frontend:/app/build
+  nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - static:/static
+      - frontend:/var/www/frontend
     ports:
-      - "3000:3000"
+      - "80:80"
     depends_on:
-      - django_gunicorn
+      - backend
+      - frontend
 
 volumes:
   static:
-
-networks:
-  backend:
+  frontend:
