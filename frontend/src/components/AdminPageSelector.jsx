@@ -31,14 +31,14 @@ export default function AdminPageSelector() {
           ინფორმაციის დაფა
         </Link>
         <Link
-          to="/AdminManagerooms"
+          to="/AdminReservation"
           className={`link-button ${activeLink === 1 ? "active" : ""}`}
           onClick={() => handleLinkClick(1)}
         >
           დაჯავშნა
         </Link>
         <Link
-          to="/AdminReservation"
+          to="/AdminManagerooms"
           className={`link-button ${activeLink === 2 ? "active" : ""}`}
           onClick={() => handleLinkClick(2)}
         >
