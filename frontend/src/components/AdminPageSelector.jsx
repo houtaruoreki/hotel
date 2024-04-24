@@ -20,7 +20,7 @@ export default function AdminPageSelector() {
         </div>
         <input
           type="text"
-          placeholder="Search..."
+          placeholder="ძებნა"
           className="w-full px-4 py-2 border border-gray-300 rounded-md mb-4"
         />
         <Link
