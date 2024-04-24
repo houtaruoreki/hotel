@@ -29,6 +29,7 @@ export default function AboutUs() {
 
   return (
     <div className="bg-mwvane p-8">
+
       <h1 className="text-2xl font-bold text-center mb-4">About Us</h1>
 
       {/* Our Story */}
