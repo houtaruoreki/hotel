@@ -56,15 +56,7 @@ function App() {
   return (
     <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <Router>
-        {/* Conditionally render Header and SimpleSlider */}
-        {shouldRenderLayout && (
-          <>
-            <Header />
-            <SimpleSlider />
-          </>
-        )}
-
-        {/* Routes */}
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<About />} />
@@ -79,13 +71,12 @@ function App() {
           <Route path="/adminreservation" element={<AdminReservation />} />
           <Route path="/adminreviews" element={<AdminReviews />} />
 
-          {/* Catch all undefined routes */}
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
 
-      {/* Footer */}
-      {shouldRenderLayout && <Footer />}
+     
     </div>
   );
 }

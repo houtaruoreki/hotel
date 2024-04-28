@@ -9,10 +9,14 @@ import vectorR from "../assets/vector-right.png";
 import mail from "../assets/icon-mail.png";
 import phone from "../assets/icon-phone.png";
 import map from "../assets/icon-map-pin.png";
+import Header from "../components/Header";
 
 export default function Home() {
   return (
-    <div className="bg-mwvane text-center text-white">
+<><Header />
+
+<div className="bg-mwvane text-center text-white">
+    
       <h2 className="text-2xl mb-4">
         კეთილი იყოს თქვენი მობრძანება ჩვენს სასტუმრო სახლში
       </h2>
@@ -66,12 +70,9 @@ export default function Home() {
         {[...Array(4)].map((_, index) => (
           <img
             key={index}
-            src={`https://via.placeholder.com/400x300?text=Event+Photo+${
-              index + 1
-            }`}
+            src={`https://via.placeholder.com/400x300?text=Event+Photo+${index + 1}`}
             alt={`Event Photo ${index + 1}`}
-            className="w-1/4 rounded-lg mr-4"
-          />
+            className="w-1/4 rounded-lg mr-4" />
         ))}
       </div>
       <div className="flex gap-4 justify-end">
@@ -86,14 +87,14 @@ export default function Home() {
 
       <div className="flex justify-center gap-10">
         <div className=" border-white border">
-          <img src={mail}  />
+          <img src={mail} />
           <h1>ელ.ფოსტა</h1>
           <p>We're here to help you find the perfect outfit.</p>
           <h1>guesthouse@gmail.com</h1>
 
         </div>
         <div className=" border-white border">
-          <img src={phone}  />
+          <img src={phone} />
           <h1>ტელეფონი</h1>
           <p>Connect with us instantly for personalized assistance.</p>
           <h1>+995 599 99 99 99</h1>
@@ -101,7 +102,7 @@ export default function Home() {
 
         </div>
         <div className="border-white border ">
-          <img src={map}  />
+          <img src={map} />
           <h1>მდებარეობა</h1>
           <p>Follow us on social media for fashion inspiration.</p>
           <h1>ჩოხატაური, ჩხოკოურა</h1>
@@ -109,7 +110,7 @@ export default function Home() {
 
         </div>
       </div>
-    </div>
+    </div></>
   );
 }
 

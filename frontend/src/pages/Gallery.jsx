@@ -1,8 +1,9 @@
 import React from "react";
-
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 export default function Gallery() {
     return (
-        <div className="bg-mwvane p-10">
+        <><Header /><div className="bg-mwvane p-10">
             <div className="container mx-auto px-4 py-8">
                 <h1 className="text-4xl font-bold mb-8">
                     გალერია
@@ -21,8 +22,7 @@ export default function Gallery() {
                             key={index}
                             src={`https://via.placeholder.com/400x300?text=External+Photo+${index + 1}`}
                             alt={`External Photo ${index + 1}`}
-                            className="w-1/4 rounded-lg mr-4"
-                        />
+                            className="w-1/4 rounded-lg mr-4" />
                     ))}
                 </div>
 
@@ -34,8 +34,7 @@ export default function Gallery() {
                             key={index}
                             src={`https://via.placeholder.com/400x300?text=Interior+Photo+${index + 1}`}
                             alt={`Interior Photo ${index + 1}`}
-                            className="w-1/4 rounded-lg mr-4"
-                        />
+                            className="w-1/4 rounded-lg mr-4" />
                     ))}
                 </div>
 
@@ -47,11 +46,12 @@ export default function Gallery() {
                             key={index}
                             src={`https://via.placeholder.com/400x300?text=Event+Photo+${index + 1}`}
                             alt={`Event Photo ${index + 1}`}
-                            className="w-1/4 rounded-lg mr-4"
-                        />
+                            className="w-1/4 rounded-lg mr-4" />
                     ))}
                 </div>
             </div>
         </div>
+        <Footer/>
+        </>
     );
 }

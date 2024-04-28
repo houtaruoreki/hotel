@@ -1,14 +1,19 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import regphoto from "../assets/register.png";
 import image8 from "../assets/image8.png";
 
 export default function Service() {
   const [activeTab, setActiveTab] = useState("authorization");
+  const navigateTo = useNavigate();
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
 
+  const handleRedirect = () =>{
+    navigateTo('/');
+  } 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-200 relative">
       {/* Background Image */}
@@ -20,7 +25,7 @@ export default function Service() {
       {/* Tabs */}
       <div className="z-10 bg-white rounded-lg shadow-lg p-8 max-w-md relative border border-green-800">
         {/* Icon */}
-        <div className="left-0 right-0 flex justify-center items-center z-10 mb-4">
+        <div className="left-0 right-0 flex justify-center items-center z-10 mb-4" onClick={(handleRedirect)}>
           <img src={image8} alt="Icon" className="w-15 h-15" />
         </div>
 
