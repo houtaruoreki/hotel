@@ -31,7 +31,7 @@ export default function Service() {
             }`}
             onClick={() => handleTabChange("authorization")}
           >
-            Authorization
+            ავტორიზაცია
           </button>
           <button
             className={`flex-1 p-2 text-center font-bold text-lg ${
@@ -39,7 +39,7 @@ export default function Service() {
             }`}
             onClick={() => handleTabChange("registration")}
           >
-            Registration
+            რეგისტრაცია
           </button>
         </div>
         <p className="text-center mb-4">მოგესალმებით! გთხოვთ, გაიაროთ ავტორიზაცია</p>
@@ -73,7 +73,7 @@ export default function Service() {
               type="submit"
               className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-green-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              Authorization
+              შესვლა
             </button>
           </form>
         )}

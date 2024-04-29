@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom"; // Import useLocation from react-router-dom
 import userIcon from "/Images/icon-user.svg";
 import georgiaIcon from "/Images/GE.svg";
 import arrowIcon from "/Images/icon-chevron-down.svg";
@@ -6,6 +7,41 @@ import HomeImageButton from "./HomeImageButton";
 
 export default function Header() {
   const [activeLink, setActiveLink] = useState(0); // Default index is 0
+  const location = useLocation(); // Get the current location using useLocation
+
+  useEffect(() => {
+    // Function to check the current route and set the active link
+    const checkActiveLink = () => {
+      switch (location.pathname) {
+        case "/AboutUs":
+          setActiveLink(1);
+          break;
+        case "/Rooms":
+          setActiveLink(2);
+          break;
+        case "/Reservation":
+          setActiveLink(3);
+          break;
+        case "/Service":
+          setActiveLink(4);
+          break;
+        case "/Gallery":
+          setActiveLink(5);
+          break;
+        case "/ContactUs":
+          setActiveLink(6);
+          break;
+        case "/Register":
+          setActiveLink(7);
+          break;
+        default:
+          setActiveLink(0);
+          break;
+      }
+    };
+
+    checkActiveLink(); // Call the function initially and whenever location changes
+  }, [location.pathname]);
 
   const handleRedirect = (path, index) => {
     setActiveLink(index); // Set the active state to the clicked button
