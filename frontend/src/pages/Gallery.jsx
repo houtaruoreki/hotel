@@ -1,7 +1,11 @@
 import React from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Gallery() {
     return (
+        <div>
+            <Header></Header>
         <div className="bg-mwvane p-10">
             <div className="container mx-auto px-4 py-8">
                 <h1 className="text-4xl font-bold mb-8">
@@ -53,5 +57,8 @@ export default function Gallery() {
                 </div>
             </div>
         </div>
+        <Footer></Footer>
+        </div>
+
     );
 }

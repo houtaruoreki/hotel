@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import regphoto from "../assets/register.png";
-import image8 from "../assets/image8.png";
+import HomeImageButton from "../components/HomeImageButton";
 
 export default function Service() {
   const [activeTab, setActiveTab] = useState("authorization");
@@ -21,7 +21,7 @@ export default function Service() {
       <div className="z-10 bg-white rounded-lg shadow-lg p-8 max-w-md relative border border-green-800">
         {/* Icon */}
         <div className="left-0 right-0 flex justify-center items-center z-10 mb-4">
-          <img src={image8} alt="Icon" className="w-15 h-15" />
+          <HomeImageButton></HomeImageButton>
         </div>
 
         <div className="flex mb-4">
@@ -78,8 +78,8 @@ export default function Service() {
           </form>
         )}
 
-        {/* Registration Form */}
-        {activeTab === "registration" && (
+       {/* Registration Form */}
+       {activeTab === "registration" && (
           <form className="mb-4">
             <div className="grid grid-cols-1 gap-4">
               <div>

@@ -9,9 +9,13 @@ import vectorR from "../assets/vector-right.png";
 import mail from "../assets/icon-mail.png";
 import phone from "../assets/icon-phone.png";
 import map from "../assets/icon-map-pin.png";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
+    <div>
+      <Header></Header>
     <div className="bg-mwvane text-center text-white">
       <h2 className="text-2xl mb-4">
         კეთილი იყოს თქვენი მობრძანება ჩვენს სასტუმრო სახლში
@@ -109,6 +113,8 @@ export default function Home() {
 
         </div>
       </div>
+    </div>
+        <Footer></Footer>
     </div>
   );
 }

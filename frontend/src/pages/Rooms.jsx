@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import RoomDetails from "../components/RoomDetails"; // Import the RoomDetails component
 import RoomsList from "../components/RoomsList"; // Import the RoomsList component
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 export default function Rooms() {
   const [selectedRoomId, setSelectedRoomId] = useState(null); // State to store the ID of the selected room
@@ -26,6 +28,8 @@ export default function Rooms() {
   };
 
   return (
+    <div> 
+      <Header></Header>
     <div className="bg-mwvane text-white p-10">
       <div className="flex flex-col justify-center items-center h-full mb-1">
         {/* Your existing JSX */}
@@ -72,6 +76,8 @@ export default function Rooms() {
 
       {/* Render RoomDetails component if selectedRoomId is not null */}
       {selectedRoomId && <RoomDetails roomId={selectedRoomId} />}
+    </div>
+    <Footer></Footer>
     </div>
   );
 }

@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import AdminPageSelector from "../components/AdminPageSelector";
 
 export default function AdminManagerooms() {
+ 
 
+  return (
+   
+          <AdminPageSelector />
+  )
 }

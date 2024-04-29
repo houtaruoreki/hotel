@@ -1,8 +1,12 @@
 import React from "react";
 import ServicesList from "../components/ServicesList";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Service() {
   return (
+    <div> 
+      <Header></Header>
     <div className="bg-mwvane text-white p-10">
       {/* Existing content */}
       <div className="flex justify-center items-center flex-col mb-8">
@@ -72,6 +76,8 @@ export default function Service() {
       </div>
 
       <ServicesList></ServicesList>
+    </div>
+        <Footer></Footer>
     </div>
   );
 }
