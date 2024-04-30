@@ -14,9 +14,9 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <div>
+    <div className="wrapper flex flex-col min-h-screen">
       <Header></Header>
-    <div className="bg-mwvane text-center text-white">
+      <div className="flex-grow bg-mwvane text-white p-10 flex flex-col justify-center items-center h-full mb-1">
       <h2 className="text-2xl mb-4">
         კეთილი იყოს თქვენი მობრძანება ჩვენს სასტუმრო სახლში
       </h2>

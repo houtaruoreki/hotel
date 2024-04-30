@@ -1,41 +1,35 @@
 import React, { useState } from "react";
-import RoomDetails from "../components/RoomDetails"; // Import the RoomDetails component
-import RoomsList from "../components/RoomsList"; // Import the RoomsList component
+import RoomDetails from "../components/RoomDetails"; 
+import RoomsList from "../components/RoomsList"; 
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 export default function Rooms() {
-  const [selectedRoomId, setSelectedRoomId] = useState(null); // State to store the ID of the selected room
+  const [selectedRoomId, setSelectedRoomId] = useState(null); 
 
-  // Function to handle button click
   const handleButtonClick = (roomId) => {
     setSelectedRoomId(roomId);
     console.log("details is clicked");
   };
 
-  // State variables for form inputs
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
   const [guestsCount, setGuestsCount] = useState("");
 
-  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Check-in Date:", checkInDate);
     console.log("Check-out Date:", checkOutDate);
     console.log("Guests Count:", guestsCount);
-    // You can add further logic here, like sending form data to backend
   };
 
   return (
-    <div> 
+    <div className="wrapper flex flex-col min-h-screen">
       <Header></Header>
-    <div className="bg-mwvane text-white p-10">
-      <div className="flex flex-col justify-center items-center h-full mb-1">
-        {/* Your existing JSX */}
+      <div className="flex-grow bg-mwvane text-white p-10">
+        <div className="flex flex-col justify-center items-center h-full mb-1">
       </div>
 
-      {/* Form section */}
       <div className="flex flex-wrap justify-center items-center mb-4 max-w-screen mx-auto">
         <select
           className="w-full text-black border border-gray-400 px-4 py-2 rounded-md mr-2 mb-2 md:mb-0 md:mr-4 md:flex-1 md:w-1/4 lg:w-auto focus:outline-none focus:border-blue-500"
@@ -43,7 +37,6 @@ export default function Rooms() {
           onChange={(e) => setCheckInDate(e.target.value)}
         >
           <option value="">შემოსვლის თარიღი</option>
-          {/* Add options dynamically if needed */}
         </select>
 
         <select
@@ -52,7 +45,6 @@ export default function Rooms() {
           onChange={(e) => setCheckOutDate(e.target.value)}
         >
           <option value="">გასვლის თარიღი</option>
-          {/* Add options dynamically if needed */}
         </select>
 
         <input
@@ -71,10 +63,8 @@ export default function Rooms() {
         </button>
       </div>
 
-      {/* Rooms section */}
       <RoomsList handleButtonClick={handleButtonClick} />
 
-      {/* Render RoomDetails component if selectedRoomId is not null */}
       {selectedRoomId && <RoomDetails roomId={selectedRoomId} />}
     </div>
     <Footer></Footer>

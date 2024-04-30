@@ -45,11 +45,10 @@ export default function AdminPageSelector() {
         >
           სტუმრების შეფასება
         </button>
-        {/* Added the line with a gap of 4 */}
         <img
           src={line}
           alt="Line"
-          className="absolute right-0"
+          className="absolute right-0 -bottom-1/2"
           style={{ zIndex: -1 }}
         />
       </div>

@@ -5,11 +5,10 @@ import Footer from "../components/Footer";
 
 export default function Service() {
   return (
-    <div> 
+    <div className="wrapper flex flex-col min-h-screen">
       <Header></Header>
-    <div className="bg-mwvane text-white p-10">
-      {/* Existing content */}
-      <div className="flex justify-center items-center flex-col mb-8">
+      <div className="flex-grow bg-mwvane text-white p-10">
+        <div className="flex flex-col justify-center items-center h-full mb-1">
         <h2 className="text-2xl font-bold mb-4">სერვისები</h2>
       </div>
       <div className="max-w-7xl mx-auto">

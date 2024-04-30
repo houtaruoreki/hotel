@@ -10,9 +10,10 @@ const handleButtonClick = (roomId) => {
 
 export default function Reservation() {
   return (
-    <div> 
+    <div className="wrapper flex flex-col min-h-screen">
       <Header></Header>
-    <div className="bg-mwvane text-white p-10">
+      <div className="flex-grow bg-mwvane text-white p-10">
+      
       <h2 className="text-2xl flex justify-center mb-4">დაჯავშნე</h2>
       <p >
         თქვენი საოცნებო ადგილის დაჯავშნა არასოდეს ყოფილა ადვილი ჩვენი დაჯავშნის

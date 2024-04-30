@@ -11,15 +11,12 @@ export default function Service() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-200 relative">
-      {/* Background Image */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${regphoto})`, opacity: 1 }}
       ></div>
 
-      {/* Tabs */}
       <div className="z-10 bg-white rounded-lg shadow-lg p-8 max-w-md relative border border-green-800">
-        {/* Icon */}
         <div className="left-0 right-0 flex justify-center items-center z-10 mb-4">
           <HomeImageButton></HomeImageButton>
         </div>
@@ -116,7 +113,7 @@ export default function Service() {
                 type="submit"
                 className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-green-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                Register
+                რეგისტრაცია
               </button>
             </div>
           </form>
