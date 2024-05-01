@@ -1,5 +1,7 @@
 import React from "react";
-import RoomsList from "../components/RoomsList"; // Import the RoomsList component
+import RoomsList from "../components/RoomsList"; 
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const handleButtonClick = (roomId) => {
   setSelectedRoomId(roomId);
@@ -8,7 +10,10 @@ const handleButtonClick = (roomId) => {
 
 export default function Reservation() {
   return (
-    <div className="bg-mwvane text-white p-10">
+    <div className="wrapper flex flex-col min-h-screen">
+      <Header></Header>
+      <div className="flex-grow bg-mwvane text-white p-10">
+      
       <h2 className="text-2xl flex justify-center mb-4">დაჯავშნე</h2>
       <p >
         თქვენი საოცნებო ადგილის დაჯავშნა არასოდეს ყოფილა ადვილი ჩვენი დაჯავშნის
@@ -124,6 +129,8 @@ export default function Reservation() {
       <div className="flex justify-center my-8">
         <hr className="w-full border-white" />
       </div>
+    </div>
+    <Footer></Footer>
     </div>
   );
 }

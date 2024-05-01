@@ -12,46 +12,10 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminManagerooms from "./pages/AdminManagerooms";
 import AdminReservation from "./pages/AdminReservation";
 import AdminReviews from "./pages/AdminReviews";
+import NotFound404 from "./pages/404";
 
-import Header from "./components/Header";
-import SimpleSlider from "./components/SimpleSlider";
-import Footer from "./components/Footer";
 
 function App() {
-  // Get the current route path
-  const currentRoute = window.location.pathname;
-
-  // Define the list of known routes
-  const knownRoutes = [
-    "/",
-    "/aboutus",
-    "/reservation",
-    "/rooms",
-    "/service",
-    "/gallery",
-    "/contactus",
-    "/register",
-    "/admindashboard",
-    "/adminmanagerooms",
-    "/adminreservation",
-    "/adminreviews",
-  ];
-
-  // Check if the current route is a known route
-  const isKnownRoute = knownRoutes.includes(currentRoute);
-
-  // Determine if the Header, SimpleSlider, and Footer should be rendered
-  const shouldRenderLayout = isKnownRoute && !isAdminRoute(currentRoute);
-
-  // Helper function to check if a route is an admin route
-  function isAdminRoute(route) {
-    return (
-      route === "/admindashboard" ||
-      route === "/adminmanagerooms" ||
-      route === "/adminreservation" ||
-      route === "/adminreviews"
-    );
-  }
 
   return (
     <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
@@ -81,12 +45,10 @@ function App() {
   );
 }
 
-// NotFound component for displaying error message
 function NotFound() {
   return (
     <div>
-      <h1>404 - Page Not Found</h1>
-      <p>The page you are looking for does not exist.</p>
+      <NotFound404></NotFound404>
     </div>
   );
 }
