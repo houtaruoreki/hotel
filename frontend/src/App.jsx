@@ -34,10 +34,13 @@ function App() {
           <Route path="/adminmanagerooms" element={<AdminManagerooms />} />
           <Route path="/adminreservation" element={<AdminReservation />} />
           <Route path="/adminreviews" element={<AdminReviews />} />
+
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
 
+     
     </div>
   );
 }

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-
 export default function AboutUs() {
   const [rating, setRating] = useState(0); // State to hold the rating
 
@@ -31,9 +30,7 @@ export default function AboutUs() {
   ];
 
   return (
-
-<>
-<Header></Header>
+    <><Header/>
     <div className="bg-mwvane p-8">
 
       <h1 className="text-2xl font-bold text-center mb-4">About Us</h1>
@@ -129,7 +126,7 @@ export default function AboutUs() {
         ))}
       </div>
     </div>
-    <Footer></Footer>
+    <Footer/>
     </>
   );
 }

@@ -1,14 +1,8 @@
-FROM node:15.8.0-alpine
+FROM node:alpine
 
-
-WORKDIR /usr/src/app
-
-COPY ./package.json .
-COPY ./package-lock.json .
-
-RUN npm install -g serve
-RUN npm install
-
+WORKDIR /app
 COPY . .
 
-RUN npm run build
+RUN npm install
+
+CMD ["npm", "run", "build"]
