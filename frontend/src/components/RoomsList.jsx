@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const RoomsList = ({ handleButtonClick }) => {
   const [roomsData, setRoomsData] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/rooms/")
-      .then((response) => response.json())
-      .then((data) => setRoomsData(data))
+    axios
+      .get(import.meta.env.VITE_REACT_APP_API_URL + "/rooms/")
+      .then((response) => setRoomsData(response.data))
       .catch((error) => console.error("Error fetching rooms:", error));
   }, []);
 
