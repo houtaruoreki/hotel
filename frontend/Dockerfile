@@ -3,6 +3,6 @@ FROM node:alpine
 WORKDIR /app
 COPY . .
 
-RUN npm install
 
-CMD ["npm", "run", "build"]
+COPY ./entrypoint.sh .
+ENTRYPOINT ["sh", "/app/entrypoint.sh"]
