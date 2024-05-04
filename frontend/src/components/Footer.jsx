@@ -5,9 +5,19 @@ import instagram from "/Images/icon-instagram.png";
 import mail from "/Images/icon-mail.png";
 import youtube from "/Images/icon-youtube.png";
 import copyright from "/Images/copyright.png";
-import { Link } from "react-router-dom";
+import Navigation from "./Navigation";
 
 export default function Footer() {
+  const footerLinks = [
+    { to: "/", label: "მთავარი" },
+    { to: "/AboutUs", label: "ჩვენ შესახებ" },
+    { to: "/Rooms", label: "ოთახები" },
+    { to: "/Reservation", label: "დაჯავშნა" },
+    { to: "/Service", label: "სერვისი" },
+    { to: "/Gallery", label: "გალერეა" },
+    { to: "/ContactUs", label: "კონტაქტი" }
+  ];
+
   return (
     <footer className="w-full bg-[#f2f9f1] p-[60px] flex flex-col justify-between items-center gap-[60px] ">
       <div className="flex  justify-start items-center gap-[119px] p-0 ">
@@ -43,15 +53,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div className="flex  flex-wrap  gap-[35px] px-[16px] text-[15px] ">
-          <Link to={"/"}>მთავარი</Link>
-          <Link to={"/AboutUs"}>ჩვენ შესახებ</Link>
-          <Link to={"/Rooms"}>ოთახი</Link>
-          <Link to={"/Reservation"}>დაჯავშნა</Link>
-          <Link to={"/Service"}>სერვისი</Link>
-          <Link to={"/Gallery"}>გალერეა</Link>
-          <Link to={"/ContactUs"}>კონტაქტი</Link>
-        </div>
+        <Navigation links={footerLinks} activeLink={-1}   />
       </div>
       <div className="flex  justify-center items-center gap-[19px]">
         <img className="w-5 h-5" src={copyright} alt="copyright icon" />
