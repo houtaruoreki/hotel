@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div className="bg-mwvane text-center text-white ">
-      <div className="mt-28">
+      <div className="">
         <h3 className="text-2xl font-bold text-white">
           კეთილი იყოს მობრძანება ჩვენს სასტუმრო სახლში
         </h3>
@@ -109,7 +109,7 @@ export default function Home() {
         ელეგანტური <br /> ინტერიერიდან მომხიბვლელ გარემოებამდე, თითოეული სურათი
         მოგვითხრობს სიმშვიდისა და <br /> სტუმართმოყვარეობის ისტორიას."
       </p>
-      <Link to={"/Gallery"}>ყველას ნახვა</Link>
+      <Link to={"/Gallery"} className="flex justify-end">ყველას ნახვა</Link>
 
       <div className="overflow-x-auto flex">
         {[...Array(4)].map((_, index) => (
