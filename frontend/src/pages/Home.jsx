@@ -13,7 +13,7 @@ import Header from "../components/Header";
 
 export default function Home() {
   return (
-<><Header />
+
 
 <div className="bg-mwvane text-center text-white">
     
@@ -110,7 +110,7 @@ export default function Home() {
 
         </div>
       </div>
-    </div></>
+    </div>
   );
 }
 

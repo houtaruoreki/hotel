@@ -8,7 +8,7 @@ import youtube from "../assets/icon-youtube.png";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col md:flex-row items-center bg-[#F2F9F1] p-4 md:p-6">
+    <footer className="flex flex-col md:flex-row items-center bg-emerald-100	 p-4 md:p-6">
       <div className="flex flex-col md:flex-row items-start md:items-center gap-5 md:gap-10 mb-5 md:mb-0">
         <div className="grid">
         <div className="font-bold text-xl w-full md:w-auto">

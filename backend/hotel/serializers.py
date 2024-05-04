@@ -1,8 +1,7 @@
 from datetime import timezone, datetime
 
 from rest_framework import serializers
-from rest_framework.exceptions import ValidationError
-from rest_framework.response import Response
+
 
 from .models import Room, Image, Booking, Review
 
@@ -41,6 +40,24 @@ class RoomsSerializer(serializers.ModelSerializer):
         model = Room
         exclude = ['price']
 
+class AvailableRoomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Booking
+        fields = ['room_id', 'checkin_time', 'checkout_time']
+
+    def to_representation(self, instance):
+        if isinstance(instance, Booking):
+            return {
+                'room_id': instance.room_id,
+                'availability_status': 'available'
+            }
+        else:
+            return {
+                'room_id': instance['room_id'],
+                'availability_status': 'not_available',
+                'closest_room_checkin': instance['checkin_time'],
+                'closest_room_checkout': instance['checkout_time']
+            }
 
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
