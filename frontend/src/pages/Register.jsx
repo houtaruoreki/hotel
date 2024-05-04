@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import regphoto from "../assets/register.png";
-import image8 from "../assets/image8.png";
+import HomeImageButton from "../components/HomeImageButton";
 
 export default function Service() {
   const [activeTab, setActiveTab] = useState("authorization");
@@ -16,13 +16,11 @@ export default function Service() {
   } 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-200 relative">
-      {/* Background Image */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${regphoto})`, opacity: 1 }}
       ></div>
 
-      {/* Tabs */}
       <div className="z-10 bg-white rounded-lg shadow-lg p-8 max-w-md relative border border-green-800">
         {/* Icon */}
         <div className="left-0 right-0 flex justify-center items-center z-10 mb-4" onClick={(handleRedirect)}>
@@ -36,7 +34,7 @@ export default function Service() {
             }`}
             onClick={() => handleTabChange("authorization")}
           >
-            Authorization
+            ავტორიზაცია
           </button>
           <button
             className={`flex-1 p-2 text-center font-bold text-lg ${
@@ -44,7 +42,7 @@ export default function Service() {
             }`}
             onClick={() => handleTabChange("registration")}
           >
-            Registration
+            რეგისტრაცია
           </button>
         </div>
         <p className="text-center mb-4">მოგესალმებით! გთხოვთ, გაიაროთ ავტორიზაცია</p>
@@ -78,13 +76,13 @@ export default function Service() {
               type="submit"
               className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-green-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              Authorization
+              შესვლა
             </button>
           </form>
         )}
 
-        {/* Registration Form */}
-        {activeTab === "registration" && (
+       {/* Registration Form */}
+       {activeTab === "registration" && (
           <form className="mb-4">
             <div className="grid grid-cols-1 gap-4">
               <div>
@@ -121,7 +119,7 @@ export default function Service() {
                 type="submit"
                 className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-green-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                Register
+                რეგისტრაცია
               </button>
             </div>
           </form>

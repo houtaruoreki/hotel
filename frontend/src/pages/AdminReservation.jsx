@@ -10,12 +10,11 @@ export default function AdminReservation() {
   });
 
   return (
-    <div className="container mx-auto">
-      <div className="flex">
-        {/* Move AdminPageSelector to the left side */}
-        <div className="w-1/4">
-          <AdminPageSelector />
-        </div>
+    <div className="flex">
+      {/* Left side */}
+      <div className="w-1/4 p-4">
+        <AdminPageSelector />
+      </div>
         {/* Keep the rest of the content on the right side */}
         <div className="w-3/4">
           <div className="mt-8">
@@ -124,6 +123,5 @@ export default function AdminReservation() {
           </div>
         </div>
       </div>
-    </div>
   );
 }

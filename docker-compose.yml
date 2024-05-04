@@ -15,6 +15,7 @@ services:
       context: ./frontend
     volumes:
       - frontend:/app/build
+ 
   nginx:
     build:
       context: ./nginx

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -25,6 +27,7 @@ export default function ContactUs() {
 
   return (
       <div > 
+        <Header></Header>
         <h2 className="text-4xl flex justify-center bg-mwvane text-white p-10">კონტაქტი</h2>
 
     <div className="flex justify-between bg-mwvane text-white p-10">
@@ -102,6 +105,7 @@ export default function ContactUs() {
         </button>
       </div>
     </div>
+    <Footer></Footer>
     </div>
   );
 }
