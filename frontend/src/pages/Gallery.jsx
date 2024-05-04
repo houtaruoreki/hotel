@@ -2,9 +2,9 @@ import React from "react";
 
 export default function Gallery() {
     return (
-        <div className="bg-mwvane p-10">
+        <div className="bg-mwvane p-10 text-white ">
             <div className="container mx-auto px-4 py-8">
-                <h1 className="text-4xl font-bold mb-8">
+                <h1 className="text-4xl font-bold mb-8 text-center">
                     გალერია
                 </h1>
                 <p className="text-lg mb-8">
@@ -15,6 +15,7 @@ export default function Gallery() {
 
                 {/* External views section */}
                 <h2 className="text-2xl font-semibold mb-4">გარე ხედი</h2>
+                <div className="border-b-2 border-white mb-10"></div>
                 <div className="overflow-x-auto flex">
                     {[...Array(4)].map((_, index) => (
                         <img
@@ -28,6 +29,7 @@ export default function Gallery() {
 
                 {/* Interior views section */}
                 <h2 className="text-2xl font-semibold mt-8 mb-4">შიდა ხედები</h2>
+                <div className="border-b-2 border-white mb-10"></div>
                 <div className="overflow-x-auto flex">
                     {[...Array(4)].map((_, index) => (
                         <img
@@ -41,6 +43,7 @@ export default function Gallery() {
 
                 {/* Events and activities section */}
                 <h2 className="text-2xl font-semibold mt-8 mb-4">ღონისძიებები და აქტივობები</h2>
+                <div className="border-b-2 border-white mb-10"></div>
                 <div className="overflow-x-auto flex">
                     {[...Array(4)].map((_, index) => (
                         <img
