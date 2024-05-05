@@ -1,5 +1,6 @@
 from rest_framework import viewsets, permissions, generics
 from . import models, serializers
+from rest_framework.response import Response
 
 class PermissionMixin:
     def get_permissions(self):
@@ -26,24 +27,43 @@ class ReviewViewSet(PermissionMixin,viewsets.ModelViewSet):
     queryset = models.Review.objects.all()
     serializer_class = serializers.ReviewSerializer
 
-class AvailableRoomsView(generics.ListAPIView):
-    queryset = models.Booking.objects.all()
-    serializer_class = serializers.AvailableRoomSerializer
+class AvailableRoomListView(generics.ListAPIView):
+    serializer_class = serializers.RoomSerializer
+    queryset= models.Room.objects.all()
+    def list(self, request, *args, **kwargs):
+        checkin_date = self.kwargs.get("checkin_date")
+        checkout_date = self.kwargs.get('checkout_date')
 
-    def get_queryset(self):
-        check_in_date = self.request.query_params.get('checkin_time')
-        check_out_date = self.request.query_params.get('checkout_time')
-        
-        if check_in_date and check_out_date:
-            available_rooms = models.Booking.objects.exclude(
-                checkin_time__lt=check_in_date,
-                checkout_time__gt=check_out_date
+        if not (checkin_date and checkout_date):
+            return Response({'error': checkin_date}, status=400)
+
+        available_rooms = []
+
+        # Get all rooms
+        rooms = models.Room.objects.all()
+
+        # Loop through each room
+        for room in rooms:
+            # Check if there are any bookings that overlap with the requested period
+            overlapping_bookings = models.Booking.objects.filter(
+                room_id=room.id,
+                checkin_time__lt=checkout_date,
+                checkout_time__gt=checkin_date
             )
-            if available_rooms.exists():
-                return available_rooms
+
+            # If no overlapping bookings, mark room as available
+            if not overlapping_bookings.exists():
+                available_rooms.append({
+                    'room_id': room.id,
+                    'availability_status': 'available'
+                })
             else:
-                closest_room_checkin = models.Booking.objects.aggregate(Min('checkin_time'))['checkin_time__min']
-                closest_room = models.Booking.objects.filter(checkin_time=closest_room_checkin).first()
-                return models.Booking.objects.filter(pk=closest_room.pk)
-        else:
-            return models.Booking.objects.none()
+                # If there are overlapping bookings, mark room as not available
+                available_rooms.append({
+                    'room_id': room.id,
+                    'availability_status': 'not_available',
+                    'closest_room_checkin': overlapping_bookings.order_by('checkin_time').first().checkin_time,
+                    'closest_room_checkout': overlapping_bookings.order_by('-checkout_time').first().checkout_time
+                })
+
+        return Response(available_rooms)

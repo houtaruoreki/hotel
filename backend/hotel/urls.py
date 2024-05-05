@@ -10,4 +10,4 @@ router.register(r'review', views.ReviewViewSet, basename='review')
 
 urlpatterns = router.urls
 
-urlpatterns.append(path("booking/check", views.AvailableRoomsView.as_view(), name="check-available-room"))
+urlpatterns.append(path("booking/check/<str:checkin_date>/<str:checkout_date>/", views.AvailableRoomListView.as_view(), name="check-available-room"))
