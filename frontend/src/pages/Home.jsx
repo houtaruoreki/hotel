@@ -12,8 +12,13 @@ import sunIcon from "/Images/sun.png";
 import homeIcon from "/Images/home.png";
 import airIcon from "/Images/air.png";
 import { Link } from "react-router-dom";
+import flowersImage from "/Images/image 9.png";
+import foodImage from "/Images/image 10.png";
+import snowImage from "/Images/image 11.png";
+import snowmanImage from "/Images/image 12.png";
 
 export default function Home() {
+  const photoArr = [flowersImage, foodImage, snowImage, snowmanImage];
   return (
     <div className="bg-mwvane text-center text-white ">
       <div className="">
@@ -109,15 +114,15 @@ export default function Home() {
         ელეგანტური <br /> ინტერიერიდან მომხიბვლელ გარემოებამდე, თითოეული სურათი
         მოგვითხრობს სიმშვიდისა და <br /> სტუმართმოყვარეობის ისტორიას."
       </p>
-      <Link to={"/Gallery"} className="flex justify-end">ყველას ნახვა</Link>
+      <Link to={"/Gallery"} className="flex justify-end">
+        ყველას ნახვა
+      </Link>
 
       <div className="overflow-x-auto flex">
-        {[...Array(4)].map((_, index) => (
+        {photoArr.map((image, index) => (
           <img
             key={index}
-            src={`https://via.placeholder.com/400x300?text=Event+Photo+${
-              index + 1
-            }`}
+            src={image}
             alt={`Event Photo ${index + 1}`}
             className="w-1/4 rounded-lg mr-4"
           />
@@ -128,7 +133,7 @@ export default function Home() {
         <img src={vectorR} alt="Air Icon" className=" " />
       </div>
 
-      <h2 className="text-2xl mb-4">კონტაქტი</h2>
+      <h2 className="text-2xl mb-4 mt-16">კონტაქტი</h2>
       <p className="mb-8">
         გაქვთ შეკითხვა ან გჭირდებათ დახმარება დაგვიკავშირდით!
       </p>

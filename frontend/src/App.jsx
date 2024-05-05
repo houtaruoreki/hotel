@@ -10,23 +10,23 @@ import Gallery from "./pages/Gallery";
 import ContactUs from "./pages/ContactUs";
 import SimpleSlider from "./components/SimpleSlider";
 import Footer from "./components/Footer";
+import Layout from "./pages/Layout";
 
 function App() {
   return (
     <>
       <Router>
-        <Header />
-        <SimpleSlider />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/AboutUs" element={<About />} />
-          <Route path="/Reservation" element={<Reservation />} />
-          <Route path="/Rooms" element={<Rooms />} />
-          <Route path="/Service" element={<Service />} />
-          <Route path="/Gallery" element={<Gallery />} />
-          <Route path="/ContactUs" element={<ContactUs />} />
+          <Route path="/" element={<Layout />}>
+            <Route path="" element={<Home />} />
+            <Route path="/AboutUs" element={<About />} />
+            <Route path="/Reservation" element={<Reservation />} />
+            <Route path="/Rooms" element={<Rooms />} />
+            <Route path="/Service" element={<Service />} />
+            <Route path="/Gallery" element={<Gallery />} />
+            <Route path="/ContactUs" element={<ContactUs />} />
+          </Route>
         </Routes>
-        <Footer />
       </Router>
     </>
   );
