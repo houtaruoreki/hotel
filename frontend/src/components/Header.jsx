@@ -1,76 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "/Images/image 7.png";
-import { Link } from "react-router-dom";
 import userIcon from "/Images/icon-user.svg";
 import georgiaIcon from "/Images/GE.svg";
 import arrowIcon from "/Images/icon-chevron-down.svg";
+import Navigation from "./Navigation";
 
 export default function Header() {
-  const [activeLink, setActiveLink] = useState(0); // Default index is 0
+  const location = useLocation();
+  const id = location.pathname.replace('/', '');
 
-  const handleLinkClick = (index) => {
-    setActiveLink(index);
-  };
+  const headerLinks = [
+    { to: "/", label: "მთავარი" },
+    { to: "/AboutUs", label: "ჩვენ შესახებ" },
+    { to: "/Rooms", label: "ოთახები" },
+    { to: "/Reservation", label: "დაჯავშნა" },
+    { to: "/Service", label: "სერვისი" },
+    { to: "/Gallery", label: "გალერეა" },
+    { to: "/ContactUs", label: "კონტაქტი" }
+  ];
 
   return (
-    <header className="flex items-center px-16 justify-between bg-[#F2F9F1]  w-full">
+    <header className="flex items-center px-16 justify-between bg-[#F2F9F1] w-full">
       <img src={Logo} alt="logo" className="w-[12%]" />
-      <div className="flex gap-10 ml-8 text-black">
-        <Link
-          to={"/"}
-          onClick={() => handleLinkClick(0)}
-          className={activeLink === 0 ? "text-green-500" : "text-black"}
-        >
-          მთავარი
-        </Link>
-        <Link
-          to={"/AboutUs"}
-          onClick={() => handleLinkClick(1)}
-          className={activeLink === 1 ? "text-green-500" : "text-black"}
-        >
-          ჩვენ შესახებ
-        </Link>
-        <Link
-          to={"/Rooms"}
-          onClick={() => handleLinkClick(2)}
-          className={activeLink === 2 ? "text-green-500" : "text-black"}
-        >
-          ოთახები
-        </Link>
-        <Link
-          to={"/Reservation"}
-          onClick={() => handleLinkClick(3)}
-          className={activeLink === 3 ? "text-green-500" : "text-black"}
-        >
-          დაჯავშნა
-        </Link>
-        <Link
-          to={"/Service"}
-          onClick={() => handleLinkClick(4)}
-          className={activeLink === 4 ? "text-green-500" : "text-black"}
-        >
-          სერვისი
-        </Link>
-        <Link
-          to={"/Gallery"}
-          onClick={() => handleLinkClick(5)}
-          className={activeLink === 5 ? "text-green-500" : "text-black"}
-        >
-          გალერეა
-        </Link>
-        <Link
-          to={"/ContactUs"}
-          onClick={() => handleLinkClick(6)}
-          className={activeLink === 6 ? "text-green-500" : "text-black"}
-        >
-          კონტაქტი
-        </Link>
-      </div>
+      <Navigation links={headerLinks} activeLink={id === '' ? 0 : headerLinks.findIndex(link => link.to === '/' + id)} />
       <div className="flex">
         <Link>
           <img src={userIcon} alt="user icon" className="ml-8" />
         </Link>
-
         <img src={georgiaIcon} alt="georgia icon" className="ml-7" />
         <img src={arrowIcon} alt="arrow icon" />
       </div>
