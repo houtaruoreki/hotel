@@ -119,12 +119,20 @@ export default function Reservation() {
           </div>
         </div>
       </div>
-      <div className="flex justify-start">
-        <p className="text-2xl">ოთახები</p>
-      </div>
-      <div className="flex justify-center my-8">
-        <hr className="w-full border-white" />
-      </div>
+      <h2 className="text-2xl font-semibold mt-8 mb-4">ოთახები</h2>
+        <div className="border-b-2 border-[#bbfbcb] mb-10"></div>
+        <div className="overflow-x-auto flex">
+          {[...Array(4)].map((_, index) => (
+            <img
+              key={index}
+              src={`https://via.placeholder.com/400x300?text=Rooms+Photo+${
+                index + 1
+              }`}
+              alt={`Room Photo ${index + 1}`}
+              className="w-1/4 rounded-lg mr-4"
+            />
+          ))}
+        </div>
     </motion.div>
   );
 }

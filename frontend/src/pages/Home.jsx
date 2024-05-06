@@ -17,6 +17,7 @@ import foodImage from "/Images/image 10.png";
 import snowImage from "/Images/image 11.png";
 import snowmanImage from "/Images/image 12.png";
 import { motion } from "framer-motion";
+import SimpleSlider from "../components/SimpleSlider";
 
 export default function Home() {
   const photoArr = [flowersImage, foodImage, snowImage, snowmanImage];
@@ -27,6 +28,7 @@ export default function Home() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
+      <SimpleSlider/>
       <div className="">
         <h3 className="text-2xl font-bold text-white">
           კეთილი იყოს მობრძანება ჩვენს სასტუმრო სახლში
