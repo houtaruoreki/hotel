@@ -1,5 +1,4 @@
 import "./index.css";
-import Header from "./components/Header";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/AboutUs";
@@ -8,9 +7,9 @@ import Rooms from "./pages/Rooms";
 import Service from "./pages/Service";
 import Gallery from "./pages/Gallery";
 import ContactUs from "./pages/ContactUs";
-import SimpleSlider from "./components/SimpleSlider";
-import Footer from "./components/Footer";
 import Layout from "./pages/Layout";
+
+
 
 function App() {
   return (
