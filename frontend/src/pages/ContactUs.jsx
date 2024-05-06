@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Mapscreen from "/Images/mapscreen.png"
+import Mappin from "/Images/mappin.png"
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -100,8 +102,25 @@ export default function ContactUs() {
         >
           გაგზავნა
         </button>
+        
       </div>
+      
     </div>
+    <div className="relative">
+      <a href="https://maps.app.goo.gl/PMAB4hURfW5wdeH87" target="_blank" rel="noopener noreferrer">
+        <img
+          src={Mapscreen}
+          alt="Map"
+          className="w-full"
+        />
+        <img
+          src={Mappin}
+          alt="Mappin"
+          className="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2 ml-14"
+        />
+        </a>
+        
+      </div>
     </div>
   );
 }

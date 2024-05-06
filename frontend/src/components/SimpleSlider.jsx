@@ -30,7 +30,7 @@ export default function SimpleSlider() {
       </p>
       <Link
         to="/Reservation"
-        className="p-[16px] bg-[#f2f9f1] rounded-md border border-black hover:bg-mwvane transition duration-300 ease-in-out flex items-center justify-center w-[50%] md:w-[200px]"
+        className="p-[16px] bg-[#e3fde0] text-black rounded-md border border-black hover:bg-mwvane transition duration-300 ease-in-out flex items-center justify-center w-[50%] md:w-[200px]"
       >
         დაჯავშნე ოთახი
         <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
