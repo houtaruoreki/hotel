@@ -9,7 +9,7 @@ urlpatterns = [
     path('auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     # user messages
     path("user/messages/", views.MessageView.as_view(), name="add_message"),
-    path("user/messages/", views.MessageListView.as_view(), name="messages_list"),
+    path("user/messages/list", views.MessageListView.as_view(), name="messages_list"),
     path("user/messages/<int:pk>/", views.MessageDetailView.as_view(), name="message_detail"),
-    path('user/messages/<int:pk>/', views.MessageDeleteView.as_view(), name='message_delete'),
+    path('user/messages/delete/<int:pk>/', views.MessageDeleteView.as_view(), name='message_delete'),
 ]
