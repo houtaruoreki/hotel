@@ -1,5 +1,5 @@
 import React from "react";
-import RoomsList from "../components/RoomsList"; // Import the RoomsList component
+import RoomsList from "../components/RoomsList"; 
 import coffee from "/Images/icon-coffee.png";
 import loader from "/Images/icon-loader.png";
 import dribble from "/Images/icon-dribbble.png";
@@ -16,19 +16,12 @@ import flowersImage from "/Images/image 9.png";
 import foodImage from "/Images/image 10.png";
 import snowImage from "/Images/image 11.png";
 import snowmanImage from "/Images/image 12.png";
-import SimpleSlider from "../components/SimpleSlider";
-import { motion } from "framer-motion";
+
 
 export default function Home() {
   const photoArr = [flowersImage, foodImage, snowImage, snowmanImage];
   return (
-    <motion.div
-      className="bg-mwvane text-center text-white "
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <SimpleSlider />
+  <div className="bg-mwvane text-center text-white ">
       <div className="">
         <h3 className="text-2xl font-bold text-white">
           კეთილი იყოს მობრძანება ჩვენს სასტუმრო სახლში
