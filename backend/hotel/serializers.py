@@ -1,5 +1,3 @@
-from datetime import timezone, datetime
-
 from rest_framework import serializers
 
 
@@ -45,7 +43,6 @@ class RoomSerializer(serializers.ModelSerializer):
         model = Room
         fields = ['id', 'number']  
 
-from django.utils import timezone
 
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:

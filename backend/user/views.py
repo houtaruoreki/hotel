@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, viewsets, mixins
 from rest_framework.permissions import AllowAny, IsAdminUser
 from .serializers import UserRegisterSerializer, MessageSerializer
 from .models import User, Message
@@ -11,24 +11,11 @@ class UserRegisterView(generics.CreateAPIView):
 
 
 
-class MessageView(generics.CreateAPIView):
+class MessageViewSet(mixins.ListModelMixin,
+                     mixins.RetrieveModelMixin,
+                    mixins.CreateModelMixin,
+                    mixins.DestroyModelMixin,
+                    viewsets.GenericViewSet):
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
-    permission_classes = [AllowAny]
-
-class MessageDetailView( generics.RetrieveAPIView):
-    queryset = Message.objects.all()
-    serializer_class = MessageSerializer
-    permission_classes = [IsAdminUser]
-
-
-class MessageListView( generics.ListAPIView):
-    queryset = Message.objects.all()
-    serializer_class = MessageSerializer
-    permission_classes = [IsAdminUser]
-
-class MessageDeleteView(generics.DestroyAPIView):
-    queryset = Message.objects.all()
-    serializer_class = MessageSerializer
-    permission_classes = [IsAdminUser]
 

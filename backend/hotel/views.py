@@ -1,4 +1,4 @@
-from rest_framework import viewsets, permissions, generics
+from rest_framework import viewsets, permissions, generics, mixins
 from . import models, serializers
 from rest_framework.response import Response
 
@@ -23,9 +23,13 @@ class BookingViewSet(PermissionMixin,viewsets.ModelViewSet):
     queryset = models.Booking.objects.all()
     serializer_class = serializers.BookingSerializer
 
-class ReviewViewSet(PermissionMixin,viewsets.ModelViewSet):
-    queryset = models.Review.objects.all()
-    serializer_class = serializers.ReviewSerializer
+class MessageViewSet(PermissionMixin,mixins.ListModelMixin,
+                     mixins.RetrieveModelMixin,
+                    mixins.CreateModelMixin,
+                    mixins.DestroyModelMixin,
+                    viewsets.GenericViewSet):
+    queryset = Message.objects.all()
+    serializer_class = MessageSerializer
 
 class AvailableRoomListView(generics.ListAPIView):
     serializer_class = serializers.RoomSerializer
