@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Mapscreen from "/Images/mapscreen.png";
+import Mappin from "/Images/mappin.png";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -89,31 +91,45 @@ export default function ContactUs() {
               name="rating"
               value={formData.rating}
               onChange={handleChange}
-              className="text-black border border-gray-400 px-4 py-2 rounded-md w-full max-w-lg focus:outline-none focus:border-blue-500 "
+              className="text-black border border-gray-400 px-4 py-2 rounded-md w-full max-w-lg focus:outline-none focus:border-blue-500"
             >
               <option value="">აირჩიეთ შეფასება</option>
               <option value="yes">კი</option>
               <option value="no">არა</option>
               <option value="partially">ნაწილობრივ</option>
             </select>
-          </div>
-          <div className="text-blackmb-4">
-            <label className=" block mb-1">კომენტარი</label>
+            <label className="block mb-1">კომენტარი</label>
             <textarea
               name="comment"
               value={formData.comment}
               onChange={handleChange}
               rows={4}
-              className="text-black border border-gray-400 px-4 py-2 rounded-md w-full max-w-lg focus:outline-none focus:border-blue-500 "
+              className="text-black border border-gray-400 px-4 py-2 rounded-md w-full max-w-lg focus:outline-none focus:border-blue-500"
             ></textarea>
+
+            <button
+              className="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out"
+              onClick={handleSubmit}
+            >
+              გაგზავნა
+            </button>
           </div>
-          <button
-            className="bg-blue-500 text-black px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out t"
-            onClick={handleSubmit}
-          >
-            გაგზავნა
-          </button>
         </div>
+      </div>
+
+      <div className="relative">
+        <a
+          href="https://maps.app.goo.gl/PMAB4hURfW5wdeH87"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={Mapscreen} alt="Map" className="w-full" />
+          <img
+            src={Mappin}
+            alt="Mappin"
+            className="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2 ml-14"
+          />
+        </a>
       </div>
     </motion.div>
   );
