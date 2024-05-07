@@ -14,7 +14,7 @@ export default function RoomDetails() {
   }, [roomId]);
 
   if (!roomDetails) {
-    return <div>Loading...</div>; // Show loading message while fetching data
+    return <div>Loading...</div>; 
   }
 
   return (

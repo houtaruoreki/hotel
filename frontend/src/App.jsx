@@ -4,11 +4,11 @@ import AnimatedRoutes from "./components/AnimatedRoutes";
 
 function App() {
   return (
-    <>
+    <div className="h-screen overflow-y-scroll scrollbar scrollbar-thumb-buttonColor scrollbar-track-mwvane">
       <Router>
         <AnimatedRoutes />
       </Router>
-    </>
+    </div>
   );
 }
 

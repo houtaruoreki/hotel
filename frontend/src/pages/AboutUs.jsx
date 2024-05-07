@@ -5,14 +5,14 @@ import trevorProfile from "/Images/unsplash_6anudmpILw4.svg";
 import { motion } from "framer-motion";
 
 export default function AboutUs() {
-  const [rating, setRating] = useState(0); // State to hold the rating
+  const [rating, setRating] = useState(0); 
 
   // Function to handle clicking on a star to set the rating
   const handleRating = (value) => {
     setRating(value);
   };
 
-  // Sample user profiles data
+  
   const userProfiles = [
     {
       id: 1,

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import RoomDetails from "../components/RoomDetails"; // Import the RoomDetails component
-import RoomsList from "../components/RoomsList"; // Import the RoomsList component
+import RoomDetails from "../components/RoomDetails";
+import RoomsList from "../components/RoomsList"; 
 import { motion } from "framer-motion";
 
 export default function Rooms() {
@@ -23,7 +23,7 @@ export default function Rooms() {
     console.log("Check-in Date:", checkInDate);
     console.log("Check-out Date:", checkOutDate);
     console.log("Guests Count:", guestsCount);
-    // You can add further logic here, like sending form data to backend
+  
   };
 
   return (
@@ -34,7 +34,7 @@ export default function Rooms() {
       exit={{ opacity: 0 }}
     >
       <div className="flex flex-col justify-center items-center h-full mb-1">
-        {/* Your existing JSX */}
+     
       </div>
 
       {/* Form section */}
@@ -45,7 +45,7 @@ export default function Rooms() {
           onChange={(e) => setCheckInDate(e.target.value)}
         >
           <option value="">შემოსვლის თარიღი</option>
-          {/* Add options dynamically if needed */}
+      
         </select>
 
         <select
@@ -54,7 +54,7 @@ export default function Rooms() {
           onChange={(e) => setCheckOutDate(e.target.value)}
         >
           <option value="">გასვლის თარიღი</option>
-          {/* Add options dynamically if needed */}
+        
         </select>
 
         <input
@@ -65,9 +65,10 @@ export default function Rooms() {
           onChange={(e) => setGuestsCount(e.target.value)}
         />
 
-        <button
+        <button 
+          onClick={handleSubmit}
           type="submit"
-          className="flex-1 border border-gray-800 px-4 py-2 text-gray-800 rounded-md hover:bg-gray-800 hover:text-white transition duration-300 ease-in-out"
+          className="flex-1 border border-gray-800 px-4 py-2 bg-buttonColor font-bold text-black rounded-md hover:bg-mwvane transition duration-300 ease-in-out"
         >
           შეამოწმე
         </button>
