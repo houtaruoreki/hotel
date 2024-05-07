@@ -22,17 +22,34 @@ This repository contains a Django project with setup scripts for Windows and Uni
     cd hotel
     ```
 
- 3. **For Windows:**
+3. **For Windows:**
 
-      - Open Command Prompt (cmd).
-      - Navigate to the `django-project` directory.
-      - Run the `run_backend.bat` script:
+    - Open Command Prompt (cmd).
+    - Navigate to the `hotel` directory.
+    - To run both backend and frontend, execute the `run_project.bat` script:
 
-        ```batch
-        run_backend.bat
-        ```
+    ```batch
+    run_project.bat
+    ```
 
-      This will activate the virtual environment, install dependencies, run database migrations, and start the Django server.
+    This will activate the virtual environment, install dependencies for both backend and frontend, run database migrations, and start both Django server and frontend server.
+
+    - To run only the backend, execute the `run_backend.bat` script:
+
+    ```batch
+    run_backend.bat
+    ```
+
+    This will activate the virtual environment, install dependencies, run database migrations, and start the Django server.
+
+    - To run only the frontend, execute the `run_frontend.bat` script:
+
+    ```batch
+    run_frontend.bat
+    ```
+
+    This will change directory to the frontend folder, check if Vite is installed, install it if necessary, and start the Vite server.
+
       
 4. **For Unix-like Systems (macOS, Linux):**
 
