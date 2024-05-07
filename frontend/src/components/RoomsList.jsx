@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
-const RoomsList = ({ handleButtonClick }) => {
+const RoomsList = () => {
   const [roomsData, setRoomsData] = useState([]);
+  const fetchRoomsData = async () => {
+    const res = await fetch("http://127.0.0.1:8000/rooms");
+    const data = await res.json();
+    setRoomsData(data);
+  };
 
   useEffect(() => {
-    axios
-      .get(import.meta.env.VITE_REACT_APP_API_URL + "/rooms/")
-      .then((response) => setRoomsData(response.data))
-      .catch((error) => console.error("Error fetching rooms:", error));
+    fetchRoomsData();
   }, []);
 
   return (
@@ -16,8 +18,9 @@ const RoomsList = ({ handleButtonClick }) => {
       {roomsData.slice(0, 6).map((room) => (
         <div
           key={room.id}
-          className="flex flex-col items-start p-4 bg-white border-2 border-gray-800 rounded-lg"
+          className="flex flex-col items-start p-4 bg-white border-2 border-[#2D3648] rounded-lg"
         >
+          <div className="w-full bg-black h-[150px]">1</div>
           <p className="text-lg font-semibold mb-2 text-gray-600">
             Room {room.number}
           </p>
@@ -28,12 +31,11 @@ const RoomsList = ({ handleButtonClick }) => {
           <p className="text-gray-600">
             {room.is_cottage ? "Cottage" : "Not Cottage"}
           </p>
-          <button
-            className="border border-gray-800 px-4 py-2 mt-2 text-gray-800 rounded-md hover:bg-gray-800 hover:text-white transition duration-300 ease-in-out"
-            onClick={() => handleButtonClick(room.id)}
-          >
-            Details
-          </button>
+          <Link to={`/Rooms/${room.id}`}>
+            <button className="border border-gray-800 px-4 py-2 mt-2 text-gray-800 rounded-md hover:bg-gray-800 hover:text-white transition duration-300 ease-in-out">
+              Details
+            </button>
+          </Link>
         </div>
       ))}
     </div>

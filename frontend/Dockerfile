@@ -1,8 +1,14 @@
-FROM node:alpine
+FROM node:15.8.0-alpine
 
-WORKDIR /app
+
+WORKDIR /usr/src/app
+
+COPY ./package.json .
+COPY ./package-lock.json .
+
+RUN npm install -g serve
+RUN npm install
+
 COPY . .
 
-
-COPY ./entrypoint.sh .
-ENTRYPOINT ["sh", "/app/entrypoint.sh"]
+RUN npm run build

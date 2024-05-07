@@ -1,24 +1,19 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import cover from "/Images/cover.jpeg";
+import React from "react";
+import Header from "../components/Header";
+import { Outlet } from "react-router-dom";
+import Footer from "../components/Footer";
+import { motion } from "framer-motion";
 
-function Layout() {
-
+export default function Layout() {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <Header />
-
-      <main>
-        <Outlet />
-      </main>
+      <Outlet />
       <Footer />
-    </>
+    </motion.div>
   );
 }
-
-export default Layout;

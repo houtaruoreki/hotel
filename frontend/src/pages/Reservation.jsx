@@ -1,21 +1,17 @@
 import React from "react";
-import RoomsList from "../components/RoomsList"; 
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-
-const handleButtonClick = (roomId) => {
-  setSelectedRoomId(roomId);
-  console.log("details is clicked");
-};
+import RoomsList from "../components/RoomsList"; // Import the RoomsList component
+import { motion } from "framer-motion";
 
 export default function Reservation() {
   return (
-    <div className="wrapper flex flex-col min-h-screen">
-      <Header></Header>
-      <div className="flex-grow bg-mwvane text-white p-10">
-      
+    <motion.div
+      className="bg-mwvane text-white p-10"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <h2 className="text-2xl flex justify-center mb-4">დაჯავშნე</h2>
-      <p >
+      <p>
         თქვენი საოცნებო ადგილის დაჯავშნა არასოდეს ყოფილა ადვილი ჩვენი დაჯავშნის
         გამარტივებული პროცესით. უბრალოდ შეავსეთ ჩვენი მომხმარებლისთვის
         მოსახერხებელი დაჯავშნის ფორმა, რათა უზრუნველყოთ სასურველი საცხოვრებელი
@@ -123,15 +119,20 @@ export default function Reservation() {
           </div>
         </div>
       </div>
-      <div className="flex justify-start">
-        <p className="text-2xl">ოთახები</p>
-      </div>
-      <div className="flex justify-center my-8">
-        <hr className="w-full border-white" />
-      </div>
-    </div>
-    <Footer></Footer>
-    </div>
+      <h2 className="text-2xl font-semibold mt-8 mb-4">ოთახები</h2>
+        <div className="border-b-2 border-[#bbfbcb] mb-10"></div>
+        <div className="overflow-x-auto flex">
+          {[...Array(4)].map((_, index) => (
+            <img
+              key={index}
+              src={`https://via.placeholder.com/400x300?text=Rooms+Photo+${
+                index + 1
+              }`}
+              alt={`Room Photo ${index + 1}`}
+              className="w-1/4 rounded-lg mr-4"
+            />
+          ))}
+        </div>
+    </motion.div>
   );
 }
-

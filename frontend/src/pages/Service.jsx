@@ -1,14 +1,16 @@
 import React from "react";
-import ServicesList from "../components/ServicesList";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { motion } from "framer-motion";
 
 export default function Service() {
   return (
-    <div className="wrapper flex flex-col min-h-screen">
-      <Header></Header>
-      <div className="flex-grow bg-mwvane text-white p-10">
-        <div className="flex flex-col justify-center items-center h-full mb-1">
+    <motion.div
+      className="bg-mwvane text-white p-10"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      {/* Existing content */}
+      <div className="flex justify-center items-center flex-col mb-8">
         <h2 className="text-2xl font-bold mb-4">სერვისები</h2>
       </div>
       <div className="max-w-7xl mx-auto">
@@ -73,11 +75,6 @@ export default function Service() {
           ))}
         </div>
       </div>
-
-      <ServicesList></ServicesList>
-    </div>
-        <Footer></Footer>
-    </div>
+    </motion.div>
   );
 }
-
