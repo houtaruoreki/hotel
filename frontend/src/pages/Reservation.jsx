@@ -56,7 +56,7 @@ export default function Reservation() {
                 <option value="1">+1</option>
                 <option value="44">+44</option>
                 <option value="995">+995</option>
-                {/* Add more options as needed */}
+               
               </select>
               <input
                 type="tel"
@@ -101,7 +101,7 @@ export default function Reservation() {
               <option value="standard">სტანდარტული</option>
               <option value="suite">სუიტი</option>
               <option value="deluxe">დელუქსი</option>
-              {/* Add more options as needed */}
+        
             </select>
           </div>
           <div className="mb-4 col-span-2">
@@ -113,7 +113,7 @@ export default function Reservation() {
             ></textarea>
           </div>
           <div className="mb-4 col-span-3">
-            <button className="bg-buttonColor text-buttonText px-6 py-3 rounded-md hover:bg-black transition duration-300 ease-in-out w-full">
+            <button className="bg-buttonColor text-black font-bold  px-6 py-3 rounded-md hover:bg-mwvane transition duration-300 ease-in-out w-full">
               დაჯავშნე ოთახი
             </button>
           </div>

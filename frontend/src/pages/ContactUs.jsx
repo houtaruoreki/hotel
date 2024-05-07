@@ -30,7 +30,7 @@ export default function ContactUs() {
       rating: "",
       comment: "",
     });
-    // You can add your logic to submit the form data or perform other actions here
+  
   };
 
   return (
@@ -108,7 +108,7 @@ export default function ContactUs() {
             ></textarea>
 
             <button
-              className="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out"
+              className="bg-buttonColor text-black px-6 py-3 font-bold rounded-md hover:bg-mwvane transition duration-300 ease-in-out"
               onClick={handleSubmit}
             >
               გაგზავნა
