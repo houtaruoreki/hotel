@@ -2,6 +2,7 @@ from rest_framework import viewsets, permissions, generics, mixins
 from . import models, serializers
 from rest_framework.response import Response
 
+
 class PermissionMixin:
     def get_permissions(self):
         if self.action in ['create', 'update', 'partial_update', 'destroy']:
@@ -23,13 +24,13 @@ class BookingViewSet(PermissionMixin,viewsets.ModelViewSet):
     queryset = models.Booking.objects.all()
     serializer_class = serializers.BookingSerializer
 
-class MessageViewSet(PermissionMixin,mixins.ListModelMixin,
+class ReviewViewSet(PermissionMixin,mixins.ListModelMixin,
                      mixins.RetrieveModelMixin,
                     mixins.CreateModelMixin,
                     mixins.DestroyModelMixin,
                     viewsets.GenericViewSet):
-    queryset = Message.objects.all()
-    serializer_class = MessageSerializer
+    queryset = models.Review.objects.all()
+    serializer_class = serializers.ReviewSerializer
 
 class AvailableRoomListView(generics.ListAPIView):
     serializer_class = serializers.RoomSerializer
