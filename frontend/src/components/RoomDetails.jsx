@@ -32,17 +32,17 @@ export default function RoomDetails() {
       <div className="flex mt-[100px] gap-[85px]">
         <div className="w-[648px] h-[503px] bg-gray-500">1</div>
         <div>
-          <h2 className="title">{roomDetails.number}</h2>
-          <p>
+          <h2 className="text-xl text-white font-bold mt-5">{roomDetails.number}</h2>
+          <p className="text-l text-[#D9D9D9] font-normal mt-4">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus
             tellus arcu sit nibh consectetur.
           </p>
-          <h2 className="title">აღწერა</h2>
-          <p>{roomDetails.description}</p>
-          <h2>სტატუსი </h2>
-          <p>{roomDetails.status ? "დაკავაებულია" : "თავისუფალია"}</p>
-          <h2>სტუმრების რაოდენობა</h2>
-          <p>ერთი</p>
+          <h2 className="text-xl text-white font-bold mt-5">აღწერა</h2>
+          <p className="text-l text-[#D9D9D9] font-normal mt-4">{roomDetails.description}</p>
+          <h2 className="text-xl text-white font-bold mt-5">სტატუსი </h2>
+          <p className="text-l text-[#D9D9D9] font-normal mt-4">{roomDetails.status ? "დაკავაებულია" : "თავისუფალია"}</p>
+          <h2 className="text-xl text-white font-bold mt-5">სტუმრების რაოდენობა</h2>
+          <p className="text-l text-[#D9D9D9] font-normal mt-4">ერთი</p>
         </div>
       </div>
     </div>
