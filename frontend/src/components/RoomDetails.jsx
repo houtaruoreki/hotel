@@ -18,7 +18,7 @@ export default function RoomDetails() {
   }
 
   return (
-    <div className="bg-mwvane px-16">
+    <div className="bg-mwvane px-16 pb-5">
       <div className="text-center">
         <h2 className="text-white text-2xl font-bold pt-[96px]">
           ოთახის დეტალები
@@ -32,13 +32,17 @@ export default function RoomDetails() {
       <div className="flex mt-[100px] gap-[85px]">
         <div className="w-[648px] h-[503px] bg-gray-500">1</div>
         <div>
-          <h2>{roomDetails.number}</h2>
+          <h2 className="title">{roomDetails.number}</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus
             tellus arcu sit nibh consectetur.
           </p>
-          <h2>აღწერა: {roomDetails.description}</h2>
-          <p>სტატუსი: {roomDetails.status ? "დაკავაებულია" : "თავისუფალია"}</p>
+          <h2 className="title">აღწერა</h2>
+          <p>{roomDetails.description}</p>
+          <h2>სტატუსი </h2>
+          <p>{roomDetails.status ? "დაკავაებულია" : "თავისუფალია"}</p>
+          <h2>სტუმრების რაოდენობა</h2>
+          <p>ერთი</p>
         </div>
       </div>
     </div>
