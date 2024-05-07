@@ -45,6 +45,8 @@ class RoomSerializer(serializers.ModelSerializer):
         model = Room
         fields = ['id', 'number']  
 
+from django.utils import timezone
+
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
@@ -54,28 +56,30 @@ class BookingSerializer(serializers.ModelSerializer):
         room = validated_data['room']
         checkin_new = validated_data['checkin_time']
         checkout_new = validated_data['checkout_time']
-        if room and room.status != 1:
-            booking = Booking.objects.filter(room=room).order_by('-id')[0]
-            if checkin_new >= booking.checkin_time:
-                if checkout_new > booking.checkout_time:
-                    overlap = f"{checkin_new} - {booking.checkout_time}"
-                    available = f"{booking.checkout_time} - {checkout_new}"
-                    raise serializers.ValidationError({'overlap': overlap,
-                                                       'available': available})
-                else:
-                    raise serializers.ValidationError("Room is not available in that period")
+
+        # Check if the room is available for the specified time period
+        overlapping_bookings = Booking.objects.filter(room=room, 
+                                                      checkin_time__lt=checkout_new, 
+                                                      checkout_time__gt=checkin_new)
+        if overlapping_bookings.exists():
+            overlapping_booking = overlapping_bookings.first()
+            overlap = f"{max(checkin_new, overlapping_booking.checkin_time)} - {min(checkout_new, overlapping_booking.checkout_time)}"
+            raise serializers.ValidationError({
+                "error":'The room is already booked',
+                'on this date': overlap
+            })
+
         return Booking.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
-        room = instance.room
-        status = validated_data['status']
+        status = validated_data.get('status')
         if status == 'confirmed':
+            room = instance.room
             room.status = 0
             room.save()
         elif status == 'canceled':
             instance.delete()
         return super().update(instance, validated_data)
-
 
 class BookingListSerializer(serializers.ListSerializer):
     class Meta:
