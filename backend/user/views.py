@@ -10,27 +10,25 @@ class UserRegisterView(generics.CreateAPIView):
     permission_classes = [AllowAny]
 
 
-class BaseMessageMixin:
+
+class MessageView(generics.CreateAPIView):
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
+    permission_classes = [AllowAny]
 
-
-class PermissionMixin:
+class MessageDetailView( generics.RetrieveAPIView):
+    queryset = Message.objects.all()
+    serializer_class = MessageSerializer
     permission_classes = [IsAdminUser]
 
 
-class MessageView(BaseMessageMixin, generics.CreateAPIView):
-    pass
+class MessageListView( generics.ListAPIView):
+    queryset = Message.objects.all()
+    serializer_class = MessageSerializer
+    permission_classes = [IsAdminUser]
 
-
-class MessageDetailView(BaseMessageMixin, generics.RetrieveAPIView):
-    pass
-
-
-class MessageListView(BaseMessageMixin, generics.ListAPIView):
-    pass
-
-
-class MessageDeleteView(PermissionMixin, BaseMessageMixin, generics.DestroyAPIView):
-    pass
+class MessageDeleteView(generics.DestroyAPIView):
+    queryset = Message.objects.all()
+    serializer_class = MessageSerializer
+    permission_classes = [IsAdminUser]
 
