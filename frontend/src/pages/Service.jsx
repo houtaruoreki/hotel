@@ -42,7 +42,7 @@ export default function Service() {
           თვალწარმტაცი ხედებით, რომლებიც ამაღლებს თქვენს სასადილო გამოცდილებას
           ახალ სიმაღლეებზე.
         </p>
-        <div className="overflow-x-auto flex scrollbar scrollbar-thumb-green-200">
+        <div className="overflow-x-auto flex scrollbar">
           {[...Array(4)].map((_, index) => (
             <img
               key={index}
@@ -65,7 +65,7 @@ export default function Service() {
           დაწყებული გარე აქტივობებით დამთავრებული, ყველასთვის არის რაღაც
           სიამოვნება
         </p>
-        <div className="overflow-x-auto flex scrollbar scrollbar-thumb-green-200">
+        <div className="overflow-x-auto flex scrollbar">
           {[...Array(4)].map((_, index) => (
             <img
               key={index}

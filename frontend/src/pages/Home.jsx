@@ -124,7 +124,7 @@ export default function Home() {
         ყველას ნახვა
       </Link>
 
-      <div className="overflow-x-auto flex scrollbar scrollbar-thumb-green-200 ">
+      <div className="overflow-x-auto flex scrollbar ">
         {photoArr.map((image, index) => (
           <img
             key={index}
