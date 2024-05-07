@@ -3,8 +3,6 @@ import RoomsList from "../components/RoomsList";
 import coffee from "/Images/icon-coffee.png";
 import loader from "/Images/icon-loader.png";
 import dribble from "/Images/icon-dribbble.png";
-import vectorL from "/Images/vector-left.png";
-import vectorR from "/Images/vector-right.png";
 import contactMail from "/Images/icon-mail.svg";
 import phone from "/Images/icon-phone.png";
 import map from "/Images/icon-map-pin.png";
@@ -126,7 +124,7 @@ export default function Home() {
         ყველას ნახვა
       </Link>
 
-      <div className="overflow-x-auto flex">
+      <div className="overflow-x-auto flex scrollbar scrollbar-thumb-green-200 ">
         {photoArr.map((image, index) => (
           <img
             key={index}
@@ -135,10 +133,6 @@ export default function Home() {
             className="w-1/4 rounded-lg mr-4"
           />
         ))}
-      </div>
-      <div className="flex gap-4 justify-end">
-        <img src={vectorL} alt="Air Icon" className="" />
-        <img src={vectorR} alt="Air Icon" className=" " />
       </div>
 
       <h2 className="text-2xl mb-4 mt-16">კონტაქტი</h2>

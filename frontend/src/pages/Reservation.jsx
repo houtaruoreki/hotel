@@ -121,7 +121,7 @@ export default function Reservation() {
       </div>
       <h2 className="text-2xl font-semibold mt-8 mb-4">ოთახები</h2>
         <div className="border-b-2 border-[#bbfbcb] mb-10"></div>
-        <div className="overflow-x-auto flex">
+        <div className="overflow-x-auto flex scrollbar scrollbar-thumb-green-200">
           {[...Array(4)].map((_, index) => (
             <img
               key={index}
