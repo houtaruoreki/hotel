@@ -19,6 +19,43 @@ run_migrations() {
     python manage.py makemigrations
     python manage.py migrate
 }
+#!/bin/bash
+
+
+activate_venv() {
+    if [ -f "backend/venv/bin/activate" ]; then
+        source backend/venv/bin/activate
+    else
+        echo "Virtual environment not found. Creating..."
+        python3 -m venv backend/venv
+        source backend/venv/bin/activate
+        echo "Installing dependencies..."
+        pip install -r backend/requirements.txt
+    fi
+}
+
+
+run_migrations() {
+    echo "Running migrations..."
+    python backend/manage.py makemigrations
+    python backend/manage.py migrate
+}
+
+
+run_server() {
+    echo "Starting Django server..."
+    python backend/manage.py runserver
+}
+
+
+main() {
+    activate_venv
+    run_migrations
+    run_server
+}
+
+
+main
 
 
 run_server() {

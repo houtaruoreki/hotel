@@ -2,6 +2,7 @@
 
 REM 
 :activate_venv
+cd backend
 if exist venv\Scripts\activate.bat (
     call venv\Scripts\activate.bat
 ) else (
