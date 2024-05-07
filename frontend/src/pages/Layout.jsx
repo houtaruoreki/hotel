@@ -1,16 +1,19 @@
 import React from "react";
 import Header from "../components/Header";
-import SimpleSlider from "../components/SimpleSlider";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
+import { motion } from "framer-motion";
 
 export default function Layout() {
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <Header />
-      <SimpleSlider />
       <Outlet />
       <Footer />
-    </div>
+    </motion.div>
   );
 }

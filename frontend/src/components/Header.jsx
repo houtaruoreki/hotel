@@ -8,7 +8,7 @@ import Navigation from "./Navigation";
 
 export default function Header() {
   const location = useLocation();
-  const id = location.pathname.replace('/', '');
+  const id = location.pathname.replace("/", "");
 
   const headerLinks = [
     { to: "/", label: "მთავარი" },
@@ -17,13 +17,18 @@ export default function Header() {
     { to: "/Reservation", label: "დაჯავშნა" },
     { to: "/Service", label: "სერვისი" },
     { to: "/Gallery", label: "გალერეა" },
-    { to: "/ContactUs", label: "კონტაქტი" }
+    { to: "/ContactUs", label: "კონტაქტი" },
   ];
 
   return (
     <header className="flex items-center px-16 justify-between bg-[#F2F9F1] w-full">
       <img src={Logo} alt="logo" className="w-[12%]" />
-      <Navigation links={headerLinks} activeLink={id === '' ? 0 : headerLinks.findIndex(link => link.to === '/' + id)} />
+      <Navigation
+        links={headerLinks}
+        activeLink={
+          id === "" ? 0 : headerLinks.findIndex((link) => link.to === "/" + id)
+        }
+      />
       <div className="flex">
         <Link>
           <img src={userIcon} alt="user icon" className="ml-8" />

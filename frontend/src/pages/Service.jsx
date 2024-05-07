@@ -1,8 +1,14 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function Service() {
   return (
-    <div className="bg-mwvane text-white p-10">
+    <motion.div
+      className="bg-mwvane text-white p-10"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       {/* Existing content */}
       <div className="flex justify-center items-center flex-col mb-8">
         <h2 className="text-2xl font-bold mb-4">სერვისები</h2>
@@ -69,6 +75,6 @@ export default function Service() {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

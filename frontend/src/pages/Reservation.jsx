@@ -1,16 +1,17 @@
 import React from "react";
 import RoomsList from "../components/RoomsList"; // Import the RoomsList component
-
-const handleButtonClick = (roomId) => {
-  setSelectedRoomId(roomId);
-  console.log("details is clicked");
-};
+import { motion } from "framer-motion";
 
 export default function Reservation() {
   return (
-    <div className="bg-mwvane text-white p-10">
+    <motion.div
+      className="bg-mwvane text-white p-10"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <h2 className="text-2xl flex justify-center mb-4">დაჯავშნე</h2>
-      <p >
+      <p>
         თქვენი საოცნებო ადგილის დაჯავშნა არასოდეს ყოფილა ადვილი ჩვენი დაჯავშნის
         გამარტივებული პროცესით. უბრალოდ შეავსეთ ჩვენი მომხმარებლისთვის
         მოსახერხებელი დაჯავშნის ფორმა, რათა უზრუნველყოთ სასურველი საცხოვრებელი
@@ -124,6 +125,6 @@ export default function Reservation() {
       <div className="flex justify-center my-8">
         <hr className="w-full border-white" />
       </div>
-    </div>
+    </motion.div>
   );
 }

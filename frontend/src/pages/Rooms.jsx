@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import RoomDetails from "../components/RoomDetails"; // Import the RoomDetails component
 import RoomsList from "../components/RoomsList"; // Import the RoomsList component
+import { motion } from "framer-motion";
 
 export default function Rooms() {
   const [selectedRoomId, setSelectedRoomId] = useState(null); // State to store the ID of the selected room
@@ -26,7 +27,12 @@ export default function Rooms() {
   };
 
   return (
-    <div className="bg-mwvane text-white p-10">
+    <motion.div
+      className="bg-mwvane text-white p-10"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <div className="flex flex-col justify-center items-center h-full mb-1">
         {/* Your existing JSX */}
       </div>
@@ -72,6 +78,6 @@ export default function Rooms() {
 
       {/* Render RoomDetails component if selectedRoomId is not null */}
       {selectedRoomId && <RoomDetails roomId={selectedRoomId} />}
-    </div>
+    </motion.div>
   );
 }

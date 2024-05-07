@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import jamesProfile from "/Images/unsplash_OhKElOkQ3RE.png";
 import gregProfile from "/Images/unsplash_WMD64tMfc4k.svg";
 import trevorProfile from "/Images/unsplash_6anudmpILw4.svg";
+import { motion } from "framer-motion";
 
 export default function AboutUs() {
   const [rating, setRating] = useState(0); // State to hold the rating
@@ -40,7 +41,10 @@ export default function AboutUs() {
   ];
 
   return (
-    <div className="bg-mwvane p-8">
+    <motion.div className="bg-mwvane p-8"
+    initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{opacity: 0}}>
       <h1 className="text-2xl font-bold text-center mt-16 text-white">
         ჩვენს შესახებ
       </h1>
@@ -150,6 +154,6 @@ export default function AboutUs() {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

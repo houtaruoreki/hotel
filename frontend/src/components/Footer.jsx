@@ -15,7 +15,7 @@ export default function Footer() {
     { to: "/Reservation", label: "დაჯავშნა" },
     { to: "/Service", label: "სერვისი" },
     { to: "/Gallery", label: "გალერეა" },
-    { to: "/ContactUs", label: "კონტაქტი" }
+    { to: "/ContactUs", label: "კონტაქტი" },
   ];
 
   return (
@@ -53,7 +53,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <Navigation links={footerLinks} activeLink={-1}   />
+        <Navigation links={footerLinks} activeLink={-1} />
       </div>
       <div className="flex  justify-center items-center gap-[19px]">
         <img className="w-5 h-5" src={copyright} alt="copyright icon" />
