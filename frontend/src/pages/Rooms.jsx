@@ -33,9 +33,18 @@ export default function Rooms() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="flex flex-col justify-center items-center h-full mb-1">
-     
+      
+      <div className="text-center mb-[5%]">
+        <h2 className="text-white text-2xl font-bold pt-[10px]">
+          ოთახები
+        </h2>
+        <p className="text-[#D9D9D9] mt-14 text-center text-xl font-light">
+          დატკბით დასვენებით და სტუმართმოყვარეობით ჩვენს ელეგანტურ ოთახებში.
+          ლამაზი ხედებითა და პრემიუმ კეთილმოწყობით, თქვენი დასვენება იქნება
+          არაჩვეულებრივი გამოცდილება
+        </p>
       </div>
+   
 
       {/* Form section */}
       <div className="flex flex-wrap justify-center items-center mb-4 max-w-screen mx-auto">

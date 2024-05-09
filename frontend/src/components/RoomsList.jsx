@@ -14,7 +14,7 @@ const RoomsList = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-3 gap-4 max-w-screen mx-auto">
+    <div className="grid grid-cols-3 gap-20 max-w-screen mx-[7%] my-[5%]">
       {roomsData.slice(0, 6).map((room) => (
         <div
           key={room.id}
@@ -32,7 +32,7 @@ const RoomsList = () => {
             {room.is_cottage ? "Cottage" : "Not Cottage"}
           </p>
           <Link to={`/Rooms/${room.id}`}>
-            <button className="border border-gray-800 px-4 py-2 mt-2 text-gray-800 rounded-md hover:bg-gray-800 hover:text-white transition duration-300 ease-in-out">
+            <button className="border border-gray-800 px-4 py-2 mt-2 text-black font-semibold bg-buttonColor rounded-md hover:bg-mwvane  transition duration-300 ease-in-out">
               Details
             </button>
           </Link>
