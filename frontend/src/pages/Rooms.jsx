@@ -28,60 +28,62 @@ export default function Rooms() {
 
   return (
     <motion.div
-      className="bg-mwvane text-white p-10"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      className="bg-white px-10"
     >
-      
       <div className="text-center mb-[5%]">
-        <h2 className="text-white text-2xl font-bold pt-[10px]">
+        <h2 className="text-mwvane text-2xl font-bold pt-20">
           ოთახები
         </h2>
-        <p className="text-[#D9D9D9] mt-14 text-center text-xl font-light">
+        <p className="text-black mt-14 text-center text-xl font-light">
           დატკბით დასვენებით და სტუმართმოყვარეობით ჩვენს ელეგანტურ ოთახებში.
           ლამაზი ხედებითა და პრემიუმ კეთილმოწყობით, თქვენი დასვენება იქნება
           არაჩვეულებრივი გამოცდილება
         </p>
       </div>
-   
-
-      {/* Form section */}
-      <div className="flex flex-wrap justify-center items-center mb-4 max-w-screen mx-auto">
-        <select
-          className="w-full text-black border border-gray-400 px-4 py-2 rounded-md mr-2 mb-2 md:mb-0 md:mr-4 md:flex-1 md:w-1/4 lg:w-auto focus:outline-none focus:border-blue-500"
-          value={checkInDate}
-          onChange={(e) => setCheckInDate(e.target.value)}
-        >
-          <option value="">შემოსვლის თარიღი</option>
-      
-        </select>
-
-        <select
-          className="w-full text-black border border-gray-400 px-4 py-2 rounded-md mr-2 mb-2 md:mb-0 md:mr-4 md:flex-1 md:w-1/4 lg:w-auto focus:outline-none focus:border-blue-500"
-          value={checkOutDate}
-          onChange={(e) => setCheckOutDate(e.target.value)}
-        >
-          <option value="">გასვლის თარიღი</option>
-        
-        </select>
-
-        <input
-          type="number"
-          className="w-full text-black border border-gray-400 px-4 py-2 rounded-md mr-2 mb-2 md:mb-0 md:mr-4 md:flex-1 md:w-1/4 lg:w-auto focus:outline-none focus:border-blue-500"
-          placeholder="სტუმრების რაოდენობა"
-          value={guestsCount}
-          onChange={(e) => setGuestsCount(e.target.value)}
-        />
-
-        <button 
-          onClick={handleSubmit}
+      <form onSubmit={handleSubmit} className="flex flex-wrap justify-center gap-4  items-center mb-4 max-w-screen">
+        <div className="flex flex-grow mr-4 mb-2">
+          
+          {/* <div  className="flex flex-col"> */}
+            {/* <label htmlFor="entry-date" className="date-label">შესვლის თარიღი</label> */}
+          <input
+            className="w-full text-black border border-gray-400 px-4 py-2 rounded-md focus:outline-none focus:border-blue-500"
+            placeholder="Date"
+            type="date"
+           
+            
+          />
+          {/* </div> */}
+        </div>
+        <div className="flex flex-grow mr-4 mb-2">
+        {/* <div  className="flex flex-col"> */}
+          {/* <label htmlFor="checkout-date" className="date-label">გამოსვლის თარიღი</label> */}
+          <input
+            className="w-full text-black border border-gray-400 px-4 py-2 rounded-md focus:outline-none focus:border-blue-500"
+            type="date"
+            id="checkout-date"
+            value={checkOutDate}
+            onChange={(e) => setCheckOutDate(e.target.value)}
+          />
+          {/* </div> */}
+        </div>
+        <div className="flex flex-grow mr-4 mb-2">
+          {/* <label htmlFor="guests-count" className="date-label">სტუმრების რაოდენობა</label> */}
+          <input
+            className="w-full text-black border border-gray-400 px-4 py-2 rounded-md focus:outline-none focus:border-blue-500"
+            type="number"
+            id="guests-count"
+            placeholder="სტუმრების რაოდენობა"
+            value={guestsCount}
+            onChange={(e) => setGuestsCount(e.target.value)}
+          />
+        </div>
+        <button
           type="submit"
-          className="flex-1 border border-gray-800 px-4 py-2 bg-buttonColor font-bold text-black rounded-md hover:bg-mwvane transition duration-300 ease-in-out"
+          className="border border-gray-800 px-20 py-4 bg-buttonColor font-bold text-black rounded-md hover:bg-mwvane transition duration-300 ease-in-out"
         >
           შეამოწმე
         </button>
-      </div>
+      </form>
 
       {/* Rooms section */}
       <RoomsList handleButtonClick={handleButtonClick} />
