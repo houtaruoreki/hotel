@@ -18,7 +18,7 @@ export default function RoomDetails() {
   }
 
   return (
-    <div className="bg-mwvane px-16 pb-5">
+    <div className="bg-white px-16 pb-5">
       <div className="text-center">
         <h2 className="text-white text-2xl font-bold pt-[96px]">
           ოთახის დეტალები

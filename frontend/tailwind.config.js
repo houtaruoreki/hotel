@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily:{
+        customFont: ['"Helvetica"', "Arial", "sans-serif"],
+      },
       colors: {
         mwvane: "#227B5D",
         buttonColor: "#A8EBBD",

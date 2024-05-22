@@ -7,7 +7,7 @@ import airIcon from "/Images/air.png";
 export default function Service() {
   return (
     <motion.div
-      className="bg-mwvane text-white p-10"
+      className="bg-white text-white p-10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

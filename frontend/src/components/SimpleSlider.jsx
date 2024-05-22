@@ -39,15 +39,15 @@ export default function SimpleSlider() {
   );
 
   return (
-    <div className="relative overflow-x-hidden">
+    <div className="relative overflow-x-hidden h-full">
       <Slider ref={sliderRef} {...settings}>
-        <div className="relative">
-          <img src={springImage} alt="spring" className="w-full" />
+        <div className=" ">
+          <img src={springImage} alt="spring" className="h-1/2 w-full object-fit" />
         </div>
-        <div className="relative">
+        <div className="">
           <img src={autumnImage} alt="autumn" className="w-full" />
         </div>
-        <div className="relative">
+        <div className="">
           <img src={winterImage} alt="winter" className="w-full" />
         </div>
       </Slider>

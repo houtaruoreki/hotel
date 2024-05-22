@@ -21,7 +21,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="flex items-center px-16 justify-between bg-[#F2F9F1] w-full">
+    <header className="flex items-center px-8 justify-between bg-mwvane w-full">
       <img src={Logo} alt="logo" className="w-[12%]" />
       <Navigation
         links={headerLinks}

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function Gallery() {
   return (
     <motion.div
-      className="bg-mwvane p-10 text-[#bbfbcb] "
+      className="bg-white p-10 text-[#bbfbcb] "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
