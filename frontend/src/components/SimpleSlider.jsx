@@ -45,10 +45,10 @@ export default function SimpleSlider() {
           <img src={springImage} alt="spring" className="h-1/2 w-full object-fit" />
         </div>
         <div className="">
-          <img src={autumnImage} alt="autumn" className="w-full" />
+          <img src={autumnImage} alt="autumn" className="w-full w-full object-fit" />
         </div>
         <div className="">
-          <img src={winterImage} alt="winter" className="w-full" />
+          <img src={winterImage} alt="winter" className="w-full w-full object-fit" />
         </div>
       </Slider>
       {slideContent}

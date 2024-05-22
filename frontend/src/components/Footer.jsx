@@ -20,13 +20,12 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-mwvane p-5 flex flex-col justify-between items-center gap-10 text-white">
-      <div className="flex  justify-start items-center gap-28 p-0 ">
+      <div className="flex  justify-start items-center gap-20 p-0 ">
         <div className="flex flex-col justify-start items-start p-0 gap-[25px] ">
           <span className=" text-3xl font-bold leading-[0.75] tracking-wide ">
             სასტუმროს შესახებ
           </span>
-          <p className="text-[15px]">
-            {" "}
+          <p className="text-base">
             კეთილი იყოს თქვენი მობრძანება ჩვენს საოჯახო სასტუმროში, სადაც
             სტუმართმოყვარეობა ხვდება სიმშვიდეს. კომფორტული საცხოვრებლით,
             თანამედროვე კეთილმოწყობითა და პერსონალური სერვისით, ჩვენ ვცდილობთ,

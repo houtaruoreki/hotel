@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Navigation({ links, activeLink }) {
   return (
-    <div className="flex  flex-wrap  gap-10 text-2xl font-customFont">
+    <div className="flex  flex-wrap  gap-5 text-2xl font-seriff">
       {links.map((link, index) => (
         <Link
           key={index}

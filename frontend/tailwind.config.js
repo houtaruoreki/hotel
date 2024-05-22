@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily:{
-        customFont: ['"Helvetica"', "Arial", "sans-serif"],
+        sans: ["Helvetica", "sans-serif"],
       },
       colors: {
         mwvane: "#227B5D",

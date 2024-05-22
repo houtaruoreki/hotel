@@ -16,6 +16,7 @@ import snowImage from "/Images/image 11.png";
 import snowmanImage from "/Images/image 12.png";
 import { motion } from "framer-motion";
 import SimpleSlider from "../components/SimpleSlider";
+import { MdCoffee, MdDinnerDining, MdEmail, MdLandscape, MdLocalPhone, MdLocationPin} from "react-icons/md";
 
 export default function Home() {
   const photoArr = [flowersImage, foodImage, snowImage, snowmanImage];
@@ -25,32 +26,32 @@ export default function Home() {
   >
       <SimpleSlider/>
       <div className="">
-        <h3 className="text-2xl font-bold text-white">
+        <h3 className="text-2xl font-bold text-black mt-20">
           კეთილი იყოს მობრძანება ჩვენს სასტუმრო სახლში
         </h3>
-        <p className="text-[#F7F7F7] text-xl font-light mt-6">
+        <p className="text-slate-400 text-xl font-light mt-6">
           ჩოხატაურის მშვიდი სილამაზის შუაგულში, ულამაზეს სოფელ ჩხოკურაში, ჩვენი
           <br />
           სასტუმრო სახლი გთავაზობთ მშვიდ დასვენებას
         </p>
       </div>
       <div className="mt-16">
-        <h2 className="text-2xl font-bold uppercase">ოთახები</h2>
+        <h2 className="text-2xl font-bold uppercase text-mwvane">ოთახები</h2>
         <RoomsList />
       </div>
       <div>
         <h2 className="text-2xl text-mwvane font-bold mt-[140px]">სერვისები</h2>
-        <p className="mt-9 text-center text-xl font-light">
+        <p className="mt-9 text-center text-xl text-black font-light">
           გამოიცადეთ თქვენს საჭიროებებზე მორგებული განსაკუთრებული სერვისი. ჩვენ
           მზად ვართ
           <br /> უზრუნველვყოთ თქვენი კომფორტი და კმაყოფილება
         </p>
       </div>
 
-      <div className="flex  justify-center gap-32 flex-col text-center mt-[117px]">
+      <div className="flex  justify-center gap-32 flex-col text-center mt-32">
         <div className="flex justify-around items-center">
           <div className="items-center flex flex-col justify-center gap-4 mr-8 text-black">
-            <img src={loader} alt="Sun Icon" className="object-contain invert" />
+            <MdLandscape className="h-10 w-10"/> 
             <p className="text-2xl font-bold text-black uppercase">
               ლამაზი ხედი
             </p>
@@ -60,7 +61,7 @@ export default function Home() {
             </p>
           </div>
           <div className="items-center flex flex-col justify-center gap-4 mr-8 text-black">
-            <img src={coffee} alt="Home Icon" className="w-10 h-10 mr-2 object-contain invert" />
+            <MdDinnerDining className="h-10 w-10"/>
             <p className="text-2xl font-bold text-black uppercase">საუზმე</p>
             <p className="text-center text-base  tracking-tighter w-[266px] font-sans">
               დატკბით სასიამოვნო საუზმით, რაც უზრუნველყოფს თქვენი დილის გემრიელ
@@ -77,42 +78,10 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="flex justify-around items-center">
-          <div className="items-center flex flex-col justify-center gap-4 mr-8 ">
-            <img src={sunIcon} alt="Sun Icon" className="w-10 h-10 mr-2 " />
-            <p className="text-xl font-bold text-[#BBFBCB] uppercase">
-              ნაბეღლავის წყლების <br /> დათვალიერება
-            </p>
-            <p className="text-center text-base font-normal tracking-tighter w-[266px]">
-              ისიამოვნეთ ჩვენი უფასო WiFi სერვისით, რაც საშუალებას მოგცემთ იყოთ
-              ხელმისაწვდომი
-            </p>
-          </div>
-          <div className="items-center flex flex-col justify-center gap-4 mr-8 ">
-            <img src={homeIcon} alt="Home Icon" className="w-10 h-10 mr-2" />
-            <p className="text-xl font-bold text-[#BBFBCB] uppercase">
-              ნოდარ დუმბაძის <br /> სახლ-მუზეუმის ტური
-            </p>
-            <p className="text-center text-base font-normal tracking-tighter w-[266px]">
-              ადმინისტრაცია გაგიწევთ დახმარებასა და მხარდაჭერას, როცა
-              დაგჭირდებათ
-            </p>
-          </div>
-          <div className="items-center flex flex-col justify-center gap-4 mr-8 ">
-            <img src={airIcon} alt="Air Icon" className="w-10 h-10 mr-2 " />
-            <p className="text-xl font-bold text-[#BBFBCB] uppercase">
-              ლაშქრობა
-            </p>
-            <p className="text-center text-base font-normal tracking-tighter w-[266px]">
-              მიიღეთ დამატებითი სერვისები, რომელიც შექმნილია თქვენი ყველა
-              საჭიროების დასაკმაყოფილებლად."
-            </p>
-          </div>
-        </div>
       </div>
 
-      <h2 className="text-2xl font-bold uppercase mt-32">გალერეა</h2>
-      <p className="mt-10 text-center text-xl font-light">
+      <h2 className="text-2xl text-mwvane font-bold uppercase mt-32">გალერეა</h2>
+      <p className="mt-10 text-center text-black text-xl font-light">
         დაათვალიერეთ ჩვენი გალერეა და იხილეთ ჩვენი სასტუმრო სახლის სილამაზე.
         ელეგანტური <br /> ინტერიერიდან მომხიბვლელ გარემოებამდე, თითოეული სურათი
         მოგვითხრობს სიმშვიდისა და <br /> სტუმართმოყვარეობის ისტორიას."
@@ -132,15 +101,15 @@ export default function Home() {
         ))}
       </div>
     
-      <h2 className="text-2xl mb-4 mt-16">კონტაქტი</h2>
-      <p className="mb-8">
+      <h2 className="text-2xl mb-4 mt-16 text-mwvane font-bold">კონტაქტი</h2>
+      <p className="mb-8 text-black text-xl">
         გაქვთ შეკითხვა ან გჭირდებათ დახმარება დაგვიკავშირდით!
       </p>
 
       <div className="flex justify-center">
       <div className="mb-10 flex gap-10 ">
         <div className=" border-mwvane border flex flex-col items-center p-3 shadow-2xl text-black">
-          <img src={contactMail} className="w-[15%] invert"/>
+          <MdEmail className="h-10 w-10"/>
           <div className="flex flex-col gap-6 mt-6">
             <h1 className="text-black font-bold text-2xl">ელ.ფოსტა</h1>
             <p className="w-[273px] text-base font-normal">
@@ -150,7 +119,7 @@ export default function Home() {
           <h1 className="mt-16 underline">guesthouse@gmail.com</h1>
         </div>
         <div className=" border-mwvane border flex flex-col items-center p-3 shadow-2xl text-black">
-          <img src={phone} className="invert" />
+        <MdLocalPhone className="h-10 w-10"/>
           <div className="flex flex-col gap-6 mt-6">
             <h1 className="text-black font-bold text-2xl">ტელეფონი</h1>
             <p className="w-[273px] text-base font-normal">
@@ -160,7 +129,7 @@ export default function Home() {
           <h1 className="mt-16 underline">+995 599 99 99 99</h1>
         </div>
         <div className="border-mwvane border flex flex-col items-center p-3 shadow-2xl text-black">
-          <img src={map} className="invert" />
+        <MdLocationPin className="h-10 w-10"/>
           <div className="mt-6 flex flex-col gap-6">
             <h1 className="text-black font-bold text-2xl">მდებარეობა</h1>
             <p className="w-[273px] text-base font-normal">
@@ -174,3 +143,5 @@ export default function Home() {
     </motion.div>
   );
 }
+
+//md MdLocalPhone
