@@ -22,7 +22,7 @@ export default function Home() {
   const photoArr = [flowersImage, foodImage, snowImage, snowmanImage];
   return (
     <motion.div
-    className="bg-white text-center text-white "
+    className="bg-foni text-center text-white "
   >
       <SimpleSlider/>
       <div className="">

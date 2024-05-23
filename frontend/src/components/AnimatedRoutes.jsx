@@ -10,12 +10,16 @@ import ContactUs from "../pages/ContactUs";
 import { useLocation, Routes, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import RoomDetails from "./RoomDetails";
+import Login from "../pages/Login";
+import Register from "../pages/Register"
 
 export default function AnimatedRoutes() {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/" element={<Layout />}>
           <Route path="" element={<Home />} />
           <Route path="/AboutUs" element={<AboutUs />} />

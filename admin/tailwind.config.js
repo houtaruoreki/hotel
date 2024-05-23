@@ -7,7 +7,6 @@ export default {
         sans: ["Helvetica", "sans-serif"],
       },
       colors: {
-        foni: "#F7F7FB",
         mwvane: "#227B5D",
         buttonColor: "#A8EBBD",
         buttonText: "#003E29",

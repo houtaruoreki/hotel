@@ -30,7 +30,7 @@ export default function Header() {
         }
       />
       <div className="flex">
-        <Link>
+        <Link to="/login">
           <img src={userIcon} alt="user icon" className="ml-8" />
         </Link>
         <img src={georgiaIcon} alt="georgia icon" className="ml-7" />
