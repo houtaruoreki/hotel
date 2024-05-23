@@ -9,6 +9,7 @@ export default {
       colors: {
         mwvane: "#227B5D",
         buttonColor: "#A8EBBD",
+        buttonColor2: "#D9F4DA",
         buttonText: "#003E29",
       },
     },

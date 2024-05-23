@@ -37,10 +37,10 @@ export default function Home() {
       </div>
       <div className="mt-16">
         <h2 className="text-2xl font-bold uppercase text-mwvane">ოთახები</h2>
-        <RoomsList />
+        <RoomsList  />
       </div>
       <div>
-        <h2 className="text-2xl text-mwvane font-bold mt-[140px]">სერვისები</h2>
+        <h2 className="text-2xl text-mwvane font-bold ">სერვისები</h2>
         <p className="mt-9 text-center text-xl text-black font-light">
           გამოიცადეთ თქვენს საჭიროებებზე მორგებული განსაკუთრებული სერვისი. ჩვენ
           მზად ვართ
@@ -70,7 +70,7 @@ export default function Home() {
           </div>
           <div className="items-center flex flex-col justify-center gap-4 mr-8 text-black">
             <img src={dribble} alt="Air Icon" className="w-10 h-10 mr-2 object-contain invert" />
-            <p className="text-2xl font-bold text-black uppercase text-black">
+            <p className="text-2xl font-bold text-black uppercase">
               კულინარიული მასტერკლასი
             </p>
             <p className="text-center text-base font-sans tracking-tighter w-[266px]">
