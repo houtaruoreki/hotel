@@ -10,7 +10,7 @@ import Layout from "./pages/Layout";
 function App() {
   return (
     <BrowserRouter>
-      <div className="flex">
+      <div>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Main />} />

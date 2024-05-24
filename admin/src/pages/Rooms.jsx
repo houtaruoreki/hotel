@@ -1,7 +1,6 @@
-// src/MainContent.js
 import React from 'react';
 import {MdSearch} from "react-icons/md";
-const Main = () => {
+const Rooms = () => {
   return (
     <div className='flex p-10 h-full flex-col'>
       <div className='flex flex-row justify-between mb-10'>
@@ -74,4 +73,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Rooms;

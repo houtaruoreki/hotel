@@ -1,13 +1,17 @@
+// src/Layout.js
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 
-export default function Layout() {
- 
+const Layout = () => {
   return (
-    <>
-    <Sidebar/>
-      <Outlet />
-      </>
+    <div className="flex">
+      <Sidebar />
+      <div className="flex flex-col w-full">
+        <Outlet />
+      </div>
+    </div>
   );
 }
+
+export default Layout;
