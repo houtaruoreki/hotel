@@ -3,12 +3,8 @@
 echo Changing directory to frontend
 cd frontend
 
-REM Check if Vite is installed
-where vite >nul 2>nul
-if %ERRORLEVEL% neq 0 (
-    echo Vite is not installed. Installing...
-    npm install vite
-)
+echo Installing dependencies
+call npm install 
 
 echo Starting Vite server...
-npm run dev
+call npm run dev
