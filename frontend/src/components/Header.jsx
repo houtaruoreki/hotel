@@ -22,7 +22,9 @@ export default function Header() {
 
   return (
     <header className="flex items-center px-8 justify-between bg-mwvane w-full">
-      <img src={Logo} alt="logo" className="w-[12%]" />
+      <Link to="/">
+      <img src={Logo} alt="logo" className="w-40 h-20"/>
+      </Link>
       <Navigation
         links={headerLinks}
         activeLink={

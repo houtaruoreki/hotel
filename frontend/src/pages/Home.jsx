@@ -26,7 +26,7 @@ export default function Home() {
   >
       <SimpleSlider/>
       <div className="">
-        <h3 className="text-2xl font-bold text-black mt-20">
+        <h3 className="text-2xl font-bold text-black mt-20 leading-9">
           კეთილი იყოს მობრძანება ჩვენს სასტუმრო სახლში
         </h3>
         <p className="text-slate-400 text-xl font-light mt-6">
@@ -55,7 +55,7 @@ export default function Home() {
             <p className="text-2xl font-bold text-black uppercase">
               ლამაზი ხედი
             </p>
-            <p className="text-center text-base font-sans tracking-tighter w-[266px]">
+            <p className="text-center text-base font-sans tracking-wider		w-[266px]">
               გაიღვიძე ბუნების საოცარი ხედებით, რაც უზრუნველყოფს თქვენი დღის
               სრულყოფილ დაწყებას
             </p>
@@ -63,17 +63,17 @@ export default function Home() {
           <div className="items-center flex flex-col justify-center gap-4 mr-8 text-black">
             <MdDinnerDining className="h-10 w-10"/>
             <p className="text-2xl font-bold text-black uppercase">საუზმე</p>
-            <p className="text-center text-base  tracking-tighter w-[266px] font-sans">
+            <p className="text-center text-base  w-[266px] tracking-wider	  font-sans">
               დატკბით სასიამოვნო საუზმით, რაც უზრუნველყოფს თქვენი დილის გემრიელ
               დაწყებას
             </p>
           </div>
           <div className="items-center flex flex-col justify-center gap-4 mr-8 text-black">
             <img src={dribble} alt="Air Icon" className="w-10 h-10 mr-2 object-contain invert" />
-            <p className="text-2xl font-bold text-black uppercase">
+            <p className="text-2xl font-bold text-black  uppercase">
               კულინარიული მასტერკლასი
             </p>
-            <p className="text-center text-base font-sans tracking-tighter w-[266px]">
+            <p className="text-center text-base font-sans tracking-wider	 w-[266px]">
               გთავაზობთ მეგობრულ სივრცეს გართობისა და დასვენებისთვის
             </p>
           </div>

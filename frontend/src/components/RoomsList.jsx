@@ -23,7 +23,7 @@ const RoomsList = () => {
             className="flex flex-col items-start p-4 bg-white border-2 border-[#2D3648] rounded-lg"
           >
             <div className=" rounded-lg w-full flex flex-row-reverse bg-slate-500 h-[230px]">
-  
+              <img src={room.image}/>
               <div>
               <img src={love} className=" rounded-lg pr-1.5 pt-1.5  "/>
               </div>
