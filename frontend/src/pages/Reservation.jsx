@@ -23,22 +23,22 @@ export default function Reservation() {
           </p>
         </div>
         <div className=" grid  ">
-        <div className="flex gap-[5%] justify-center ">
-          <div className="flex ">
-            <div className="mb-4  ">
-              <label className="block mb-1">სახელი</label>
+        <div className="flex gap-10 justify-center ">
+            <div className="mb-4">
+              <label className=" mb-1">სახელი</label>
               <input
                 type="text"
                 name="name"
                 placeholder="შეიყვანე სახელი"
-                className="border border-gray-400 px-4 py-2 rounded-md w-full focus:outline-none focus:border-blue-500 text-black"
+                className="border border-gray-400 px-4 py-2 rounded-xl w-full focus:outline-none focus:border-blue-500 text-black"
               />
+              <div className="h-10"></div> {/*Spacer Div */}
               <div className="mb-4">
-                <label className="block mb-1">ტელეფონი</label>
+                <label className=" mb-1">ტელეფონი</label>
                 <div className="flex items-center">
                   <select
                     name="countryCode"
-                    className="border border-gray-400 px-4 py-2 rounded-md mr-2 focus:outline-none focus:border-blue-500 text-black"
+                    className="border border-gray-400 px-4 py-2 rounded-xl mr-2 focus:outline-none focus:border-blue-500 text-black"
                   >
                     <option value="1">+1</option>
                     <option value="44">+44</option>
@@ -48,46 +48,48 @@ export default function Reservation() {
                     type="tel"
                     placeholder="ტელეფონის ნომერი"
                     name="phoneNumber"
-                    className="border border-gray-400 px-4 py-2 rounded-md w-full focus:outline-none focus:border-blue-500 text-black"
+                    className="border border-gray-400 px-4 py-2 rounded-xl w-full focus:outline-none focus:border-blue-500 text-black"
                   />
                 </div>
+                <div className="h-10"></div> {/*Spacer Div */}
               </div>
               <div className="mb-4">
-                <label className="block mb-1">სტუმრების რაოდენობა</label>
+                <label className=" mb-1">სტუმრების რაოდენობა</label>
                 <input
                   type="number"
                   name="guestNumber"
                   min="1"
                   max="15"
                   placeholder="აირჩიე რაოდენობა"
-                  className="border border-gray-400 px-4 py-2 rounded-md w-full focus:outline-none focus:border-blue-500 text-black"
+                  className="border border-gray-400 px-4 py-2 rounded-xl w-full focus:outline-none focus:border-blue-500 text-black"
                 />
               </div>
             </div>
-          </div>
           <div className="">
             <div className=" ">
-              <label className="block mb-1">გვარი</label>
+              <label className=" mb-1">გვარი</label>
               <input
                 type="text"
                 placeholder="შეიყვანე გვარი"
                 name="surname"
-                className="border border-gray-400 px-4 py-2 rounded-md w-full focus:outline-none focus:border-blue-500 text-black"
+                className="border border-gray-400 px-4 py-2 rounded-xl w-full focus:outline-none focus:border-blue-500 text-black"
               />
             </div>
+            <div className="h-10"></div> {/*Spacer Div */}
             <div className="mb-4">
-              <label className="block mb-1">შესვლის თარიღი</label>
+              <label className=" mb-1">შესვლის თარიღი</label>
               <input
                 type="datetime-local"
                 name="entryDate"
-                className="border border-gray-400 px-4 py-2 rounded-md w-full focus:outline-none focus:border-blue-500 text-black"
+                className="border border-gray-400 px-4 py-2 rounded-xl w-full focus:outline-none focus:border-blue-500 text-black"
               />
             </div>
+            <div className="h-10"></div> {/*Spacer Div */}
             <div className="mb-4">
-              <label className="block mb-1">ოთახის ტიპი</label>
+              <label className=" mb-1">ოთახის ტიპი</label>
               <select
                 name="roomType"
-                className="border border-gray-400 px-4 py-2.5 rounded-md w-full focus:outline-none focus:border-blue-500 text-black"
+                className="border border-gray-400 px-4 py-2.5 rounded-xl w-full focus:outline-none focus:border-blue-500 text-black"
               >
                 <option value="">აირჩიეთ ოთახის ტიპი</option>
                 <option value="standard">სტანდარტული</option>
@@ -96,31 +98,34 @@ export default function Reservation() {
               </select>
             </div>
           </div>
+          
           <div className="">
             <div className="">
-              <label className="block mb-1">ელ-ფოსტა</label>
+              <label className=" mb-1">ელ-ფოსტა</label>
               <input
                 type="email"
                 name="email"
                 placeholder="შეიყვანე ელ-ფოსტა"
-                className="border border-gray-400 px-4 py-2 rounded-md w-full focus:outline-none focus:border-blue-500 text-black"
+                className="border border-gray-400 px-4 py-2 rounded-xl w-full focus:outline-none focus:border-blue-500 text-black"
               />
             </div>
+            <div className="h-10"></div> {/*Spacer Div */}
             <div className="">
-              <label className="block mb-1">გასვლის თარიღი</label>
+              <label className=" mb-1">გასვლის თარიღი</label>
               <input
                 type="datetime-local"
                 name="outDate"
-                className="border border-gray-400 px-4 py-2 rounded-md w-full focus:outline-none focus:border-blue-500 text-black"
+                className="border border-gray-400 px-4 py-2 rounded-xl w-full focus:outline-none focus:border-blue-500 text-black"
               />
             </div>
+            <div className="h-10"></div> {/*Spacer Div */}
             <div className="mb-4 col-span-1">
-              <label className="block mb-1">მოთხოვნა ან კომენტარი</label>
+              <label className=" mb-1">მოთხოვნა ან კომენტარი</label>
               <textarea
                 name="comment"
                 rows={4}
                 placeholder="აღწერა"
-                className="border border-gray-400 px-4 py-2 rounded-md w-full focus:outline-none focus:border-blue-500 text-black"
+                className="border border-gray-400 px-4 py-2 rounded-xl w-full focus:outline-none focus:border-blue-500 text-black"
               ></textarea>
             </div>
           </div>
