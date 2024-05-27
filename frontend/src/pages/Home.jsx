@@ -1,14 +1,6 @@
 import React from "react";
 import RoomsList from "../components/RoomsList";
-import coffee from "/Images/icon-coffee.png";
-import loader from "/Images/icon-loader.png";
 import dribble from "/Images/icon-dribbble.png";
-import contactMail from "/Images/icon-mail.svg";
-import phone from "/Images/icon-phone.png";
-import map from "/Images/icon-map-pin.png";
-import sunIcon from "/Images/sun.png";
-import homeIcon from "/Images/home.png";
-import airIcon from "/Images/air.png";
 import { Link } from "react-router-dom";
 import flowersImage from "/Images/image 9.png";
 import foodImage from "/Images/image 10.png";

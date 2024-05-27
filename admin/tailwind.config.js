@@ -10,6 +10,7 @@ export default {
         mwvane: "#227B5D",
         buttonColor: "#A8EBBD",
         buttonText: "#003E29",
+        neutralText: "#2D3648",
       },
     },
   },

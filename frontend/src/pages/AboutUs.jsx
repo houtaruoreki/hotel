@@ -41,11 +41,11 @@ export default function AboutUs() {
   ];
 
   return (
-    <motion.div className="bg-mwvane p-8"
+    <motion.div className="bg-foni p-8"
     initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{opacity: 0}}>
-      <h1 className="text-2xl font-bold text-center mt-16 text-white">
+      <h1 className="text-2xl font-bold text-center mt-16 text-mwvane">
         ჩვენს შესახებ
       </h1>
 
@@ -59,8 +59,8 @@ export default function AboutUs() {
             />
           </div>
           <div className="m-4">
-            <h2 className="text-3xl font-bold text-white">ჩვენი ისტორია</h2>
-            <p className="text-xl font-normal text-[#D9D9D9] mt-2">
+            <h2 className="text-3xl font-bold text-black">ჩვენი ისტორია</h2>
+            <p className="text-xl font-normal text-neutralText mt-2">
               we believe in providing more than just accommodation; we offer an
               immersive experience that celebrates the rich culture and natural
               wonders of Georgia's Guria region. Our journey began with a vision
@@ -75,8 +75,8 @@ export default function AboutUs() {
 
         <div className="mt-8 flex justify-center items-center">
           <div className="m-4">
-            <h2 className="text-3xl font-bold text-white">მისია და ხედვა</h2>
-            <p className="text-xl font-normal text-[#D9D9D9] mt-2">
+            <h2 className="text-3xl font-bold text-black">მისია და ხედვა</h2>
+            <p className="text-xl font-normal text-neutralText mt-2">
               we believe in providing more than just accommodation; we offer an
               immersive experience that celebrates the rich culture and natural
               wonders of Georgia's Guria region. Our journey began with a vision
@@ -102,10 +102,10 @@ export default function AboutUs() {
             />
           </div>
           <div className="m-4">
-            <h2 className="text-3xl font-bold text-white">
+            <h2 className="text-3xl font-bold text-black">
               გუნდის წევრები/დამფუძნებლები
             </h2>
-            <p className="text-xl font-normal text-[#D9D9D9] mt-2">
+            <p className="text-xl font-normal text-neutralText mt-2">
               we believe in providing more than just accommodation; we offer an
               immersive experience that celebrates the rich culture and natural
               wonders of Georgia's Guria region. Our journey began with a vision
@@ -119,7 +119,7 @@ export default function AboutUs() {
 
       {/* Customer Impressions */}
       <div className="text-center flex flex-col justify-center items-center">
-        <h2 className="text-2xl font-bold text-white mt-20">
+        <h2 className="text-2xl font-bold text-mwvane mt-20">
           მომხმარებელთა შთაბეჭდილებები
         </h2>
         <div className="flex mt-20 gap-16">

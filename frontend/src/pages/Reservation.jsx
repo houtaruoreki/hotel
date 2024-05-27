@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 export default function Reservation() {
   return (
     <motion.div
-      className="bg-mwvane text-white p-10"
+      className="bg-foni text-[#2D3648] p-10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <h2 className="text-2xl flex justify-center mb-4">დაჯავშნე</h2>
-      <p>
+      <h2 className="text-2xl flex justify-center mb-4 text-mwvane font-bold   ">დაჯავშნე</h2>
+      <p className="text-[#2D3648]">
         თქვენი საოცნებო ადგილის დაჯავშნა არასოდეს ყოფილა ადვილი ჩვენი დაჯავშნის
         გამარტივებული პროცესით. უბრალოდ შეავსეთ ჩვენი მომხმარებლისთვის
         მოსახერხებელი დაჯავშნის ფორმა, რათა უზრუნველყოთ სასურველი საცხოვრებელი
@@ -20,6 +20,7 @@ export default function Reservation() {
         რაიმე განსაკუთრებული მოთხოვნა,რომ თქვენი დასვენება სრულყოფილებამდე იყოს
         მორგებული.
       </p>
+      <div className="mb-[2%]"></div> {/*Spacer Div */}
       <div className="flex justify-center">
         <div className="max-w-3xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="mb-4">
@@ -82,7 +83,7 @@ export default function Reservation() {
             />
           </div>
           <div className="mb-4">
-            <label className="block mb-1">სტუმარის რიცხვი</label>
+            <label className="block mb-1">სტუმრების რაოდენობა</label>
             <input
               type="number"
               name="guestNumber"
@@ -104,7 +105,7 @@ export default function Reservation() {
         
             </select>
           </div>
-          <div className="mb-4 col-span-2">
+          <div className="mb-4 col-span-1">
             <label className="block mb-1">კომენტარი</label>
             <textarea
               name="comment"
@@ -112,8 +113,8 @@ export default function Reservation() {
               className="border border-gray-400 px-4 py-2 rounded-md w-full focus:outline-none focus:border-blue-500 text-black"
             ></textarea>
           </div>
-          <div className="mb-4 col-span-3">
-            <button className="bg-buttonColor text-black font-bold  px-6 py-3 rounded-md hover:bg-mwvane transition duration-300 ease-in-out w-full">
+          <div className="mb-4 col-span-1  ">
+            <button className="bg-buttonColor text-buttonText font-bold   px-6 py-3 rounded-md hover:bg-green-800 1transition duration-300 ease-in-out ">
               დაჯავშნე ოთახი
             </button>
           </div>

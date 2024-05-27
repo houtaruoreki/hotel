@@ -4,26 +4,26 @@ import { motion } from "framer-motion";
 export default function Gallery() {
   return (
     <motion.div
-      className="bg-white p-10 text-[#bbfbcb] "
+      className="bg-foni p-10  "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8 text-center text-white">
+        <h1 className="text-4xl font-bold mb-8 text-center text-mwvane">
           გალერია
         </h1>
-        <p className="text-lg mb-8 text-white">
-          შევაბიჯოთ ვიზუალური ბრწყინვალების სამყარში, როდესაც შეისწავლით
-          გალერიას, რომელიც ასახავს ჩევენი სასტუმროს მომხიბლავ გარემოს. თქვენ
-          შეგხვდებათ სურათების გლეარია, რომელიც აღწერს ჩვენი მშვენიერი ადგილის
+        <p className="text-lg mb-8 text-neutralText text-center">
+          შევაბიჯოთ ვიზუალური ბრწყინვალების სამყაროში, როდესაც შეისწავლით
+          გალერეას, რომელიც ასახავს ჩვენი სასტუმროს მომხიბვლელ გარემოს. თქვენ
+          შეგხვდებათ სურათების გალერეა, რომელიც აღწერს ჩვენი მშვენიერი ადგილის
           არსს.
         </p>
 
         {/* External views section */}
         <h2 className="text-2xl font-semibold mb-4">გარე ხედი</h2>
-        <div className="border-b-2 border-[#bbfbcb] mb-10"></div>
-        <div className="overflow-x-auto flex scrollbar">
+        <div className="border-b-2 border-[#1A202C] mb-10"></div>
+        <div className="overflow-x-auto flex no-scrollbar scrollbar">
           {[...Array(4)].map((_, index) => (
             <img
               key={index}
@@ -38,8 +38,8 @@ export default function Gallery() {
 
         {/* Interior views section */}
         <h2 className="text-2xl font-semibold mt-8 mb-4">შიდა ხედები</h2>
-        <div className="border-b-2 border-[#bbfbcb] mb-10"></div>
-        <div className="overflow-x-auto flex scrollbar">
+        <div className="border-b-2 border-[#1A202C] mb-10"></div>
+        <div className="overflow-x-auto flex scrollbar no-scrollbar">
           {[...Array(4)].map((_, index) => (
             <img
               key={index}
@@ -56,8 +56,8 @@ export default function Gallery() {
         <h2 className="text-2xl font-semibold mt-8 mb-4">
           ღონისძიებები და აქტივობები
         </h2>
-        <div className="border-b-2 border-[#bbfbcb] mb-10"></div>
-        <div className="overflow-x-auto flex scrollbar">
+        <div className="border-b-2 border-[#1A202C] mb-10"></div>
+        <div className="overflow-x-auto flex scrollbar no-scrollbar">
           {[...Array(4)].map((_, index) => (
             <img
               key={index}

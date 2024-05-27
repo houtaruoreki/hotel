@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Mapscreen from "/Images/mapscreen.png";
 import Mappin from "/Images/mappin.png";
+import phone from "/Images/icon-phone.png";
+import mail from "/Images/icon-mail.png";
+import map from "/Images/icon-map-pin.png";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -39,20 +42,29 @@ export default function ContactUs() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <h2 className="text-4xl flex justify-center bg-mwvane text-white p-16">
+      <h2 className="text-4xl flex justify-center bg-foni text-black p-16">
         კონტაქტი
       </h2>
 
-      <div className="flex justify-between bg-mwvane text-white px-16">
+      <div className="flex justify-between bg-foni text-black px-16">
         <div className="max-w-lg">
-          <h2 className="text-4xl mb-4">მოგვწერე</h2>
+          <h2 className="text-4xl text-black mb-4">მოგვწერე</h2>
           <p className="text-sm mb-4">
-            გამოიყენეთ ეს საკონტაქტო ფორმა feedback-ის გასაზიარებლად და ყველა
-            თქვენს კითხვაზე პასუხის მისაღებად.
+          გამოიყენეთ ეს საკონტაქტო ფორმა feedback-ის გასაზიარებლად და ყველა თქვენს კითხვაზე პასუხის მისაღებად.
           </p>
+          <div className="flex gap-2">
+            <div> 
+          <img src={phone} alt="Map" className="w-[20px] invert"  />
+          <img src={mail} alt="Map" className="w-[20px] " />
+          <img src={map} alt="Map" className="w-[20px] invert" />
+          </div>
+          <div className="">
           <p className="text-sm mb-4">+995 599 99 99 99</p>
           <p className="text-sm mb-4">guesthouse@gmail.com</p>
           <p className="text-sm">ჩოხატაური, ჩხოკოურა</p>
+          </div>
+        </div>
+        
         </div>
         <div className="max-w-lg">
           <div className="mb-4">
@@ -60,6 +72,7 @@ export default function ContactUs() {
             <input
               type="text"
               name="name"
+              placeholder="შეიყვანე სახელი"
               value={formData.name}
               onChange={handleChange}
               className="border border-gray-400 px-4 py-2 rounded-md w-full max-w-lg focus:outline-none focus:border-blue-500 text-black"
@@ -69,6 +82,7 @@ export default function ContactUs() {
             <label className="block mb-1">გვარი</label>
             <input
               type="text"
+              placeholder="შეიყვანე გვარი"
               name="surname"
               value={formData.surname}
               onChange={handleChange}
@@ -79,6 +93,7 @@ export default function ContactUs() {
             <label className="block mb-1">ელ-ფოსტა</label>
             <input
               type="email"
+              placeholder="შეიყვანე ელ-ფოსტა"
               name="email"
               value={formData.email}
               onChange={handleChange}
@@ -101,6 +116,7 @@ export default function ContactUs() {
             <label className="block mb-1">კომენტარი</label>
             <textarea
               name="comment"
+              placeholder="აღწერა"
               value={formData.comment}
               onChange={handleChange}
               rows={4}

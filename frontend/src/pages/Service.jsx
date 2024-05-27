@@ -14,12 +14,12 @@ export default function Service() {
     >
       {/* Existing content */}
       <div className="flex justify-center items-center flex-col mb-8">
-        <h2 className="text-2xl font-bold mb-4">სერვისები</h2>
+        <h2 className="text-2xl font-bold mb-4 text-mwvane">სერვისები</h2>
       </div>
       <div className="max-w-7xl mx-auto">
         <div className="items-left gap-4">
-          <p className="text-2xl font-semibold mt-8 mb-4 text-[#bbfbcb]">ლამაზი ხედი</p>
-          <p className="text-lg font-helvetica hover:font-helvetica text-[#D9D9D9] mb-8">
+          <p className="text-2xl font-semibold mt-8 mb-4 text-[#1A202C]">ლამაზი ხედი</p>
+          <p className="text-lg font-helvetica hover:font-helvetica text-[#2D3648] mb-8">
             ჩოხატაურის შუაგულში მოთავსებული ჩვენი სასტუმრო სახლი გთავაზობთ
             დაუვიწყარ დასვენებას თვალწარმტაცი ბუნებრივი სილამაზით
             გარშემორტყმული. დასავლეთით, დიდებული მთები მაღლა დგას, მათი
@@ -35,14 +35,14 @@ export default function Service() {
           className="mx-auto my-4"
         />
 
-        <h2 className="text-2xl font-semibold mt-8 mb-4 text-[#bbfbcb]">საუზმე</h2>
-        <p className="text-lg font-helvetica hover:font-helvetica text-[#D9D9D9] mb-8">
+        <h2 className="text-2xl font-semibold mt-8 mb-4 text-[#1A202C]">საუზმე</h2>
+        <p className="text-lg font-helvetica hover:font-helvetica text-[#2D3648] mb-8">
           როდესაც თქვენ დატკბებით ჩვენს სასტუმრო სახლში შემოთავაზებულ კულინარიულ
           სიამოვნებით, მოემზადეთ არა მხოლოდ დახვეწილი გემოებით, არამედ
           თვალწარმტაცი ხედებით, რომლებიც ამაღლებს თქვენს სასადილო გამოცდილებას
           ახალ სიმაღლეებზე.
         </p>
-        <div className="overflow-x-auto flex scrollbar">
+        <div className="overflow-x-auto flex scrollbar no-scrollbar">
           {[...Array(4)].map((_, index) => (
             <img
               key={index}
@@ -55,17 +55,17 @@ export default function Service() {
           ))}
         </div>
 
-        <h2 className="text-2xl font-semibold mt-8 mb-4 text-[#bbfbcb]">
+        <h2 className="text-2xl font-semibold mt-8 mb-4 text-[#1A202C]">
           კულინარიული მასტერკლასი
         </h2>
-        <p className="text-lg font-helvetica hover:font-helvetica text-[#D9D9D9] mb-8">
+        <p className="text-lg font-helvetica hover:font-helvetica text-[#2D3648] mb-8">
           ჩაეფლო დასვენებისა და დასვენების სამყაროში ჩვენს საოჯახო სასტუმროში,
           სადაც ჩვენ გთავაზობთ სათამაშო სივრცეს, რათა უზრუნველყოს თქვენი ყოფნის
           ყოველი მომენტი სავსე გართობითა და ხალისით. სამაგიდო თამაშებიდან
           დაწყებული გარე აქტივობებით დამთავრებული, ყველასთვის არის რაღაც
           სიამოვნება
         </p>
-        <div className="overflow-x-auto flex scrollbar">
+        <div className="overflow-x-auto flex scrollbar no-scrollbar">
           {[...Array(4)].map((_, index) => (
             <img
               key={index}
@@ -79,33 +79,33 @@ export default function Service() {
         </div>
         <div className="flex justify-around items-center mt-20">
           <div className="items-center flex flex-col justify-center gap-9 mr-8 ">
-            <img src={sunIcon} alt="Sun Icon" className="w-10 h-10 mr-2 " />
-            <p className="text-xl font-bold text-[#BBFBCB] uppercase">
+            <img src={sunIcon} alt="Sun Icon" className="w-10 h-10 mr-2 invert" />
+            <p className="text-xl font-bold text-center text-[#1A202C] uppercase">
               ნაბეღლავის წყლების <br /> დათვალიერება
             </p>
-            <p className="text-center text-base font-normal tracking-tighter w-[266px]">
+            <p className="text-center text-base font-medium text-[#2D3648]  w-[266px]">
               ისიამოვნეთ ჩვენი უფასო WiFi სერვისით, რაც საშუალებას მოგცემთ იყოთ
               ხელმისაწვდომი
             </p>
           </div>
           <div className="items-center flex flex-col justify-center gap-9 mr-8 ">
-            <img src={homeIcon} alt="Home Icon" className="w-10 h-10 mr-2" />
-            <p className="text-xl font-bold text-[#BBFBCB] uppercase">
+            <img src={homeIcon} alt="Home Icon" className="w-10 h-10 mr-2 invert" />
+            <p className="text-xl font-bold text-center text-[#1A202C] uppercase">
               ნოდარ დუმბაძის <br /> სახლ-მუზეუმის ტური
             </p>
-            <p className="text-center text-base font-normal tracking-tighter w-[266px]">
+            <p className="text-center text-base font-medium w-[266px] text-[#2D3648] ">
               ადმინისტრაცია გაგიწევთ დახმარებასა და მხარდაჭერას, როცა
               დაგჭირდებათ
             </p>
           </div>
           <div className="items-center flex flex-col justify-center gap-9 mr-8 ">
-            <img src={airIcon} alt="Air Icon" className="w-10 h-10 mr-2 " />
-            <p className="text-xl font-bold text-[#BBFBCB] uppercase">
+            <img src={airIcon} alt="Air Icon" className="w-10 h-10 mr-2 invert " />
+            <p className="text-xl font-bold text-center text-[#1A202C] uppercase">
               ლაშქრობა
             </p>
-            <p className="text-center text-base font-normal tracking-tighter w-[266px]">
+            <p className="text-center text-base font-medium  w-[266px] text-[#2D3648] ">
               მიიღეთ დამატებითი სერვისები, რომელიც შექმნილია თქვენი ყველა
-              საჭიროების დასაკმაყოფილებლად."
+              საჭიროების დასაკმაყოფილებლად
             </p>
           </div>
         </div>

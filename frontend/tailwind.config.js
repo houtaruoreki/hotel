@@ -12,6 +12,7 @@ export default {
         buttonColor: "#A8EBBD",
         buttonColor2: "#D9F4DA",
         buttonText: "#003E29",
+        neutralText: "#2D3648",
       },
     },
   },
