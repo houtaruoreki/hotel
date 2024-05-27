@@ -11,7 +11,7 @@ export default function Login() {
         className="absolute inset-0 w-full h-full object-cover z-[-1]"
       />
       <div className="flex items-center justify-center h-full">
-        <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full border border-mwvane border-2">
+        <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full border border-mwvane ">
           <div className="text-center mb-6">
             <Link to="/">
             <img src={Logo} alt="Logo" className="mx-auto mb-4" />
