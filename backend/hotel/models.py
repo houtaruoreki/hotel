@@ -35,7 +35,7 @@ class Review(models.Model):
     text = models.TextField()
     rating = models.FloatField(default=0, validators=[MaxValueValidator(5)])
 
-class control_panel(models.Model):
+class ContactInfo(models.Model):
     title = models.CharField(max_length=200)
     describtion = models.TextField()
     

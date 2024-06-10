@@ -75,6 +75,6 @@ class AvailableRoomListView(generics.ListAPIView):
     
 
 
-class ControlPanel_viewset(PermissionMixin,viewsets.ModelViewSet):
-    queryset = models.control_panel.objects.all()
-    serializer_class= serializers.ControlPanl_serializer
+class ContactInfoViewset(PermissionMixin,viewsets.ModelViewSet):
+    queryset = models.ContactInfo.objects.all()
+    serializer_class= serializers.ContactInfoSerializer

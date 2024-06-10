@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 
-from .models import Room, Image, Booking, Review, control_panel
+from .models import Room, Image, Booking, Review, ContactInfo
 
 
 class ImageSerializer(serializers.ModelSerializer):
@@ -90,7 +90,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         fields = ['id', 'text', 'rating']
 
 
-class ControlPanl_serializer(serializers.ModelSerializer):
+class ContactInfoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = control_panel
+        model = ContactInfo
         fields = ["title","describtion"]
