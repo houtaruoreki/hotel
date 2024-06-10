@@ -34,3 +34,8 @@ class Review(models.Model):
     user = models.ForeignKey("user.user", on_delete=models.SET_NULL, null=True)
     text = models.TextField()
     rating = models.FloatField(default=0, validators=[MaxValueValidator(5)])
+
+class ContactInfo(models.Model):
+    title = models.CharField(max_length=200)
+    describtion = models.TextField()
+    

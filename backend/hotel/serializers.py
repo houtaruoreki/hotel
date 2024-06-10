@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 
-from .models import Room, Image, Booking, Review
+from .models import Room, Image, Booking, Review, ContactInfo
 
 
 class ImageSerializer(serializers.ModelSerializer):
@@ -88,3 +88,9 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
         fields = ['id', 'text', 'rating']
+
+
+class ContactInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactInfo
+        fields = ["title","describtion"]
