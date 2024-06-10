@@ -46,21 +46,25 @@ export default function ContactUs() {
         კონტაქტი
       </h2>
 
-      <div className="flex justify-between bg-foni text-black px-16">
+      <div className="flex justify-around align-middle bg-foni text-black px-16">
         <div className="max-w-lg">
           <h2 className="text-4xl text-black mb-4">მოგვწერე</h2>
           <p className="text-sm mb-4">
           გამოიყენეთ ეს საკონტაქტო ფორმა feedback-ის გასაზიარებლად და ყველა თქვენს კითხვაზე პასუხის მისაღებად.
           </p>
-          <div className="flex gap-2">
-            <div> 
-          <img src={phone} alt="Map" className="w-[20px] invert"  />
-          <img src={mail} alt="Map" className="w-[20px] " />
-          <img src={map} alt="Map" className="w-[20px] invert" />
-          </div>
           <div className="">
+            <div className="flex gap-2 align-middle"> 
+          <img src={phone} alt="Map" className="w-[20px] h-[20px] invert"  />
           <p className="text-sm mb-4">+995 599 99 99 99</p>
+          </div>
+          <div className="flex gap-2 align-middle">
+          <img src={mail} alt="Map" className="w-[20px] h-[20px]" />
           <p className="text-sm mb-4">guesthouse@gmail.com</p>
+          </div>
+          
+          <div className="flex gap-2 align-middle">
+         
+          <img src={map} alt="Map" className="w-[20px] h-[20px] invert" />
           <p className="text-sm">ჩოხატაური, ჩხოკოურა</p>
           </div>
         </div>
@@ -139,11 +143,11 @@ export default function ContactUs() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={Mapscreen} alt="Map" className="w-full" />
+          <img src={Mapscreen} alt="Map" className="w-full h-[100vh]" />
           <img
             src={Mappin}
             alt="Mappin"
-            className="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2 ml-14"
+            className="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2 ml-14 "
           />
         </a>
       </div>

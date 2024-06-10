@@ -6,9 +6,9 @@ from .managers import UserManager
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     number = models.CharField(null=False,max_length=9)
-    username = models.CharField(max_length=50, unique=True)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    username = models.CharField(max_length=500, unique=True)
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = "email"
@@ -21,9 +21,9 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 class Message(models.Model):
-    fullname = models.CharField(max_length=150)
+    fullname = models.CharField(max_length=32)
     email = models.EmailField()
-    satisfied = models.CharField(max_length=255)
+    satisfied = models.TextField()
     message = models.TextField()
 
 

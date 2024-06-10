@@ -41,10 +41,10 @@ class UserRegisterSerializer(serializers.ModelSerializer):
     
     class UserPasswordSerializer(serializers.Serializer):
         password = serializers.CharField(
-        max_length=100)  
+        max_length=1000)  
     
         confirm_password = serializers.CharField(
-        max_length=100)
+        max_length=1000)
 
     @staticmethod
     def validate_password(value):

@@ -5,9 +5,13 @@ import love from "/Images/loveButton.png";
 const RoomsList = () => {
   const [roomsData, setRoomsData] = useState([]);
   const fetchRoomsData = async () => {
-    const res = await fetch("http://127.0.0.1:8000/rooms");
+   try{
+    const res = await fetch("https://08ed-95-104-36-132.ngrok-free.app/rooms");
     const data = await res.json();
     setRoomsData(data);
+   }catch(err){
+    console.log(err)
+   }
   };
 
   useEffect(() => {
