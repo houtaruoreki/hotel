@@ -8,7 +8,9 @@ export default function Navigation({ links, activeLink }) {
         <Link
           key={index}
           to={link.to}
-          className={activeLink === index ? "text-green-300 font-bold" : "text-white"}
+          className={`${
+            activeLink === index ? "text-green-300 font-bold" : "text-white"
+          } text-sm p-1`}
         >
           {link.label}
         </Link>

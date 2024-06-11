@@ -3,6 +3,12 @@ import RoomsList from "../components/RoomsList"; // Import the RoomsList compone
 import { motion } from "framer-motion";
 
 export default function Reservation() {
+  const roomPhotos = [
+    "https://images.unsplash.com/photo-1565629196891-2ddb37c9e9fc?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D1",
+    "https://images.unsplash.com/photo-1662672324132-90d55416a840?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1628304502409-4d5dcdd7933d?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1623625434462-e5e42318ae49?q=80&w=2971&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  ];
   return (
     <motion.div
       className="bg-foni text-[#2D3648] "
@@ -10,7 +16,7 @@ export default function Reservation() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className=" mx-[5%]">
+      <div className=" mx-[5%] pt-9">
         <div className=" mx-[16%]   ">
           <h2 className="text-2xl flex justify-center mb-4 text-mwvane font-bold   ">
             დაჯავშნე
@@ -139,15 +145,13 @@ export default function Reservation() {
 
         <h2 className="text-2xl text-mwvane font-semibold mt-8 mb-4">ოთახები</h2>
         <div className="border-b-2 border-neutralText mb-10"></div>
-        <div className="overflow-x-auto flex scrollbar scrollbar-thumb-buttonColor scrollbar-track-mwvane no-scrollbar">
-          {[...Array(4)].map((_, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pb-8">
+          {roomPhotos.map((photo, index) => (
             <img
               key={index}
-              src={`https://via.placeholder.com/400x300?text=Rooms+Photo+${
-                index + 1
-              }`}
+              src={photo}
               alt={`Room Photo ${index + 1}`}
-              className="w-1/4 rounded-lg mr-4 mb-10"
+              className="w-full rounded-lg"
             />
           ))}
         </div>

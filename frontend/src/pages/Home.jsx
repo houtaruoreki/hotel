@@ -2,29 +2,57 @@ import React from "react";
 import RoomsList from "../components/RoomsList";
 import dribble from "/Images/icon-dribbble.png";
 import { Link } from "react-router-dom";
-import flowersImage from "/Images/image 9.png";
-import foodImage from "/Images/image 10.png";
-import snowImage from "/Images/image 11.png";
-import snowmanImage from "/Images/image 12.png";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import SimpleSlider from "../components/SimpleSlider";
 import { MdCoffee, MdDinnerDining, MdEmail, MdLandscape, MdLocalPhone, MdLocationPin} from "react-icons/md";
 
 export default function Home() {
-  const photoArr = [flowersImage, foodImage, snowImage, snowmanImage];
+  const { t } = useTranslation();
+  const photoArr = ["https://images.unsplash.com/photo-1612374172029-be0eea9796a8?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1630930024868-6e7b23e41b59?q=80&w=2972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1544986581-efac024faf62?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1519690889869-e705e59f72e1?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  ];
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <motion.div
     className="bg-foni text-center text-white "
   >
       <SimpleSlider/>
-      <div className="">
-        <h3 className="text-2xl font-bold text-black mt-20 leading-9">
-          კეთილი იყოს მობრძანება ჩვენს სასტუმრო სახლში
+      <div className="pt-[50px]">
+        <h3 style={{width: "50%", margin: '0 auto'}} className="text-4xl font-bold text-black mt-20 leading-9 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-900">
+        {t("greetingHome")}
         </h3>
         <p className="text-slate-400 text-xl font-light mt-6">
-          ჩოხატაურის მშვიდი სილამაზის შუაგულში, ულამაზეს სოფელ ჩხოკურაში, ჩვენი
+          {t('pHome')}
           <br />
-          სასტუმრო სახლი გთავაზობთ მშვიდ დასვენებას
+          {t('brHome')}
         </p>
       </div>
       <div className="mt-16">
@@ -78,17 +106,17 @@ export default function Home() {
         ელეგანტური <br /> ინტერიერიდან მომხიბვლელ გარემოებამდე, თითოეული სურათი
         მოგვითხრობს სიმშვიდისა და <br /> სტუმართმოყვარეობის ისტორიას."
       </p>
-      <Link to={"/Gallery"} className="flex justify-end mb-2 px-1 ">
+      <Link to={"/Gallery"} className="flex justify-end mb-2 px- ">
         ყველას ნახვა
       </Link>
 
-      <div className="overflow-x-auto flex no-scrollbar gap-4 px-1">
+      <div className="overflow-x-auto flex no-scrollbar gap-4 px-1 justify-around">
         {photoArr.map((image, index) => (
           <img
             key={index}
             src={image}
             alt={`Event Photo ${index + 1}`}
-            className="w-1/4 rounded-lg "
+            className="w-1/5 rounded-lg "
           />
         ))}
       </div>

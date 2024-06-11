@@ -1,0 +1,21 @@
+{
+    "greetingHome": "Welcome to our guest house",
+    "pHome": "In the middle of the quiet beauty of Chokhatauri, in the beautiful village of Chkhokura, ours",
+    "brHome": "The guest house offers a peaceful rest",
+    "Navigation": {
+        "main": "Main",
+        "aboutUs": "Aboutt Us",
+        "rooms": "Rooms",
+        "reservation": "Reservation",
+        "service": "Service",
+        "gallery": "Gallery",
+        "contactUs": "Contact Us"
+
+    },
+    "Slider": {
+        "welcome": "Welcome!",
+        "experience": "Experience unforgettable moments and discover your home away from home",
+        "book": "Book a room"
+    }
+  }
+  

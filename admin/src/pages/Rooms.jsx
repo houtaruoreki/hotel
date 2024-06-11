@@ -13,7 +13,7 @@ const Rooms = () => {
 
   useEffect(() => {
     const fetchRooms = async () => {
-      const response = await fetch('http://127.0.0.1:8000/rooms/');
+      const response = await fetch('https://08ed-95-104-36-132.ngrok-free.app/rooms/');
       const data = await response.json();
       setRooms(data);
     };
@@ -23,7 +23,7 @@ const Rooms = () => {
 
   const handleAddRoom = async (newRoom) => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/rooms/', {
+      const response = await fetch('https://08ed-95-104-36-132.ngrok-free.app/rooms/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ const Rooms = () => {
 
   const handleEditRoom = async (updatedRoom) => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/rooms/${updatedRoom.id}/`, {
+      const response = await fetch(`https://08ed-95-104-36-132.ngrok-free.app/rooms/${updatedRoom.id}/`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

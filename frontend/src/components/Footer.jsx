@@ -6,6 +6,11 @@ import mail from "/Images/icon-mail.png";
 import youtube from "/Images/icon-youtube.png";
 import copyright from "/Images/copyright.png";
 import Navigation from "./Navigation";
+import { FaFacebook } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { MdOutgoingMail } from "react-icons/md";
+import { FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   const footerLinks = [
@@ -19,13 +24,14 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-mwvane p-5 flex flex-col justify-between items-center gap-10 text-white">
-      <div className="flex  justify-start items-center gap-20 p-0 ">
-        <div className="flex flex-col justify-start items-start p-0 gap-[25px] ">
+    <footer className="w-full bg-mwvane p-5 flex flex-col justify-between items-center gap-10 text-white" >
+      <div className="flex flex-col  justify-start items-center gap-20 p-0 ">
+        <div className="flex p-0 gap-[25px] pt-6" style={{ alignItems: 'center', justifyContent: "center"}}>
+          <div className="pl-[60px]">
           <span className=" text-3xl font-bold leading-[0.75] tracking-wide ">
             სასტუმროს შესახებ
           </span>
-          <p className="text-base">
+          <p className="text-base line-clamp-3" style={{width: "50%"}}>
             კეთილი იყოს თქვენი მობრძანება ჩვენს საოჯახო სასტუმროში, სადაც
             სტუმართმოყვარეობა ხვდება სიმშვიდეს. კომფორტული საცხოვრებლით,
             თანამედროვე კეთილმოწყობითა და პერსონალური სერვისით, ჩვენ ვცდილობთ,
@@ -34,21 +40,22 @@ export default function Footer() {
             შეთავაზებების შესახებ ჩვენ მოუთმენლად ველით, რომ მოგესალმოთ ჩვენს
             სასტუმრო სახლში და ერთად შევქმნათ დაუვიწყარი მოგონებები!
           </p>
-          <div className="flex justify-between w-[250px]">
-            <a href="https://www.facebook.com/">
-              <img className="w-5 h-5" src={facebook} alt="facebook icon" />
+          </div>
+          <div className="flex justify-between w-[450px] gap-9">
+            <a href="https://www.facebook.com/" style={{fontSize: '25px'}}>
+              <FaFacebook />
             </a>
-            <a href="https://www.linkedin.com/">
-              <img className="w-5 h-5" src={linkedin} alt="linkedin icon" />
+            <a href="https://www.linkedin.com/" style={{fontSize: '25px'}}>
+              <FaLinkedin />
             </a>
-            <a href="https://www.instagram.com/">
-              <img className="w-5 h-5" src={instagram} alt="instagram icon" />
+            <a href="https://www.instagram.com/" style={{fontSize: '25px'}}>
+              <FaInstagram />
             </a>
-            <a href="https://mail.google.com/">
-              <img className="w-5 h-5" src={mail} alt="email icon" />
+            <a href="https://mail.google.com/" style={{fontSize: '25px'}}>
+              <MdOutgoingMail />
             </a>
-            <a href="https://www.youtube.com/">
-              <img className="w-5 h-5" src={youtube} alt="youtube icon" />
+            <a href="https://www.youtube.com/" style={{fontSize: '25px'}}>
+              <FaYoutube />
             </a>
           </div>
         </div>

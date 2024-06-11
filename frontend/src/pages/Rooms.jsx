@@ -26,69 +26,49 @@ export default function Rooms() {
   };
 
   return (
-    <motion.div className="bg-white ">
-      <div className=" mx-[5%] ">
-        <div className="text-center mb-[5%]  ">
-          <h2 className="text-mwvane text-2xl font-bold pt-20">ოთახები</h2>
-          <p className="text-[#2D3648] mt-14 text-center text-xl font-light">
-            დატკბით დასვენებით და სტუმართმოყვარეობით ჩვენს ელეგანტურ ოთახებში.
-            ლამაზი ხედებითა და პრემიუმ კეთილმოწყობით, თქვენი დასვენება იქნება
-            არაჩვეულებრივი გამოცდილება
-          </p>
-        </div>
-        <form
-          onSubmit={handleSubmit}
-          className="flex  justify-between content-center  items-center  "
-        >
-          <div className="flex  ">
-            <div className="pb-5">
-              <label>შესვლის თარიღი</label>
-              <input
-                className="w-full text-black border border-[#C2C2C2] px-10 py-4 rounded-xl focus:outline-none focus:border-blue-500"
-                type="date"
-                placeholder="შემოსვლის თარიღი"
-                onChange={(e) => setCheckInDate(e.target.value)}
-              />
-            </div>
+    <motion.div className="bg-white">
+      <div className="mx-auto max-w-lg py-12 px-8">
+        <h2 className="text-mwvane text-3xl font-bold mb-6">ოთახები</h2>
+        <p className="text-[#2D3648] text-lg font-light mb-8">
+          დატკბით დასვენებით და სტუმართმოყვარეობით ჩვენს ელეგანტურ ოთახებში.
+          ლამაზი ხედებითა და პრემიუმ კეთილმოწყობით, თქვენი დასვენება იქნება
+          არაჩვეულებრივი გამოცდილება
+        </p>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="flex flex-col">
+            <label htmlFor="check-in-date" className="text-sm font-semibold text-gray-600 mb-1">შესვლის თარიღი</label>
+            <input
+              id="check-in-date"
+              type="date"
+              className="input-field border-2 border-solid p-2"
+              onChange={(e) => setCheckInDate(e.target.value)}
+            />
           </div>
-          <div className="flex ">
-            <div className="pb-5">
-              <label>გასვლის თარიღი</label>
-              <input
-                className="w-full text-black border border-[#C2C2C2] px-10 py-4  rounded-xl focus:outline-none focus:border-blue-500"
-                type="date"
-                id="checkout-date"
-                placeholder="გასვლის თარიღი"
-                value={checkOutDate}
-                onChange={(e) => setCheckOutDate(e.target.value)}
-              />
-            </div>
+          <div className="flex flex-col">
+            <label htmlFor="check-out-date" className="text-sm font-semibold text-gray-600 mb-1">გასვლის თარიღი</label>
+            <input
+              id="check-out-date"
+              type="date"
+              className="input-field border-2 border-solid p-2"
+              onChange={(e) => setCheckOutDate(e.target.value)}
+            />
           </div>
-          <div className="flex  ">
-            <div className="pb-5">
-              <label>გასვლის თარიღი</label>
-              <input
-                className="w-full text-black border border-[#C2C2C2] px-10 py-4  rounded-xl focus:outline-none focus:border-blue-500"
-                type="number"
-                id="guests-count"
-                placeholder="სტუმრების რაოდენობა"
-                value={guestsCount}
-                onChange={(e) => setGuestsCount(e.target.value)}
-              />
-            </div>
-
-            
+          <div className="flex flex-col">
+            <label htmlFor="guests-count" className="text-sm font-semibold text-gray-600 mb-1">სტუმრების რაოდენობა</label>
+            <input
+              id="guests-count"
+              type="number"
+              className="input-field border-2 border-solid p-2"
+              onChange={(e) => setGuestsCount(e.target.value)}
+            />
           </div>
-          <div className="">
-            <button
-              type="submit"
-              className=" px-20 py-5 bg-buttonColor font-bold text-xl text-[#003E29] rounded-md hover:bg-mwvane transition duration-300 ease-in-out"
-            >
-              შეამოწმე
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="bg-mwvane text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
+          >
+            შეამოწმე
+          </button>
         </form>
-
         {selectedRoomId && <RoomDetails roomId={selectedRoomId} />}
       </div>
       <RoomsList handleButtonClick={handleButtonClick} />
