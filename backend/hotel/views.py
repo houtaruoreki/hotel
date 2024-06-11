@@ -1,6 +1,8 @@
 from rest_framework import viewsets, permissions, generics, mixins
 from . import models, serializers
 from rest_framework.response import Response
+from rest_framework.permissions import IsAdminUser
+
 
 
 class PermissionMixin:
@@ -44,10 +46,8 @@ class AvailableRoomListView(generics.ListAPIView):
 
         available_rooms = []
 
-        # Get all rooms
         rooms = models.Room.objects.all()
 
-        # Loop through each room
         for room in rooms:
             # Check if there are any bookings that overlap with the requested period
             overlapping_bookings = models.Booking.objects.filter(
@@ -72,3 +72,9 @@ class AvailableRoomListView(generics.ListAPIView):
                 })
 
         return Response(available_rooms)
+    
+
+
+class ContactInfoViewset(PermissionMixin,viewsets.ModelViewSet):
+    queryset = models.ContactInfo.objects.all()
+    serializer_class= serializers.ContactInfoSerializer
