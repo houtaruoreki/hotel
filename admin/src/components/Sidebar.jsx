@@ -11,7 +11,6 @@ const Sidebar = () => {
       <div className='flex flex-col space-y-4 w-full'>
         <img src={Logo} alt="Logo" className="w-1/2 mx-auto md:w-full" />
         <div className="flex flex-col justify-between items-start gap-4 w-full">
-          <input type="text" placeholder="ძიება" className="w-full p-2 border border-gray-300 rounded" />
           <button
             className='border border-gray-300 flex items-center justify-between gap-2 p-2 w-full'
             onClick={() => navigate('/')}

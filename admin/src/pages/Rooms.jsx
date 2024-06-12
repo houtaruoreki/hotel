@@ -1,4 +1,3 @@
-// Rooms.js
 import React, { useState, useEffect } from 'react';
 import { MdSearch } from "react-icons/md";
 import RoomRow from '../components/TableRows';
@@ -13,7 +12,7 @@ const Rooms = () => {
 
   useEffect(() => {
     const fetchRooms = async () => {
-      const response = await fetch('https://08ed-95-104-36-132.ngrok-free.app/rooms/');
+      const response = await fetch('http://localhost:8000/rooms/');
       const data = await response.json();
       setRooms(data);
     };
@@ -23,7 +22,7 @@ const Rooms = () => {
 
   const handleAddRoom = async (newRoom) => {
     try {
-      const response = await fetch('https://08ed-95-104-36-132.ngrok-free.app/rooms/', {
+      const response = await fetch('http://localhost:8000/rooms/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

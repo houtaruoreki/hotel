@@ -37,5 +37,5 @@ class Review(models.Model):
 
 class ContactInfo(models.Model):
     title = models.CharField(max_length=200)
-    describtion = models.TextField()
+    description = models.TextField()
     
