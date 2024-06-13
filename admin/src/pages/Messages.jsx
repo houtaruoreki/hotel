@@ -6,7 +6,7 @@ const Main = () => {
   const [messages, setMessages] = useState([]);
   useEffect(() => {
     const fetchMessages = async () => {
-      const response = await fetch('http://localhost:8000/message/');
+      const response = await fetch('https://8df2-95-104-36-132.ngrok-free.app/message/');
       const data = await response.json();
       setMessages(data);
     };

@@ -93,4 +93,4 @@ class ReviewSerializer(serializers.ModelSerializer):
 class ContactInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactInfo
-        fields = ["title","description"]
+        fields = '__all__'

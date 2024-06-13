@@ -49,9 +49,9 @@ const Main = () => {
             </tr>
           </thead>
           <tbody>
-            {/* {rooms.map(room => (
+            {rooms.map(room => (
               <RoomRow key={room.id} room={room} onEdit={() => openEditPopup(room)} />
-            ))} */}
+            ))}
           </tbody>
         </table>
       </div>
