@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Mapscreen from "/Images/mapscreen.png";
 import Mappin from "/Images/mappin.png";
-import phone from "/Images/icon-phone.png";
-import mail from "/Images/icon-mail.png";
-import map from "/Images/icon-map-pin.png";
+import phoneIcon from "/Images/icon-phone.png";
+import mailIcon from "/Images/icon-mail.png";
+import mapIcon from "/Images/icon-map-pin.png";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -14,6 +14,26 @@ export default function ContactUs() {
     rating: "",
     comment: "",
   });
+
+  const [contactInfo, setContactInfo] = useState({
+    mobile: "",
+    email: ""
+  });
+
+  useEffect(() => {
+    fetch('https://8df2-95-104-36-132.ngrok-free.app/contact/')
+      .then(response => response.json())
+      .then(data => {
+        const emailData = data.find(item => item.title === "email");
+        const phoneData = data.find(item => item.title === "phone");
+
+        setContactInfo({
+          mobile: phoneData ? phoneData.description : "",
+          email: emailData ? emailData.description : ""
+        });
+      })
+      .catch(error => console.error('Error fetching contact info:', error));
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,7 +53,6 @@ export default function ContactUs() {
       rating: "",
       comment: "",
     });
-  
   };
 
   return (
@@ -54,21 +73,18 @@ export default function ContactUs() {
           </p>
           <div className="">
             <div className="flex gap-2 align-middle"> 
-          <img src={phone} alt="Map" className="w-[20px] h-[20px] invert"  />
-          <p className="text-sm mb-4">+995 599 99 99 99</p>
+              <img src={phoneIcon} alt="Phone" className="w-[20px] h-[20px] invert"  />
+              <p className="text-sm mb-4">{contactInfo.mobile}</p>
+            </div>
+            <div className="flex gap-2 align-middle">
+              <img src={mailIcon} alt="Mail" className="w-[20px] h-[20px]" />
+              <p className="text-sm mb-4">{contactInfo.email}</p>
+            </div>
+            <div className="flex gap-2 align-middle">
+              <img src={mapIcon} alt="Map" className="w-[20px] h-[20px] invert" />
+              <p className="text-sm">ჩოხატაური, ჩხოკოურა</p>
+            </div>
           </div>
-          <div className="flex gap-2 align-middle">
-          <img src={mail} alt="Map" className="w-[20px] h-[20px]" />
-          <p className="text-sm mb-4">guesthouse@gmail.com</p>
-          </div>
-          
-          <div className="flex gap-2 align-middle">
-         
-          <img src={map} alt="Map" className="w-[20px] h-[20px] invert" />
-          <p className="text-sm">ჩოხატაური, ჩხოკოურა</p>
-          </div>
-        </div>
-        
         </div>
         <div className="max-w-lg">
           <div className="mb-4">
