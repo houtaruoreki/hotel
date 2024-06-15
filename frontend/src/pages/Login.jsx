@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Background from "/Images/image 8.png";
 import Logo from "/Images/image 7.png";
+import API_URL from '../config';
 
 export default function Login() {
   const [data, setData] = useState({

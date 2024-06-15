@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MdSearch } from "react-icons/md";
 import MessageRow from "../components/MessageTableRow";
+import API_URL from '../config';
 
 const Main = () => {
   const [messages, setMessages] = useState([]);

@@ -6,6 +6,8 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { MdOutgoingMail } from "react-icons/md";
 import { FaYoutube } from "react-icons/fa";
+import API_URL from '../config';
+
 
 export default function Footer() {
   const [title, setTitle] = useState("");

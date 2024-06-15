@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Image from "/Images/image 8.png";
+import API_URL from '../config';
 
 export default function RoomDetails() {
   const [roomDetails, setRoomDetails] = useState(null);

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RoomDetails from "../components/RoomDetails";
 import RoomsList from "../components/RoomsList";
 import { motion } from "framer-motion";
+import API_URL from '../config';
 
 export default function Rooms() {
   const [selectedRoomId, setSelectedRoomId] = useState(null); // State to store the ID of the selected room

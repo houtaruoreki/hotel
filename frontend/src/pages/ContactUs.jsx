@@ -5,6 +5,7 @@ import Mappin from "/Images/mappin.png";
 import phoneIcon from "/Images/icon-phone.png";
 import mailIcon from "/Images/icon-mail.png";
 import mapIcon from "/Images/icon-map-pin.png";
+import API_URL from '../config';
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({

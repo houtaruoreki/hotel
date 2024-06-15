@@ -3,6 +3,7 @@ import { MdSearch } from "react-icons/md";
 import RoomRow from '../components/TableRows';
 import AddRoomPopup from '../components/AddRoom';  
 import EditRoomPopup from '../components/EditRoom';  // Import the EditRoomPopup component
+import API_URL from '../config';
 
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ContactRow from '../components/MainTableRow';
 import EditItemPopup from '../components/EditItem';
+import API_URL from '../config';
+
+
 const Main = () => {
   const [contact, setInfo] = useState([]);
   const [isAddPopupOpen, setIsAddPopupOpen] = useState(false);

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Background from "/Images/image 8.png";
 import Logo from "/Images/image 7.png";
+import API_URL from '../config';
 
 export default function Register() {
   const [formData, setFormData] = useState({
