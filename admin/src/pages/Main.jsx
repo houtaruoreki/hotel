@@ -10,7 +10,7 @@ const Main = () => {
 
   useEffect(() => {
     const fetchInfo = async () => {
-      const response = await fetch('https://8df2-95-104-36-132.ngrok-free.app/contact/');
+      const response = await fetch(`${API_URL}/contact/`);
       const data = await response.json();
       setInfo(data);
     };
@@ -20,7 +20,7 @@ const Main = () => {
 
   const handleEditItem = async (updatedItem) => {
     try {
-      const response = await fetch(`https://8df2-95-104-36-132.ngrok-free.app/contact/${updatedItem.id}/`, {
+      const response = await fetch(`${API_URL}/contact/${updatedItem.id}/`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

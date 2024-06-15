@@ -6,7 +6,6 @@ from .managers import UserManager
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     number = models.CharField(null=False,max_length=9)
-    username = models.CharField(max_length=500, unique=True)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     is_staff = models.BooleanField(default=False)

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import RoomsList from "../components/RoomsList";
 import dribble from "/Images/icon-dribbble.png";
 import { Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import SimpleSlider from "../components/SimpleSlider";
 import { MdCoffee, MdDinnerDining, MdEmail, MdLandscape, MdLocalPhone, MdLocationPin} from "react-icons/md";
+import API_URL from '../config';
 
 export default function Home() {
   const { t } = useTranslation();
@@ -40,6 +41,28 @@ export default function Home() {
       },
     ],
   };
+
+
+  const [contactInfo, setContactInfo] = useState({
+    mobile: "",
+    email: ""
+  });
+
+  useEffect(() => {
+    fetch(`${API_URL}/contact/`)
+      .then(response => response.json())
+      .then(data => {
+        const emailData = data.find(item => item.title === "email");
+        const phoneData = data.find(item => item.title === "phone");
+
+        setContactInfo({
+          mobile: phoneData ? phoneData.description : "",
+          email: emailData ? emailData.description : ""
+        });
+      })
+      .catch(error => console.error('Error fetching contact info:', error));
+  }, []);
+
   return (
     <motion.div
     className="bg-foni text-center text-white "
@@ -59,46 +82,8 @@ export default function Home() {
         <h2 className="text-2xl font-bold uppercase text-mwvane">ოთახები</h2>
         <RoomsList  />
       </div>
-      <div>
-        <h2 className="text-2xl text-mwvane font-bold ">სერვისები</h2>
-        <p className="mt-9 text-center text-xl text-black font-light">
-          გამოიცადეთ თქვენს საჭიროებებზე მორგებული განსაკუთრებული სერვისი. ჩვენ
-          მზად ვართ
-          <br /> უზრუნველვყოთ თქვენი კომფორტი და კმაყოფილება
-        </p>
-      </div>
+      
 
-      <div className="flex  justify-center gap-32 flex-col text-center mt-32">
-        <div className="flex justify-around items-center">
-          <div className="items-center flex flex-col justify-center gap-4 mr-8 text-black">
-            <MdLandscape className="h-10 w-10"/> 
-            <p className="text-2xl font-bold text-black uppercase">
-              ლამაზი ხედი
-            </p>
-            <p className="text-center text-base font-sans tracking-wider		w-[266px]">
-              გაიღვიძე ბუნების საოცარი ხედებით, რაც უზრუნველყოფს თქვენი დღის
-              სრულყოფილ დაწყებას
-            </p>
-          </div>
-          <div className="items-center flex flex-col justify-center gap-4 mr-8 text-black">
-            <MdDinnerDining className="h-10 w-10"/>
-            <p className="text-2xl font-bold text-black uppercase">საუზმე</p>
-            <p className="text-center text-base  w-[266px] tracking-wider	  font-sans">
-              დატკბით სასიამოვნო საუზმით, რაც უზრუნველყოფს თქვენი დილის გემრიელ
-              დაწყებას
-            </p>
-          </div>
-          <div className="items-center flex flex-col justify-center gap-4 mr-8 text-black">
-            <img src={dribble} alt="Air Icon" className="w-10 h-10 mr-2 object-contain invert" />
-            <p className="text-2xl font-bold text-black  uppercase">
-              კულინარიული მასტერკლასი
-            </p>
-            <p className="text-center text-base font-sans tracking-wider	 w-[266px]">
-              გთავაზობთ მეგობრულ სივრცეს გართობისა და დასვენებისთვის
-            </p>
-          </div>
-        </div>
-      </div>
 
       <h2 className="text-2xl text-mwvane font-bold uppercase mt-32">გალერეა</h2>
       <p className="mt-10 text-center text-black text-xl font-light">
@@ -136,7 +121,7 @@ export default function Home() {
               We're here to help you find the perfect outfit.
             </p>
           </div>
-          <h1 className="mt-16 underline">guesthouse@gmail.com</h1>
+          <h1 className="mt-16 underline">{contactInfo.email}</h1>
         </div>
         <div className=" border-mwvane border flex flex-col items-center p-3 shadow-2xl text-black">
         <MdLocalPhone className="h-10 w-10"/>
@@ -146,7 +131,7 @@ export default function Home() {
               Connect with us instantly for personalized assistance.
             </p>
           </div>
-          <h1 className="mt-16 underline">+995 599 99 99 99</h1>
+          <h1 className="mt-16 underline">{contactInfo.mobile}</h1>
         </div>
         <div className="border-mwvane border flex flex-col items-center p-3 shadow-2xl text-black">
         <MdLocationPin className="h-10 w-10"/>

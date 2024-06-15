@@ -8,11 +8,10 @@ import mapIcon from "/Images/icon-map-pin.png";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
-    name: "",
-    surname: "",
+    fullname: "",
     email: "",
-    rating: "",
-    comment: "",
+    satisfied: "",
+    message: "",
   });
 
   const [contactInfo, setContactInfo] = useState({
@@ -21,7 +20,7 @@ export default function ContactUs() {
   });
 
   useEffect(() => {
-    fetch('https://8df2-95-104-36-132.ngrok-free.app/contact/')
+    fetch(`${API_URL}/contact/`)
       .then(response => response.json())
       .then(data => {
         const emailData = data.find(item => item.title === "email");
@@ -45,14 +44,33 @@ export default function ContactUs() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    setFormData({
-      name: "",
-      surname: "",
-      email: "",
-      rating: "",
-      comment: "",
-    });
+    
+    // Send the form data to the server
+    fetch(`${API_URL}/message/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(err => {
+            throw new Error(`Error ${response.status}: ${err.message}`);
+          });
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Success:", data);
+        setFormData({
+          fullname: "",
+          email: "",
+          satisfied: "",
+          message: "",
+        });
+      })
+      .catch(error => console.error('Error sending form data:', error));
   };
 
   return (
@@ -69,11 +87,11 @@ export default function ContactUs() {
         <div className="max-w-lg">
           <h2 className="text-4xl text-black mb-4">მოგვწერე</h2>
           <p className="text-sm mb-4">
-          გამოიყენეთ ეს საკონტაქტო ფორმა feedback-ის გასაზიარებლად და ყველა თქვენს კითხვაზე პასუხის მისაღებად.
+            გამოიყენეთ ეს საკონტაქტო ფორმა feedback-ის გასაზიარებლად და ყველა თქვენს კითხვაზე პასუხის მისაღებად.
           </p>
           <div className="">
             <div className="flex gap-2 align-middle"> 
-              <img src={phoneIcon} alt="Phone" className="w-[20px] h-[20px] invert"  />
+              <img src={phoneIcon} alt="Phone" className="w-[20px] h-[20px] invert" />
               <p className="text-sm mb-4">{contactInfo.mobile}</p>
             </div>
             <div className="flex gap-2 align-middle">
@@ -88,23 +106,12 @@ export default function ContactUs() {
         </div>
         <div className="max-w-lg">
           <div className="mb-4">
-            <label className="block mb-1">სახელი</label>
+            <label className="block mb-1">სახელი და გვარი</label>
             <input
               type="text"
-              name="name"
-              placeholder="შეიყვანე სახელი"
-              value={formData.name}
-              onChange={handleChange}
-              className="border border-gray-400 px-4 py-2 rounded-md w-full max-w-lg focus:outline-none focus:border-blue-500 text-black"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block mb-1">გვარი</label>
-            <input
-              type="text"
-              placeholder="შეიყვანე გვარი"
-              name="surname"
-              value={formData.surname}
+              name="fullname"
+              placeholder="შეიყვანე სახელი და გვარი"
+              value={formData.fullname}
               onChange={handleChange}
               className="border border-gray-400 px-4 py-2 rounded-md w-full max-w-lg focus:outline-none focus:border-blue-500 text-black"
             />
@@ -123,21 +130,23 @@ export default function ContactUs() {
           <div className="mb-4">
             <label className="block mb-1">კმაყოფილი ხართ ჩვენი სერვისით?</label>
             <select
-              name="rating"
-              value={formData.rating}
+              name="satisfied"
+              value={formData.satisfied}
               onChange={handleChange}
               className="text-black border border-gray-400 px-4 py-2 rounded-md w-full max-w-lg focus:outline-none focus:border-blue-500"
             >
               <option value="">აირჩიეთ შეფასება</option>
-              <option value="yes">კი</option>
-              <option value="no">არა</option>
-              <option value="partially">ნაწილობრივ</option>
+              <option value="კი">კი</option>
+              <option value="არა">არა</option>
+              <option value="ნაწილობრივ">ნაწილობრივ</option>
             </select>
+          </div>
+          <div className="mb-4">
             <label className="block mb-1">კომენტარი</label>
             <textarea
-              name="comment"
+              name="message"
               placeholder="აღწერა"
-              value={formData.comment}
+              value={formData.message}
               onChange={handleChange}
               rows={4}
               className="text-black border border-gray-400 px-4 py-2 rounded-md w-full max-w-lg focus:outline-none focus:border-blue-500"

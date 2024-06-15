@@ -8,7 +8,7 @@ export default function RoomDetails() {
 
   useEffect(() => {
     // Fetch room details when the component mounts
-    fetch(`https://08ed-95-104-36-132.ngrok-free.app/rooms/${roomId}/`)
+    fetch(`${API_URL}/rooms/${roomId}/`)
       .then((response) => response.json())
       .then((data) => setRoomDetails(data))
       .catch((error) => console.error("Error fetching room details:", error));

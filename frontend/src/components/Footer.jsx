@@ -1,9 +1,4 @@
 import React, { useState, useEffect } from "react";
-import facebook from "/Images/icon-facebook.png";
-import linkedin from "/Images/icon-linkedin.png";
-import instagram from "/Images/icon-instagram.png";
-import mail from "/Images/icon-mail.png";
-import youtube from "/Images/icon-youtube.png";
 import copyright from "/Images/copyright.png";
 import Navigation from "./Navigation";
 import { FaFacebook } from "react-icons/fa";
@@ -16,7 +11,7 @@ export default function Footer() {
   const [title, setTitle] = useState("");
 
   useEffect(() => {
-    fetch('https://8df2-95-104-36-132.ngrok-free.app/contact/')
+    fetch(`${API_URL}/contact/`)
       .then(response => response.json())
       .then(data => {
         const aboutData = data.find(item => item.title === "about us");
