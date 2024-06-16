@@ -25,7 +25,6 @@ const RoomsList = () => {
         data = await res.text(); // Handle non-JSON responses
       }
 
-      console.log(data); // Log the data received from the server
       setRoomsData(data); // Update state with the fetched data
     } catch (error) {
       console.error('Error fetching data:', error); // Log any errors that occur
@@ -38,17 +37,13 @@ const RoomsList = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-3 gap-32 my-[5%] mx-[5%]">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-8 lg:px-16 py-8">
       {roomsData.slice(0, 6).map((room) => (
-        <div key={room.id}> {/* Key prop moved here */}
-          <div className="flex flex-col items-start p-4 bg-white border-2 border-[#2D3648] rounded-lg">
-            <div className="rounded-lg w-full flex flex-row-reverse bg-slate-500 h-[230px]">
-              <img src={room.image} />
-              {/* <div>
-                <img src={love} className="rounded-lg pr-1.5 pt-1.5" alt="Love button" />
-              </div> */}
-            </div>
-
+        <div key={room.id} className="flex flex-col items-start p-4 bg-white border-2 border-[#2D3648] rounded-lg">
+          <div className="w-full h-[230px] bg-slate-500 rounded-lg flex justify-center items-center overflow-hidden">
+            <img src={room.images[0].url} alt={`Room ${room.number}`} className="object-cover w-full h-full" />
+          </div>
+          <div className="mt-4">
             <p className="text-lg font-semibold mb-2 text-gray-600">
               Room {room.number}
             </p>
@@ -60,14 +55,13 @@ const RoomsList = () => {
               {room.is_cottage ? "Cottage" : "Not Cottage"}
             </p>
             <Link to={`/Rooms/${room.id}`}>
-              <button className="px-4 py-2 mt-2 text-black font-semibold bg-buttonColor2 rounded-md hover:bg-mwvane transition duration-300 ease-in-out">
+              <button className="px-4 py-2 mt-4 text-black font-semibold bg-buttonColor2 rounded-md hover:bg-mwvane transition duration-300 ease-in-out">
                 დეტალურად
               </button>
             </Link>
           </div>
         </div>
       ))}
-      <div className=""></div> {/* Spacer Div */}
     </div>
   );
 };

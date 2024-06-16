@@ -166,7 +166,8 @@ CORS_ALLOWED_ORIGINS = [
     'http://0.0.0.0',
     "http://localhost:5173",
     "http://localhost:5174",
-    'https://rankings-criterion-pads-announce.trycloudflare.com'
+    'https://rankings-criterion-pads-announce.trycloudflare.com',
+    "https://jean-skill-labeled-competing.trycloudflare.com",
 ]
 
 CORS_ALLOW_CREDENTIALS = True

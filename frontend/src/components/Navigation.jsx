@@ -10,7 +10,7 @@ export default function Navigation({ links, activeLink }) {
           to={link.to}
           className={`${
             activeLink === index ? "text-green-300 font-bold" : "text-white"
-          } text-sm p-1`}
+          } text-base p-1`}
         >
           {link.label}
         </Link>

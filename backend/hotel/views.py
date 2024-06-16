@@ -15,7 +15,7 @@ class PermissionMixin:
     
 class RoomViewSet(PermissionMixin,viewsets.ModelViewSet):
     queryset = models.Room.objects.all()
-    serializer_class = serializers.RoomsSerializer
+    serializer_class = serializers.RoomDetailSerializer
     
 
 class ImageViewSet(PermissionMixin,viewsets.ModelViewSet):
