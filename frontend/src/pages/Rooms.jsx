@@ -3,10 +3,11 @@ import RoomDetails from "../components/RoomDetails";
 import RoomsList from "../components/RoomsList";
 import { motion } from "framer-motion";
 import API_URL from '../config';
+import { useTranslation } from "react-i18next";
 
 export default function Rooms() {
   const [selectedRoomId, setSelectedRoomId] = useState(null); // State to store the ID of the selected room
-
+  const { t } = useTranslation();
   // Function to handle button click
   const handleButtonClick = (roomId) => {
     setSelectedRoomId(roomId);
@@ -28,14 +29,9 @@ export default function Rooms() {
 
   return (
     <motion.div className="bg-white">
-      <div className="mx-auto max-w-lg py-12 px-8">
-        <h2 className="text-mwvane text-3xl font-bold mb-6">ოთახები</h2>
-        <p className="text-[#2D3648] text-lg font-light mb-8">
-          დატკბით დასვენებით და სტუმართმოყვარეობით ჩვენს ელეგანტურ ოთახებში.
-          ლამაზი ხედებითა და პრემიუმ კეთილმოწყობით, თქვენი დასვენება იქნება
-          არაჩვეულებრივი გამოცდილება
-        </p>
-        <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="mx-auto max-w-lg pt-12 px-8">
+        <p className="text-mwvane text-3xl font-bold  text-center">{t("Room.choose")}</p>
+        {/* <form onSubmit={handleSubmit} className="space-y-6">
           <div className="flex flex-col">
             <label htmlFor="check-in-date" className="text-sm font-semibold text-gray-600 mb-1">შესვლის თარიღი</label>
             <input
@@ -69,7 +65,7 @@ export default function Rooms() {
           >
             შეამოწმე
           </button>
-        </form>
+        </form> */}
         {selectedRoomId && <RoomDetails roomId={selectedRoomId} />}
       </div>
       <RoomsList handleButtonClick={handleButtonClick} />

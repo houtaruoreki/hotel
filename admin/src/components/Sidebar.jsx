@@ -7,7 +7,7 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex h-full w-full md:w-1/4 min-h-screen border-r border-gray-400 px-6">
+    <div className="flex h-screen w-full md:w-1/4 min-h-screen border-r border-gray-400 px-6">
       <div className='flex flex-col space-y-4 w-full'>
         <img src={Logo} alt="Logo" className="w-1/2 mx-auto md:w-full" />
         <div className="flex flex-col justify-between items-start gap-4 w-full">

@@ -78,3 +78,7 @@ class AvailableRoomListView(generics.ListAPIView):
 class ContactInfoViewset(PermissionMixin,viewsets.ModelViewSet):
     queryset = models.ContactInfo.objects.all()
     serializer_class= serializers.ContactInfoSerializer
+
+class BookingListViewset(PermissionMixin, viewsets.ModelViewSet):
+    queryset = models.Booking.objects.all()
+    serializer_class = serializers.BookingListSerializer

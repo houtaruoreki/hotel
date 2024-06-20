@@ -46,7 +46,7 @@ const Rooms = () => {
   const handleEditRoom = async (updatedRoom) => {
     try {
       const response = await fetch(`${API_URL}/rooms/${updatedRoom.id}/`, {
-        method: 'PUT',
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },

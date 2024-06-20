@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 
 from .models import Room, Image, Booking, Review, ContactInfo
-
+from user.models import User
 
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
@@ -18,7 +18,7 @@ class ImageListSerializer(serializers.ListSerializer):
 
 
 class RoomDetailSerializer(serializers.ModelSerializer):
-    images = ImageSerializer(many=True, source='image_set')
+    images = ImageSerializer(many=True,  source='image_set')
 
     class Meta:
         model = Room
@@ -43,6 +43,12 @@ class RoomSerializer(serializers.ModelSerializer):
         model = Room
         fields = ['id', 'number']  
 
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'first_name', 'last_name', 'email', 'number']
 
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
@@ -78,10 +84,11 @@ class BookingSerializer(serializers.ModelSerializer):
             instance.delete()
         return super().update(instance, validated_data)
 
-class BookingListSerializer(serializers.ListSerializer):
+class BookingListSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
     class Meta:
         model = Booking
-        fields = '__all__'
+        fields = ["id",'room', 'user', 'checkin_time', 'checkout_time', 'guests', "comment", 'status']
 
 
 class ReviewSerializer(serializers.ModelSerializer):
@@ -94,3 +101,4 @@ class ContactInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactInfo
         fields = '__all__'
+

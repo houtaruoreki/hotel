@@ -1,33 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom"; // Add useNavigate
 import API_URL from '../config';
 
 export default function RoomDetails() {
   const [roomDetails, setRoomDetails] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null); // State to track selected image
-  const [currentIndex, setCurrentIndex] = useState(0); // State to track current room index
-  const [freeRooms, setFreeRooms] = useState([]); // State to store all free rooms
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [freeRooms, setFreeRooms] = useState([]);
   const { roomId } = useParams();
+  const navigate = useNavigate(); // Initialize navigate
 
   useEffect(() => {
-    // Fetch all free rooms from API
     fetch(`${API_URL}/rooms`)
       .then((response) => response.json())
       .then((data) => {
         const freeRooms = data.filter((room) => room.status);
-        console.log(freeRooms)
         setFreeRooms(freeRooms);
         const initialRoomIndex = freeRooms.findIndex(room => room.id === Number(roomId));
         setCurrentIndex(initialRoomIndex !== -1 ? initialRoomIndex : 0);
       })
       .catch((error) => console.error("Error fetching rooms:", error));
 
-    // Fetch room details for the selected room
     fetch(`${API_URL}/rooms/${roomId}/`)
       .then((response) => response.json())
       .then((data) => {
+        if(data.images[0].url){
+          setSelectedImage(data.images[0].url);
+        } else {
+          setSelectedImage("error");
+        }
         setRoomDetails(data);
-        setSelectedImage(data.images[0].url); // Initialize selected image with the first image
       })
       .catch((error) => console.error("Error fetching room details:", error));
   }, [roomId]);
@@ -54,8 +56,12 @@ export default function RoomDetails() {
     fetch(`${API_URL}/rooms/${roomId}/`)
       .then((response) => response.json())
       .then((data) => {
+        if(data.images[0].url){
+          setSelectedImage(data.images[0].url);
+        } else {
+          setSelectedImage("error");
+        }
         setRoomDetails(data);
-        setSelectedImage(data.images[0].url); 
       })
       .catch((error) => console.error("Error fetching room details:", error));
   };
@@ -67,9 +73,7 @@ export default function RoomDetails() {
   return (
     <div className="bg-white px-6 md:px-16 pb-5">
       <div className="text-center">
-        <h2 className="text-mwvane text-2xl font-bold pt-12 md:pt-24">
-          ოთახის დეტალები
-        </h2>
+        <h2 className="text-mwvane text-2xl font-bold pt-12 md:pt-24">ოთახის დეტალები</h2>
         <p className="text-[#2D3648] mt-8 md:mt-14 text-center text-lg md:text-xl font-light">
           {roomDetails.description}
         </p>
@@ -108,17 +112,18 @@ export default function RoomDetails() {
         <div className="md:w-1/2 md:pl-8 mt-6 md:mt-0">
           <p className="text-base text-black">აღწერა</p>
           <div className="border border-gray-300 rounded-xl p-4">
-          <p className="text-lg text-[#2D3648] font-normal ">
-            {roomDetails.description}
-          </p></div>
-          
+            <p className="text-lg text-gray-500 font-normal ">{roomDetails.description}</p>
+          </div>
           <p className="text-base text-black mt-5 mb-2">სტატუსი</p>
           <div className="border border-gray-300 rounded-xl p-4">
-            <p className="text-lg text-gray-500 font-normal ">
-              {roomDetails.status ?"თავისუფალია" : "დაკავაებულია" }
-            </p>
+            <p className="text-lg text-gray-500 font-normal ">{roomDetails.status ? "თავისუფალია" : "დაკავაებულია"}</p>
           </div>
-          
+          <button
+            onClick={() => navigate(`/reservation?roomId=${roomId}`)}
+            className="bg-mwvane text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 mt-4"
+          >
+            დაჯავშნე ეს ოთახი
+          </button>
         </div>
       </div>
       <div className="flex justify-center gap-4 mt-6">

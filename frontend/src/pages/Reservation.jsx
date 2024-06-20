@@ -1,11 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import PhoneInput from "react-phone-number-input";
 import 'react-phone-number-input/style.css';
+import { useLocation } from "react-router-dom";
+
 
 export default function Reservation() {
   const [entryDate, setEntryDate] = useState("");
   const [outDate, setOutDate] = useState("");
+  const [selectedRoomId, setSelectedRoomId] = useState(null); // State to store selected room ID
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const roomIdFromQuery = queryParams.get("roomId");
+
+  useEffect(() => {
+    if (roomIdFromQuery) {
+      setSelectedRoomId(roomIdFromQuery);
+    }
+  }, [roomIdFromQuery]);
+
+
+
+
   const roomPhotos = [
     "https://images.unsplash.com/photo-1565629196891-2ddb37c9e9fc?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D1",
     "https://images.unsplash.com/photo-1662672324132-90d55416a840?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -32,9 +49,6 @@ export default function Reservation() {
       <div className="mx-[5%] pt-9">
         <div className="mx-[16%]">
           <h2 className="text-2xl flex justify-center mb-4 text-mwvane font-bold">დაჯავშნე</h2>
-          <p className="text-[#2D3648] mb-5 text-center">
-            თქვენი საოცნებო ადგილის დაჯავშნა არასოდეს ყოფილა ადვილი ჩვენი დაჯავშნის გამარტივებული პროცესით. უბრალოდ შეავსეთ ჩვენი მომხმარებლისთვის მოსახერხებელი დაჯავშნის ფორმა
-          </p>
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -104,17 +118,17 @@ export default function Reservation() {
             />
           </div>
           <div className="mb-4">
-            <label className="mb-1 block">ოთახის ტიპი</label>
-            <select
-              name="roomType"
-              className="border border-gray-400 px-4 py-2.5 rounded-xl w-full focus:outline-none focus:border-blue-500 text-black"
-            >
-              <option value="">აირჩიეთ ოთახის ტიპი</option>
-              <option value="standard">სტანდარტული</option>
-              <option value="suite">სუიტი</option>
-              <option value="deluxe">დელუქსი</option>
-            </select>
-          </div>
+        <label className="mb-1 block">ოთახის ტიპი</label>
+        <select
+          name="roomType"
+          defaultValue={selectedRoomId} // Set default value to the selected room ID
+          className="border border-gray-400 px-4 py-2.5 rounded-xl w-full focus:outline-none focus:border-blue-500 text-black"
+        >
+          <option value="">აირჩიეთ ოთახის ტიპი</option>
+          <option value={selectedRoomId}>Selected Room Type</option>
+          {/* Add options for other room types */}
+        </select>
+      </div>
           <div className="mb-4 col-span-1">
             <label className="mb-1 block">მოთხოვნა ან კომენტარი</label>
             <textarea

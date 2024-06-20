@@ -67,9 +67,9 @@ export default function Home() {
     <motion.div className="bg-foni text-center text-white">
       <SimpleSlider/>
       <div className="pt-12 md:pt-16 lg:pt-20">
-        <h3 className="w-11/12 md:w-8/12 lg:w-6/12 mx-auto text-3xl md:text-4xl lg:text-5xl font-bold text-black mt-8 leading-9 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-900">
+        <p className="w-11/12 md:w-8/12 lg:w-6/12 mx-auto text-2xl md:text-4xl lg:text-5xl font-bold text-black mt-8 leading-10 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-900">
           {t("greetingHome")}
-        </h3>
+        </p>
         <p className="text-slate-400 text-lg md:text-xl font-light mt-6">
           {t('pHome')}
           <br />
@@ -77,15 +77,13 @@ export default function Home() {
         </p>
       </div>
       <div className="mt-12 md:mt-16">
-        <h2 className="text-2xl font-bold uppercase text-mwvane">ოთახები</h2>
-        <RoomsList />
+        <h2 className="text-2xl font-bold uppercase text-mwvane">{t("Main.rooms")}</h2>
+        <RoomsList sliceCount={3}/>
       </div>
 
-      <h2 className="text-2xl mt-16 md:mt-24 lg:mt-32 text-mwvane font-bold uppercase">გალერეა</h2>
+      <h2 className="text-2xl mt-16 md:mt-24 lg:mt-32 text-mwvane font-bold uppercase">{t("Main.gallery")}</h2>
       <p className="mt-6 md:mt-10 text-center text-black text-lg md:text-xl font-light">
-        დაათვალიერეთ ჩვენი გალერეა და იხილეთ ჩვენი სასტუმრო სახლის სილამაზე.
-        ელეგანტური <br /> ინტერიერიდან მომხიბვლელ გარემოებამდე, თითოეული სურათი
-        მოგვითხრობს სიმშვიდისა და <br /> სტუმართმოყვარეობის ისტორიას.
+        {t("Main.gallery_text")}
       </p>
       <Link to={"/Gallery"} className="flex justify-end mt-2 mb-2 px-4">
         ყველას ნახვა
@@ -102,9 +100,9 @@ export default function Home() {
         ))}
       </div>
 
-      <h2 className="text-2xl mt-16 md:mt-24 text-mwvane font-bold">კონტაქტი</h2>
+      <h2 className="text-2xl mt-16 md:mt-24 text-mwvane font-bold">{t("Main.contact")}</h2>
       <p className="mb-8 text-black text-lg md:text-xl">
-        გაქვთ შეკითხვა ან გჭირდებათ დახმარება დაგვიკავშირდით!
+        {t("Main.contact_text")}
       </p>
 
         
