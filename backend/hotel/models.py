@@ -28,7 +28,7 @@ class Booking(models.Model):
     guests = models.IntegerField(default=0)
     total_price = models.FloatField(default=0)
     status = models.CharField(default="pending", max_length=10)
-
+    comment = models.TextField()
 
 class Review(models.Model):
     user = models.ForeignKey("user.user", on_delete=models.SET_NULL, null=True)

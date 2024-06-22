@@ -24,5 +24,6 @@ class Message(models.Model):
     email = models.EmailField()
     satisfied = models.TextField()
     message = models.TextField()
+    date = models.DateField(auto_now_add=True)
 
 

@@ -1,72 +1,90 @@
 import React, { useState, useEffect } from "react";
-import copyright from "/Images/copyright.png";
+import { MdMailOutline, MdPhoneInTalk } from "react-icons/md";
 import Navigation from "./Navigation";
-import { FaFacebook } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { MdOutgoingMail } from "react-icons/md";
-import { FaYoutube } from "react-icons/fa";
-import API_URL from '../config';
-
+import API_URL from "../config";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
-  const [title, setTitle] = useState("");
+  const { i18n } = useTranslation();
+  const {t} = useTranslation()
+  const footerLinks = [
+    { to: "/AboutUs", label: t("Navigation.aboutUs") },
+    { to: "/ContactUs", label: t("Navigation.contactUs") },
+    // { to: "/FAQ", label: "FAQ" },
+  ];
+
+  const [contactInfo, setContactInfo] = useState({
+    mobile: "",
+    email: ""
+  });
 
   useEffect(() => {
     fetch(`${API_URL}/contact/`)
       .then(response => response.json())
       .then(data => {
-        const aboutData = data.find(item => item.title === "about us");
-        setTitle(aboutData ? aboutData.description : "");
+        const emailData = data.find(item => item.title === "email");
+        const phoneData = data.find(item => item.title === "phone");
+
+        setContactInfo({
+          mobile: phoneData ? phoneData.description : "",
+          email: emailData ? emailData.description : ""
+        });
       })
-      .catch(error => console.error('Error fetching title:', error));
+      .catch(error => console.error('Error fetching contact info:', error));
   }, []);
 
-  const footerLinks = [
-    { to: "/", label: "მთავარი" },
-    { to: "/AboutUs", label: "ჩვენ შესახებ" },
-    { to: "/Rooms", label: "ოთახები" },
-    { to: "/Reservation", label: "დაჯავშნა" },
-    { to: "/Service", label: "სერვისი" },
-    { to: "/Gallery", label: "გალერეა" },
-    { to: "/ContactUs", label: "კონტაქტი" },
-  ];
+  const handlePhoneClick = () => {
+    window.location.href = `tel:${contactInfo.mobile}`;
+  };
+
+
 
   return (
-    <footer className="w-full bg-mwvane p-5 flex flex-col justify-between items-center gap-10 text-white">
-      <div className="flex flex-col justify-start items-center gap-20 p-0">
-        <div className="flex p-0 gap-[25px] pt-6" style={{ alignItems: 'center', justifyContent: "center"}}>
-          <div className="pl-[60px]">
-            <span className="text-3xl font-bold leading-[0.75] tracking-wide">
-              სასტუმროს შესახებ
-            </span>
-            <p className="text-base line-clamp-3" style={{width: "50%"}}>
-              {title}...
-            </p>
+    <footer className="bg-mwvane text-white py-10">
+      <div className="">
+        <div className="flex flex-wrap justify-between space-x-8 mx-10 mr-32">
+          {/* Contact Info */}
+          <div className="">
+            <h2 className="text-2xl font-bold mb-4">{t("Footer.contactInfo")}</h2>
+            <ul className="list-none">
+              <li className="mb-2">
+                <MdMailOutline className="inline-block mr-2" />
+                <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+              </li>
+              <li className="flex items-center mb-2 cursor-pointer" onClick={handlePhoneClick}>
+                <MdPhoneInTalk className="inline-block mr-2"/>
+                <span>{contactInfo.mobile}</span>
+              </li>
+            </ul>
           </div>
-          <div className="flex justify-between w-[450px] gap-9">
-            <a href="https://www.facebook.com/" style={{fontSize: '25px'}}>
-              <FaFacebook />
-            </a>
-            <a href="https://www.linkedin.com/" style={{fontSize: '25px'}}>
-              <FaLinkedin />
-            </a>
-            <a href="https://www.instagram.com/" style={{fontSize: '25px'}}>
-              <FaInstagram />
-            </a>
-            <a href="https://mail.google.com/" style={{fontSize: '25px'}}>
-              <MdOutgoingMail />
-            </a>
-            <a href="https://www.youtube.com/" style={{fontSize: '25px'}}>
-              <FaYoutube />
-            </a>
+
+          {/* Services */}
+          <div className="text-center"> {/* Center aligns all content */}
+            <h2 className="text-2xl font-bold mb-4">{t("Footer.services")}</h2>
+            <ul className="list-none inline-block text-left"> {/* Inline block to center within parent */}
+              <li className="mb-2">Service 1</li>
+              <li className="mb-2">Service 2</li>
+              <li className="mb-2">Service 3</li>
+              {/* Add more services as needed */}
+            </ul>
+          </div>
+
+          {/* Pages */}
+          <div className=""> {/* Added md:pl-8 for padding-left on medium screens and above */}
+            <h2 className="text-2xl font-bold mb-4">{t("Footer.pages")}</h2>
+            <ul className="list-none">
+              {footerLinks.map((link, index) => (
+                <li key={index} className="mb-2">
+                  <a href={link.to}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <Navigation links={footerLinks} activeLink={-1} />
       </div>
-      <div className="flex justify-center items-center gap-[19px]">
-        <img className="w-5 h-5" src={copyright} alt="copyright icon" />
-        <p className="text-[15px]">Copyright</p>
+      <div className="flex justify-center items-center mt-8">
+        <img src="/Images/copyright.png" alt="copyright icon" className="w-5 h-5 mr-2" />
+        <p className="text-sm">© 2024. All Rights Reserved.</p>
       </div>
     </footer>
   );

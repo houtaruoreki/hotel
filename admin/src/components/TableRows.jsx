@@ -14,8 +14,12 @@ const RoomRow = ({ room, onEdit }) => {
   return (
     <tr className='border-b border-gray-200'>
       <td className='pl-5'>#{room.number}</td>
-      <td className='border border-gray-500'>
-        <img src={room.photo} alt={`Room ${room.number}`} className='w-16 h-16 object-cover' />
+      <td className=''>
+        <img
+          src={room.images[0].url}
+          alt={`Room ${room.number}`}
+          className='w-20 h-16 object-cover'
+        />
       </td>
       <td className='pl-5'>{room.guests}</td>
       <td className='pl-5'>{room.description}</td>

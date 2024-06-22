@@ -3,12 +3,15 @@ import jamesProfile from "/Images/unsplash_OhKElOkQ3RE.png";
 import gregProfile from "/Images/unsplash_WMD64tMfc4k.svg";
 import trevorProfile from "/Images/unsplash_6anudmpILw4.svg";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useInView } from "react-intersection-observer";
 
 export default function AboutUs() {
   const [rating, setRating] = useState(0);
+  const { t } = useTranslation();
 
   // Function to handle clicking on a star to set the rating
   const handleRating = (value) => {
@@ -21,24 +24,21 @@ export default function AboutUs() {
       name: "James Pattinson",
       photoUrl: jamesProfile,
       rating: 4,
-      impression:
-      "good"
+      impression: "good"
     },
     {
       id: 2,
       name: "Greg Stuart",
       photoUrl: gregProfile,
       rating: 5,
-      impression:
-      "very good"
+      impression: "very good"
     },
     {
       id: 3,
       name: "Trevor Mitchell",
       photoUrl: trevorProfile,
       rating: 3,
-      impression:
-      "very very good good"
+      impression: "very very good good"
     },
   ];
 
@@ -68,6 +68,19 @@ export default function AboutUs() {
     ],
   };
 
+  // Intersection observer threshold and trigger animations
+  const { ref: storyRef, inView: storyInView } = useInView({
+    threshold: 0.5,
+  });
+
+  const { ref: missionRef, inView: missionInView } = useInView({
+    threshold: 0.5,
+  });
+
+  const { ref: teamRef, inView: teamInView } = useInView({
+    threshold: 0.5,
+  });
+
   return (
     <motion.div
       className="bg-foni p-8"
@@ -76,9 +89,9 @@ export default function AboutUs() {
       exit={{ opacity: 0 }}
     >
       <h1 className="text-3xl font-bold text-center mt-16 text-mwvane">
-        ჩვენს შესახებ
+        {t("Navigation.aboutUs")}
       </h1>
-
+  
       {/* Our Story */}
       <div className="flex flex-col gap-20">
         <div className="mt-8 flex flex-wrap justify-center items-center">
@@ -89,36 +102,39 @@ export default function AboutUs() {
               className="w-full h-auto"
             />
           </div>
-          <div className="w-full md:w-1/2 px-4 mt-4 md:mt-0">
+          <motion.div
+            ref={storyRef}
+            className="w-full md:w-1/2 px-4 mt-4 md:mt-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={storyInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold text-black">
-              ჩვენი ისტორია
+              {t("AboutUs.history")}
             </h2>
             <p className="text-lg md:text-lg font-normal text-neutralText mt-2 leading-8">
-              we believe in providing more than just accommodation; we offer an
-              immersive experience that celebrates the rich culture and natural
-              wonders of Georgia's Guria region. Our journey began with a vision
-              to create a haven where guests could escape the hustle and bustle
-              of city life and reconnect with the simplicity and beauty of rural
-              living.
+              {t("AboutUs.history_text")}
             </p>
-          </div>
+          </motion.div>
         </div>
-
+  
         {/* Mission and Vision */}
         <div className="mt-8 flex flex-wrap justify-center items-center">
-          <div className="w-full md:w-1/2 px-4">
+          <motion.div
+            ref={missionRef}
+            className="w-full md:w-1/2 px-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={missionInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold text-black">
-              მისია და ხედვა
+            {t("AboutUs.goal")}
             </h2>
             <p className="text-lg md:text-lg font-normal text-neutralText mt-2">
-              we believe in providing more than just accommodation; we offer an
-              immersive experience that celebrates the rich culture and natural
-              wonders of Georgia's Guria region. Our journey began with a vision
-              to create a haven where guests could escape the hustle and bustle
-              of city life and reconnect with the simplicity and beauty of rural
-              living.
+            {t("AboutUs.goal_text")}
+
             </p>
-          </div>
+          </motion.div>
           <div className="w-full md:w-1/2 px-4 mt-4 md:mt-0">
             <img
               src="https://images.unsplash.com/photo-1694942587160-3fcfecc29762?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -127,7 +143,7 @@ export default function AboutUs() {
             />
           </div>
         </div>
-
+  
         {/* Team Members/Founder */}
         <div className="mt-8 flex flex-wrap justify-center items-center">
           <div className="w-full md:w-1/2 px-4">
@@ -137,59 +153,26 @@ export default function AboutUs() {
               className="w-full h-auto"
             />
           </div>
-          <div className="w-full md:w-1/2 px-4 mt-4 md:mt-0">
+          <motion.div
+            ref={teamRef}
+            className="w-full md:w-1/2 px-4 mt-4 md:mt-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={teamInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold text-black">
-              გუნდის წევრები/დამფუძნებლები
+              {t("AboutUs.team")}
             </h2>
             <p className="text-lg md:text-lg font-normal text-neutralText mt-2">
-              we believe in providing more than just accommodation; we offer an
-              immersive experience that celebrates the rich culture and natural
-              wonders of Georgia's Guria region. Our journey began with a vision
-              to create a haven where guests could escape the hustle and bustle
-              of city life and reconnect with the simplicity and beauty of rural
-              living.
+            {t("AboutUs.team_text")}
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
-
+  
       {/* Customer Impressions */}
-      <div className="text-center flex flex-col justify-center items-center mt-20">
-        <h2 className="text-2xl md:text-3xl font-bold text-mwvane">
-          მომხმარებელთა შთაბეჭდილებები
-        </h2>
-        <Slider {...sliderSettings} className="w-full max-w-9xl mt-10 flex gap-16">
-  {userProfiles.map((profile) => (
-    <div
-      key={profile.id}
-      className="border-2 border-solid text-center flex flex-col items-center justify-center rounded-lg bg-white w-20px h-100 p-10"
-    >
-      <div className="flex items-center text-center mb-4 justify-center">
-        <img
-          src={profile.photoUrl}
-          alt={profile.name}
-          className="rounded-full w-24 h-24"
-        />
-      </div>
-      <p className="font-semibold text-lg">{profile.name}</p>
-      <div className="flex items-center mb-4 justify-center">
-        {[1, 2, 3, 4, 5].map((value) => (
-          <span
-            key={value}
-            className={`text-xl mr-1 ${
-              value <= profile.rating ? "text-black" : "text-gray-400"
-            }`}
-          >
-            ★
-          </span>
-        ))}
-      </div>
-      <p className="text-base text-neutralText">{profile.impression}</p>
-    </div>
-  ))}
-</Slider>
-
-      </div>
+      
+        
     </motion.div>
   );
 }
