@@ -105,4 +105,4 @@ This repository contains a Django project with setup scripts for Windows and Uni
 
     Running these scripts will activate the virtual environment, install dependencies, and start the respective server.
 
-Follow these steps to set up and run your Django project on your local machine.
+Follow these steps to set up and run your Django project on your local machine
