@@ -70,5 +70,25 @@
     "Modal":{
         "submit": "feedback submitted successfully!",
         "feedback": "Thank you for feedback."
-    }
+    },
+    "Reservation":{
+        "name": "First Name",
+        "iname": "Type name",
+        "lastname": "Last Name",
+        "ilastname": "Type name",
+        "phone": "Phone",
+        "iphone": "Type phone number",
+        "guests": "Guests",
+        "iguests": "choose the number of guests",
+        "out": "Checkout Date",
+        "iout": "select date",
+        "in": "Checkin Date",
+        "iin": "select date",
+        "room": "Room type",
+        "iroom": "select room type",
+        "comment": "Comment",
+        "icomment": "type comment"
+    },
+    "submit": "Book a room",
+    "rooms": "Rooms"
 }
