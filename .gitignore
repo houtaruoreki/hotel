@@ -2,3 +2,4 @@
 /backend/venv
 /admin/node_modules
 /backend/*/__pycache__
+/frontend/src/config.js

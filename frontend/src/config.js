@@ -1,2 +1,2 @@
-const API_URL = 'https://8358-95-104-36-132.ngrok-free.app/';
+const API_URL = 'http://localhost:8000';
 export default API_URL;

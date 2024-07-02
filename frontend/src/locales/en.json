@@ -19,7 +19,14 @@
     "Footer": {
         "contactInfo": "Contact Us",
         "services": "Services",
+        "service1": "Cooking masterclass",
+        "service2": "Hiking",
+        "service3": "",
         "pages": "who are we"
+        
+    },
+    "Header":{
+        "hotel-name": "hotel"
     },
     "Main": {
         "rooms": "Rooms",
@@ -65,7 +72,8 @@
             "partially": "partially"
         },
         "submit": "Submit",
-        "address": "Chokhatauri, Chkhakoura"
+        "address": "Chokhatauri, Chkhakoura",
+        "popup": "View on google maps"
     },
     "Modal":{
         "submit": "feedback submitted successfully!",
@@ -86,9 +94,28 @@
         "iin": "select date",
         "room": "Room type",
         "iroom": "select room type",
-        "comment": "Comment",
+        "comment": "Request or Comment",
         "icomment": "type comment"
     },
     "submit": "Book a room",
-    "rooms": "Rooms"
+    "rooms": "Rooms",
+    "Services":{
+        "title": "Services",
+
+        "view": "beautiful view",
+        "view-text": "big text",
+
+        "dinner": "Dinner",
+        "dinner-text": "dinner text",
+
+        "cooking": "Cooking masterclass",
+        "cooking-text": "Cooking text"
+
+    },
+    "Gallery": {
+        "title":"Gallery",
+        "outside-view": "Outside View",
+        "inside-view": "Inside View",
+        "activities": "Activities"
+    }
 }
